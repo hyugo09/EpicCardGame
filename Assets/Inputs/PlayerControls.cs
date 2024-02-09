@@ -62,6 +62,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""InteractionNPC"",
+                    ""type"": ""Button"",
+                    ""id"": ""399232a0-c519-4bac-a7e9-9e895e47e15a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -251,6 +260,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Viser"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ab383d21-08ee-4cd7-88e4-7d3cd16c07f7"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InteractionNPC"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -291,6 +311,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_Tourner = m_Player.FindAction("Tourner", throwIfNotFound: true);
         m_Player_Saut = m_Player.FindAction("Saut", throwIfNotFound: true);
         m_Player_Viser = m_Player.FindAction("Viser", throwIfNotFound: true);
+        m_Player_InteractionNPC = m_Player.FindAction("InteractionNPC", throwIfNotFound: true);
         // Voiture
         m_Voiture = asset.FindActionMap("Voiture", throwIfNotFound: true);
         m_Voiture_Newaction = m_Voiture.FindAction("New action", throwIfNotFound: true);
@@ -359,6 +380,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Tourner;
     private readonly InputAction m_Player_Saut;
     private readonly InputAction m_Player_Viser;
+    private readonly InputAction m_Player_InteractionNPC;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -367,6 +389,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Tourner => m_Wrapper.m_Player_Tourner;
         public InputAction @Saut => m_Wrapper.m_Player_Saut;
         public InputAction @Viser => m_Wrapper.m_Player_Viser;
+        public InputAction @InteractionNPC => m_Wrapper.m_Player_InteractionNPC;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -388,6 +411,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Viser.started += instance.OnViser;
             @Viser.performed += instance.OnViser;
             @Viser.canceled += instance.OnViser;
+            @InteractionNPC.started += instance.OnInteractionNPC;
+            @InteractionNPC.performed += instance.OnInteractionNPC;
+            @InteractionNPC.canceled += instance.OnInteractionNPC;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -404,6 +430,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Viser.started -= instance.OnViser;
             @Viser.performed -= instance.OnViser;
             @Viser.canceled -= instance.OnViser;
+            @InteractionNPC.started -= instance.OnInteractionNPC;
+            @InteractionNPC.performed -= instance.OnInteractionNPC;
+            @InteractionNPC.canceled -= instance.OnInteractionNPC;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -473,6 +502,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnTourner(InputAction.CallbackContext context);
         void OnSaut(InputAction.CallbackContext context);
         void OnViser(InputAction.CallbackContext context);
+        void OnInteractionNPC(InputAction.CallbackContext context);
     }
     public interface IVoitureActions
     {
