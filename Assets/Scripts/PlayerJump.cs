@@ -9,13 +9,20 @@ using UnityEngine.InputSystem.HID;
 
 public class PlayerJump : MonoBehaviour
 {
-    [SerializeField] private float jumpForce = 3f;
+    [SerializeField] private float jumpHeight = 5f;
     Rigidbody rb;
 
-    public bool isGrounded = false;
+    private bool isGrounded = false;
 
-    public float groundCheckDistance;
+    private float groundCheckDistance;
     private float bufferCheckDistance = 0.1f;
+
+    private bool canJump = true;
+    private float jumpCooldown = 0.1f;
+
+    public float gravityScale = 1f;
+    public float fallingGravityScale = 40f;
+
 
     private void Start()
     {
@@ -33,30 +40,47 @@ public class PlayerJump : MonoBehaviour
     {
         groundCheckDistance = (GetComponent<CapsuleCollider>().height / 2) + bufferCheckDistance;
 
-        if (InputManager.jumpInput == true && isGrounded)
-        {
-            //rb.AddForce(transform.up * 3, ForceMode.Impulse);
-            rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-            if (rb.velocity.y == 0)
-            {
-                rb.AddForce(Vector3.zero, 0f);
-            }
-        }
-
         RaycastHit hit;
         if (Physics.Raycast(transform.position, -transform.up, out hit, groundCheckDistance))
         {
-            isGrounded = true;
-            rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
 
+            isGrounded = true;
         }
-        else
+
+        if (canJump == true)
         {
-            isGrounded = false;
+
+            if (InputManager.jumpInput == true && isGrounded)
+            {
+
+                //https://gamedevbeginner.com/how-to-jump-in-unity-with-or-without-physics/
+
+                float jumpForce = Mathf.Sqrt(jumpHeight * -2 * (Physics.gravity.y * gravityScale));
+                //rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
+
+                rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
+                
+                isGrounded = false;
+
+
+
+            }
+            else if (InputManager.jumpInput == true && !isGrounded)
+            {
+                StartCoroutine(jumpCooldownFunction(jumpCooldown));
+            }
+
+
         }
 
     }
 
-
+    IEnumerator jumpCooldownFunction(float time)
+    {
+        canJump = false;
+        //Debug.Log("no do");
+        yield return new WaitForSeconds(time);
+        canJump = true;
+        //Debug.Log("Yes do");
+    }
 }
