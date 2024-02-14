@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -124,6 +126,7 @@ public class PlayerController : MonoBehaviour
         Vector3 movement = movementDirection.normalized * (vitesse * Time.fixedDeltaTime);
 
         rb.MovePosition(rb.position + movement);
+
     }
 
     //Cette méthode permet de tourner le joueur dans la direction du mouvement
@@ -134,4 +137,5 @@ public class PlayerController : MonoBehaviour
         rb.rotation = targetRotation;
     }
 
+    
 }
