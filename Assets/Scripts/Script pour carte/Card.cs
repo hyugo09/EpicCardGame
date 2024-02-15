@@ -13,6 +13,8 @@ public class Card : MonoBehaviour
     public GameObject goPlayer;
     [SerializeField] private int attack;
     [SerializeField] private int defense;
+    public bool cardonfield = false;
+    internal int[] fleche = new int[1];
 
     // Start is called before the first frame update
     void Start()
@@ -38,17 +40,20 @@ public class Card : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log("selectionner");
-        if (cpPlayer.selected != null)
+        if (cardonfield == false)
         {
-            cpPlayer.selected.GetComponent<Card>().selected = false;
-            cpPlayer.selected.transform.position = cpPlayer.originalposSelected;
+            Debug.Log("selectionner");
+            if (cpPlayer.selected != null)
+            {
+                cpPlayer.selected.GetComponent<Card>().selected = false;
+                cpPlayer.selected.transform.position = cpPlayer.originalposSelected;
+            }
+
+            cpPlayer.selected = this.gameObject;
+            cpPlayer.originalposSelected = this.gameObject.transform.position;
+            transform.position = new Vector3(transform.position.x + 5, transform.position.y + 10, transform.position.z);
+            selected = true;
         }
-        
-        cpPlayer.selected = this.gameObject;
-        cpPlayer.originalposSelected = this.gameObject.transform.position;
-        transform.position = new Vector3(transform.position.x + 5, transform.position.y + 10, transform.position.z);
-        selected = true;
     }
 
     //private void OnMouseDrag()
