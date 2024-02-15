@@ -17,8 +17,6 @@ public class CardPlayer : MonoBehaviour
     public GameObject[] discardDeck;
     public GameObject discardCard;
 
-    public int monsterDeckCount, eventDeckCount, handCount, discardCount;
-
     void Start()
     {
         
@@ -39,7 +37,7 @@ public class CardPlayer : MonoBehaviour
             GameObject temp;
             temp = Instantiate(cardPrefab, transform.position, transform.rotation);
             monsterDeck[i]= temp;
-            Card cardtemp = monsterDeck[i].GetComponent<Card>();
+            Card cardtemp = monsterDeck[i].GetComponent<Card>(); 
             cardtemp.goPlayer = this.gameObject;
             cardtemp.cpPlayer = this;
             i++;
