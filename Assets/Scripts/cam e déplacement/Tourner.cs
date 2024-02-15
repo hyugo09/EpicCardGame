@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Tourner : MonoBehaviour
 {
-
-    [SerializeField] private float sensitivity = 1;
+    public Transform player;
+    [SerializeField] private float mouseSensitivity = 100f;
     [SerializeField] private float yClamp = 60;
-    
+
+
     private float xRotation = 0;
 
     private void Awake()
@@ -15,23 +16,18 @@ public class Tourner : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
-    
+
     void Update()
     {
-        RotateCamera();
-    }
+        //RotateCamera();
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
-    private void RotateCamera()
-    {
-        Vector2 input = InputManager.tournerInput;
-        
-        // Rotation autour de l'axe Y (gauche et droite)
-        transform.Rotate(Vector3.up * (input.x * sensitivity));
 
-        // Rotation autour de l'axe X (haut et bas)
-        xRotation -= input.y; 
-        xRotation = Mathf.Clamp(xRotation, -yClamp, yClamp); // Clamp pour éviter une rotation trop grande
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        player.Rotate(Vector3.up * mouseX);
 
-        transform.localEulerAngles = new Vector3(xRotation, transform.localEulerAngles.y, 0);
     }
 }
