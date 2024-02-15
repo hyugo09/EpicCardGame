@@ -5,16 +5,16 @@ using UnityEngine;
 public class Field : MonoBehaviour
 {
     Vector3 offset = new Vector3(0, 1, 0);
-    [SerializeField] CardPlayer player;
+    [SerializeField] CardGameManager manager;
     internal GameObject carteSurField = null;
-    bool slected = false;
+    bool selected = false;
     public List<GameObject> listOfChildren;
-    private Renderer[] childrenderer;
+    [SerializeField] private Material directionMaterial;
 
     void Start()
     {
         GetChildRecursive(this.gameObject);
-        
+
 
     }
 
@@ -26,27 +26,32 @@ public class Field : MonoBehaviour
     private void OnMouseDown()
     {
         Debug.Log("selectionner");
-        if (player.selected != null)
+        if (manager.selected != null)
         {
 
-            carteSurField = player.selected;
+            carteSurField = manager.selected;
             Card carte = carteSurField.GetComponent<Card>();
             carte.cardonfield = true;
-            player.selected = null;
-               Debug.Log("je suis la");
-               for (int i =0; i >= carte.fleche.Length; i++)
-               {
-                 foreach (GameObject child in listOfChildren)
+            carteSurField.transform.position = transform.position + offset;
+            manager.selected = null;
+            Debug.Log("je suis la");
+
+            foreach (GameObject child in listOfChildren)
+            {
+                int i = 0;
+                while(i < carte.direction.Length)
                 {
-                    if (child.name == carte.fleche[i].ToString())
+                    if(child.name == carte.direction[i].ToString())
                     {
                         MeshRenderer temp = child.GetComponent<MeshRenderer>();
-                        
+                        temp.material = directionMaterial;
                     }
+                    i++;
                 }
-               }
-          
-            carteSurField.transform.position = transform.position + offset;
+            }
+
+
+
 
         }
 
@@ -63,7 +68,7 @@ public class Field : MonoBehaviour
                 continue;
             //child.gameobject contains the current child you can do whatever you want like add it to an array
             listOfChildren.Add(child.gameObject);
-            
+
         }
     }
 }

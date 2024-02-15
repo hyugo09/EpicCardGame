@@ -9,17 +9,15 @@ public class Card : MonoBehaviour
 
     internal bool selected;
 
-    public CardPlayer cpPlayer;
-    public GameObject goPlayer;
+    public CardGameManager manager;
     [SerializeField] private int attack;
     [SerializeField] private int defense;
     public bool cardonfield = false;
-    internal int[] fleche = new int[1];
+    public int[] direction = {3};
 
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -43,14 +41,14 @@ public class Card : MonoBehaviour
         if (cardonfield == false)
         {
             Debug.Log("selectionner");
-            if (cpPlayer.selected != null)
+            if (manager.selected != null)
             {
-                cpPlayer.selected.GetComponent<Card>().selected = false;
-                cpPlayer.selected.transform.position = cpPlayer.originalposSelected;
+                manager.selected.GetComponent<Card>().selected = false;
+                manager.selected.transform.position = manager.originalposSelected;
             }
 
-            cpPlayer.selected = this.gameObject;
-            cpPlayer.originalposSelected = this.gameObject.transform.position;
+            manager.selected = this.gameObject;
+            manager.originalposSelected = this.gameObject.transform.position;
             transform.position = new Vector3(transform.position.x + 5, transform.position.y + 10, transform.position.z);
             selected = true;
         }
