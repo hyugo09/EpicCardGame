@@ -25,7 +25,7 @@ public class CardPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
     
     private void InitiateCard()
@@ -43,6 +43,7 @@ public class CardPlayer : MonoBehaviour
             i++;
         }
     }
+   
 
 
 }
