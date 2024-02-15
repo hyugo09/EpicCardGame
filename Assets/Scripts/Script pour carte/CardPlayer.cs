@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class CardPlayer : MonoBehaviour
 {
-    public GameObject selected = null;
-    internal Vector3 originalposSelected;
+    
     public GameObject cardPrefab;
     public int[] deck;
     public GameObject[] monsterDeck;
@@ -38,8 +37,8 @@ public class CardPlayer : MonoBehaviour
             temp = Instantiate(cardPrefab, transform.position, transform.rotation);
             monsterDeck[i]= temp;
             Card cardtemp = monsterDeck[i].GetComponent<Card>(); 
-            cardtemp.goPlayer = this.gameObject;
-            cardtemp.cpPlayer = this;
+            //cardtemp.goPlayer = this.gameObject;
+            //cardtemp.cpPlayer = this;
             i++;
         }
     }
