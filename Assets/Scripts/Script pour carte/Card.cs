@@ -1,4 +1,4 @@
-using Palmmedia.ReportGenerator.Core.Reporting.History;
+
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -26,7 +26,7 @@ public class Card : MonoBehaviour
     {
         if (!selected)
         {
-
+            
         }
 
         if (Input.GetMouseButtonDown(0))
