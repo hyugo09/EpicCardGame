@@ -1,4 +1,5 @@
 using Cinemachine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,8 +15,8 @@ public class InputManager : MonoBehaviour
 
     public static Vector2 mouvementInput;
     public static Vector2 tournerInput;
-    public static bool jumpInput = false;
 
+    public static bool jumpInput = false;
     public static bool isAimingInput = false;
 
 
@@ -50,6 +51,7 @@ public class InputManager : MonoBehaviour
         //controls.Player.Mouvement.Disable();
         controls.Player.Mouvement.performed -= Move;
         controls.Player.Tourner.performed -= Tourner;
+
     }
 
     private void Move(InputAction.CallbackContext ctx) //ctx:  contexte
