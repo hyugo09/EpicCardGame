@@ -14,11 +14,13 @@ public class Card : MonoBehaviour
     [SerializeField] internal int defense;
     public bool cardonfield = false;
     public int[] direction = {3};
+    public float width;
     
 
     // Start is called before the first frame update
     void Start()
     {
+        width = this.width* this.transform.localScale.x;
     }
 
     // Update is called once per frame
