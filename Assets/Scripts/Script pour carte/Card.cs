@@ -10,10 +10,11 @@ public class Card : MonoBehaviour
     internal bool selected;
 
     public CardGameManager manager;
-    [SerializeField] private int attack;
-    [SerializeField] private int defense;
+    [SerializeField] internal int attack;
+    [SerializeField] internal int defense;
     public bool cardonfield = false;
     public int[] direction = {3};
+    
 
     // Start is called before the first frame update
     void Start()
@@ -43,8 +44,16 @@ public class Card : MonoBehaviour
             Debug.Log("selectionner");
             if (manager.selected != null)
             {
-                manager.selected.GetComponent<Card>().selected = false;
-                manager.selected.transform.position = manager.originalposSelected;
+                if(manager.selected.GetComponent<Card>() != null)
+                {
+                    manager.selected.GetComponent<Card>().selected = false;
+                    manager.selected.transform.position = manager.originalposSelected;
+                }
+                else
+                {
+                    //je sais pas encore donc r pour le moment
+                    //je vais devoir bouger ce code a manager anyway pour que cette partie marche
+                }
             }
 
             manager.selected = this.gameObject;
