@@ -55,7 +55,7 @@ public class DialogueManager : MonoBehaviour
         DialogueLine currentLine = lines.Dequeue();
 
         //characterIcon.sprite = currentLine.character.icon;
-        //characterName.text = currentLine.character.name;
+        characterName.text = currentLine.character.name;
 
         StopAllCoroutines();
 
