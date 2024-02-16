@@ -9,15 +9,16 @@ public class Card : MonoBehaviour
 
     internal bool selected;
 
-    public CardPlayer cpPlayer;
-    public GameObject goPlayer;
-    [SerializeField] private int attack;
-    [SerializeField] private int defense;
+    public CardGameManager manager;
+    [SerializeField] internal int attack;
+    [SerializeField] internal int defense;
+    public bool cardonfield = false;
+    public int[] direction = {3};
+    
 
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -38,17 +39,28 @@ public class Card : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log("selectionner");
-        if (cpPlayer.selected != null)
+        if (cardonfield == false)
         {
-            cpPlayer.selected.GetComponent<Card>().selected = false;
-            cpPlayer.selected.transform.position = cpPlayer.originalposSelected;
+            Debug.Log("selectionner");
+            if (manager.selected != null)
+            {
+                if(manager.selected.GetComponent<Card>() != null)
+                {
+                    manager.selected.GetComponent<Card>().selected = false;
+                    manager.selected.transform.position = manager.originalposSelected;
+                }
+                else
+                {
+                    //je sais pas encore donc r pour le moment
+                    //je vais devoir bouger ce code a manager anyway pour que cette partie marche
+                }
+            }
+
+            manager.selected = this.gameObject;
+            manager.originalposSelected = this.gameObject.transform.position;
+            transform.position = new Vector3(transform.position.x + 5, transform.position.y + 10, transform.position.z);
+            selected = true;
         }
-        
-        cpPlayer.selected = this.gameObject;
-        cpPlayer.originalposSelected = this.gameObject.transform.position;
-        transform.position = new Vector3(transform.position.x + 5, transform.position.y + 10, transform.position.z);
-        selected = true;
     }
 
     //private void OnMouseDrag()
