@@ -24,6 +24,10 @@ public class PlayerInteraction : MonoBehaviour
             }
 
             transform.LookAt(new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z));
+
+
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 
@@ -46,6 +50,8 @@ public class PlayerInteraction : MonoBehaviour
             npcCam.Priority = 0;
             GetComponent<NavMeshAgent>().isStopped = false;
             dialogueUI.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
     }
 }
