@@ -5,6 +5,7 @@ using UnityEngine;
 public class main : MonoBehaviour
 {
     // Start is called before the first frame update
+    public List<GameObject> cartes = new List<GameObject>();
     void Start()
     {
         
@@ -14,5 +15,20 @@ public class main : MonoBehaviour
     void Update()
     {
         
+    }
+    private void AddCards()
+    {
+
+    }
+    private void RemoveCard()
+    {
+        
+    }
+    private void ArrangeHand()
+    {
+        for (float i = 0; i < cartes.Count; i++)
+        {
+             
+        }
     }
 }
