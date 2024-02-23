@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Field : MonoBehaviour
@@ -7,6 +8,7 @@ public class Field : MonoBehaviour
     Vector3 offset = new Vector3(0, 1, 0);
     [SerializeField] CardGameManager manager;
     [SerializeField]internal Card carteSurField = null;
+    
     bool selected = false;
     public List<GameObject> listOfChildren;
     [SerializeField] private Material directionMaterial;
@@ -31,6 +33,7 @@ public class Field : MonoBehaviour
         {
             carteSurField = manager.selected.GetComponent<Card>(); ;
             carteSurField.cardonfield = true;
+            manager.playerHand.RemoveCard(carteSurField.gameObject);
             carteSurField.transform.position = transform.position + offset;
             manager.selected = null;
 
