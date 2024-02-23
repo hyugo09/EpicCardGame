@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Deck : MonoBehaviour
 {
-    Stack<GameObject> deck = new Stack<GameObject>();
+    public Stack<GameObject> deck = new Stack<GameObject>();
     void Start()
     {
         
