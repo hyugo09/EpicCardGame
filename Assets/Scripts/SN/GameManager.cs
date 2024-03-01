@@ -1,29 +1,26 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public GameObject pauseUI;
-    public bool isPaused = false;
-    public NavMeshAgent agent;
 
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.Escape))
         {
-            PauseMenu();
+            TogglePause();
         }
     }
 
-    public void PauseMenu()
+    private void TogglePause()
     {
         if (isPaused)
         {
             ResumeGame();
-        } else
+        }
+        else
         {
             PauseGame();
         }
@@ -34,7 +31,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
         pauseUI.SetActive(false);
-        //GetComponent<NavMeshAgent>().isStopped = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -44,14 +40,40 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
         isPaused = true;
         pauseUI.SetActive(true);
-        //GetComponent<NavMeshAgent>().isStopped = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
 
+    public void LoadSceneAsync(string sceneName)
+    {
+        StartCoroutine(LoadSceneAndResume(sceneName));
+    }
+
+    private IEnumerator LoadSceneAndResume(string sceneName)
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+
+        ResumeGame();
+    }
+
+    public void CardField()
+    {
+        LoadSceneAsync("CardFieldScene");
+    }
+
+    public void PlayGame()
+    {
+        LoadSceneAsync("Scene test");
+    }
+
     public void LeaveGame()
     {
-        //Quitter CardFieldScene
+        LoadSceneAsync("MainMenu");
     }
 
     public void QuitGame()
@@ -59,33 +81,5 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void Game(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName);
-    }
-
-    public void PlayGame()
-    {
-        Game("Scene test");
-    }
-
-    public void CardField(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName);
-    }
-
-    public void CardFieldScene()
-    {
-        CardField("CardFieldScene");
-    }
-
-    public void MainMenu(string scenename)
-    {
-        SceneManager.LoadScene(scenename);
-    }
-
-    public void MainMenuScene()
-    {
-        MainMenu("MainMenu");
-    }
+    public bool isPaused { get; private set; } = false;
 }
