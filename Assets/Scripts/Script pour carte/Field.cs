@@ -33,7 +33,7 @@ public class Field : MonoBehaviour
         {
             carteSurField = manager.selected.GetComponent<Card>(); ;
             carteSurField.cardonfield = true;
-            manager.playerHand.RemoveCard(carteSurField.gameObject);
+            //manager.playerHand.RemoveCard(carteSurField.gameObject);
             carteSurField.transform.position = transform.position + offset;
             manager.selected = null;
 
