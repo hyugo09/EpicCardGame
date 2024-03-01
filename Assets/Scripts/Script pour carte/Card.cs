@@ -21,6 +21,7 @@ public class Card : MonoBehaviour
     void Start()
     {
         width = this.width* this.transform.localScale.x;
+
     }
 
     // Update is called once per frame
