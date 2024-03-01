@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43667555, g: 0.48427182, b: 0.5645241, a: 1}
+  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -675,7 +675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selected: {fileID: 0}
-  playerHand: {fileID: 0}
+  playerHand: {fileID: 1939740841}
 --- !u!4 &374399208
 Transform:
   m_ObjectHideFlags: 0
@@ -3123,7 +3123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc799d02098b64c458e7e4da52ff61f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cards: []
+  cards:
+  - {fileID: 1523412490}
+  - {fileID: 1199092673}
 --- !u!4 &1939740842
 Transform:
   m_ObjectHideFlags: 0

@@ -45,6 +45,21 @@ public class InputManager : MonoBehaviour
 
 
     }
+    private void FixedUpdate()
+    {
+        RaycastHit hit;
+        // Does the ray intersect any objects excluding the player layer
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 10))
+        {
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
+            Debug.Log("Did Hit");
+        }
+        else
+        {
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.yellow);
+            Debug.Log("Did not Hit");
+        }
+    }
 
     private void OnDisable()
     {
