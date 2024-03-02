@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerInfo : MonoBehaviour
 {
+   public int[] PlayerDeck = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     
     // Start is called before the first frame update
     void Start()

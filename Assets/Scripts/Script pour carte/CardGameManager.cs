@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CardGameManager : MonoBehaviour
@@ -23,11 +24,12 @@ public class CardGameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerDeck.ShuffleDeck();
+        CardData datat = FindFirstObjectByType(typeof(CardData)).GetComponent<CardData>();
+        playerDeck.ShuffleDeck(datat.tempd);
     }
     private void Awake()
     {
-
+       
     }
     // Update is called once per frame
     void Update()
