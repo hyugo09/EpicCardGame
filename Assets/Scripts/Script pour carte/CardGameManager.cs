@@ -20,6 +20,7 @@ public class CardGameManager : MonoBehaviour
     [SerializeField] internal main playerHand;
     public CardGameManager enemyGameManager;
     public bool isAi;
+    [SerializeField] Field[] allField;
     [SerializeField] internal Deck playerDeck;
     [SerializeField] internal Discard playerDiscard;
     [SerializeField] private CardGameManager EnemyManager;
@@ -95,7 +96,7 @@ public class CardGameManager : MonoBehaviour
     private void ChangeToEnd()
     {
         currentPhase = Phase.end;
-        EnemyManager.ChangeCurrentPhase();
+        enemyGameManager.ChangeCurrentPhase();
         ChangeCurrentPhase();
     }
     private void ChangeToEnnemy()
@@ -118,18 +119,18 @@ public class CardGameManager : MonoBehaviour
     }
     private void Playcard()
     {
-        bool cardPlayed = false;
+        
         
         if (playerHand.cards.Count > 0)
         {
             GameObject temp = playerHand.cards[Random.Range(0, playerHand.cards.Count)];
             if (temp != null) { 
-                // jouer sur le terrian si sa remplis les condition
-                if (temp != null)//placeholder
+                Field ftemp = allField[Random.Range(0,allField.Length)];
+                if (ftemp.carteSurField == null)// ajouter la condition pour voir si c jouable
                 {
                     //choisir un field et faire passer le meme truc de mouse down
-                    Field fTemp = new Field();
-                    fTemp.JouerCarte(temp);
+                    
+                    ftemp.JouerCarte(temp);
                     
                 }
                 else

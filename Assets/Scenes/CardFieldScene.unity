@@ -1116,6 +1116,7 @@ MonoBehaviour:
   playerHand: {fileID: 1939740841}
   enemyGameManager: {fileID: 0}
   isAi: 0
+  allField: []
   playerDeck: {fileID: 955782508}
   playerDiscard: {fileID: 1705193646}
   EnemyManager: {fileID: 1047972675}
@@ -3191,6 +3192,16 @@ MonoBehaviour:
   playerHand: {fileID: 1012850442}
   enemyGameManager: {fileID: 0}
   isAi: 0
+  allField:
+  - {fileID: 1237892067}
+  - {fileID: 371704108}
+  - {fileID: 22115066}
+  - {fileID: 1154125024}
+  - {fileID: 1956663708}
+  - {fileID: 1983882931}
+  - {fileID: 1254599648}
+  - {fileID: 1885738529}
+  - {fileID: 132583000}
   playerDeck: {fileID: 1679914806}
   playerDiscard: {fileID: 1327689920}
   EnemyManager: {fileID: 0}
