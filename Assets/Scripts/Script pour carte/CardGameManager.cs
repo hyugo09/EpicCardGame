@@ -35,7 +35,7 @@ public class CardGameManager : MonoBehaviour
 
     }
 
-    private void ChangeCurrentPhase()
+    public void ChangeCurrentPhase()
     {
         switch (currentPhase)
         {
