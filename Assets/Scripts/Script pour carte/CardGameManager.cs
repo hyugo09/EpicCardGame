@@ -21,6 +21,7 @@ public class CardGameManager : MonoBehaviour
     public CardGameManager enemyGameManager;
     public bool isAi;
     [SerializeField] Field[] allField;
+    [SerializeField]internal Lien[] allLink;
     [SerializeField] internal Deck playerDeck;
     [SerializeField] internal Discard playerDiscard;
     [SerializeField] private CardGameManager EnemyManager;
@@ -82,6 +83,7 @@ public class CardGameManager : MonoBehaviour
     {
         
         currentPhase = Phase.main;
+        CardAttackReset();
         if (isAi)
         {
             Playcard();
@@ -92,6 +94,8 @@ public class CardGameManager : MonoBehaviour
     private void ChangeToBattle()
     {
         currentPhase = Phase.battle;
+
+        if (isAi) { AiAttack(); }
     }
     private void ChangeToEnd()
     {
@@ -102,6 +106,7 @@ public class CardGameManager : MonoBehaviour
     private void ChangeToEnnemy()
     {
         currentPhase = Phase.ennemy;
+        
     }
     private void DrawCard()
     {
@@ -142,8 +147,32 @@ public class CardGameManager : MonoBehaviour
             
         }
     }
-    private void AiAttack(int layerIndex)
+    private void AiAttack()
     {
-        
+        for (int i = 0; i < allField.Length; i++)
+        {
+            if (allField[i].carteSurField != null && allField[i].carteSurField.canAttack)
+            {
+                Card temp = allField[i].carteSurField;
+                for (int j =0; j < allLink.Length; j++)
+                {
+                    if (allLink[j].active)
+                    {
+                        allLink[j].Dommage(temp.attack);
+                    }
+                }
+            }
+        }
     }
+    private void CardAttackReset()
+    {
+        foreach (Field f in allField)
+        {
+            if (f.carteSurField != null)
+            {
+                f.carteSurField.canAttack = true;
+            }
+        }
+    }
+
 }
