@@ -6,7 +6,7 @@ using UnityEngine;
 public class Field : MonoBehaviour
 {
     Vector3 offset = new Vector3(0, 1, 0);
-    [SerializeField] CardGameManager manager;
+    public CardGameManager manager;
     [SerializeField]internal Card carteSurField = null;
     
     bool selected = false;

@@ -41,4 +41,26 @@ public class Lien : MonoBehaviour
     {
         text.text = currentPV.ToString();
     }
+
+    private void OnMouseDown()
+    {
+        if (field1.manager.enemyGameManager.currentPhase == CardGameManager.Phase.battle)
+        {
+            if (field1.manager.enemyGameManager.selected !=null)  
+            {
+                Card temp = field1.manager.enemyGameManager.selected.GetComponent<Card>();
+                if (temp != null)
+                {
+                    Dommage(temp.attack);
+                }
+            }
+        }
+    }
+
+    public void Dommage(int degats)
+    {
+        currentPV -= degats;
+        SetLienText();
+    }
+
 }

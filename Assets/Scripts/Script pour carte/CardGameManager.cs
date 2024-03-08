@@ -18,6 +18,7 @@ public class CardGameManager : MonoBehaviour
     [SerializeField] internal Phase currentPhase;
     internal Vector3 originalposSelected;
     [SerializeField] internal main playerHand;
+    public CardGameManager enemyGameManager;
     [SerializeField] internal Deck playerDeck;
     [SerializeField] internal Discard playerDiscard;
     [SerializeField] private CardGameManager EnemyManager;
