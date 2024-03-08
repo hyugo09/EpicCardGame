@@ -23,6 +23,7 @@ public class CardGameManager : MonoBehaviour
     [SerializeField] internal main playerHand;
     public CardGameManager enemyGameManager;
     public bool isAi;
+    [SerializeField] Lien[] allLink;
     [SerializeField] Field[] allField;
     [SerializeField] internal Deck playerDeck;
     [SerializeField] internal Discard playerDiscard;
@@ -155,8 +156,32 @@ public class CardGameManager : MonoBehaviour
 
         }
     }
-    private void AiAttack(int layerIndex)
+    private void AiAttack()
     {
 
+        for (int i = 0; i < allField.Length; i++)
+        {
+            if (allField[i].carteSurField != null && allField[i].carteSurField.canAttack)
+            {
+                Card temp = allField[i].carteSurField;
+                for (int j = 0; j < allLink.Length; j++)
+                {
+                    if (allLink[j].active)
+                    {
+                        allLink[j].Dommage(temp.attack);
+                    }
+                }
+            }
+        }
+    }
+    private void CardAttackReset()
+    {
+        foreach (Field f in allField)
+        {
+            if (f.carteSurField != null)
+            {
+                f.carteSurField.canAttack = true;
+            }
+        }
     }
 }
