@@ -8,7 +8,7 @@ public class Card : MonoBehaviour
 {
 
     internal bool selected;
-
+    public bool canAttack;
     public CardGameManager manager;
     [SerializeField] internal int attack;
     [SerializeField] internal int defense;
