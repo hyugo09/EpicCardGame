@@ -191,6 +191,67 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &129609104
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: fd2112250f5571048834e6260ccbf4ed, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.6519413
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fd2112250f5571048834e6260ccbf4ed, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.61
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fd2112250f5571048834e6260ccbf4ed, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -26.040966
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fd2112250f5571048834e6260ccbf4ed, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fd2112250f5571048834e6260ccbf4ed, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fd2112250f5571048834e6260ccbf4ed, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fd2112250f5571048834e6260ccbf4ed, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fd2112250f5571048834e6260ccbf4ed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fd2112250f5571048834e6260ccbf4ed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fd2112250f5571048834e6260ccbf4ed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: fd2112250f5571048834e6260ccbf4ed, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 530bf3a66e86f1f4e9ef957c0e378d5f, type: 2}
+    - target: {fileID: 919132149155446097, guid: fd2112250f5571048834e6260ccbf4ed, type: 3}
+      propertyPath: m_Name
+      value: CardTemplate3D
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fd2112250f5571048834e6260ccbf4ed, type: 3}
 --- !u!114 &140881981 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 381788062488881777, guid: 8aecb3bae3c2b394e95824b01efd360b, type: 3}
@@ -615,7 +676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selected: {fileID: 0}
-  playerHand: {fileID: 0}
+  playerHand: {fileID: 1939740841}
 --- !u!4 &374399208
 Transform:
   m_ObjectHideFlags: 0
@@ -3598,3 +3659,4 @@ SceneRoots:
   - {fileID: 1144743380}
   - {fileID: 1431602280}
   - {fileID: 118672781}
+  - {fileID: 129609104}
