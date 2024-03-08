@@ -10,6 +10,8 @@ public class PlayerInfo : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(gameObject);
+        FindAnyObjectByType(typeof(PlayerInfo));
+        
     }
 
     // Update is called once per frame

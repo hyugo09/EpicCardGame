@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CardGameManager : MonoBehaviour
 {
@@ -13,7 +15,8 @@ public class CardGameManager : MonoBehaviour
         end,
         ennemy,
     }
-
+    [SerializeField] private Button button;
+    [SerializeField] private TextMeshProUGUI text;
     public GameObject selected = null;
     [SerializeField] internal Phase currentPhase;
     internal Vector3 originalposSelected;
@@ -21,7 +24,6 @@ public class CardGameManager : MonoBehaviour
     public CardGameManager enemyGameManager;
     public bool isAi;
     [SerializeField] Field[] allField;
-    [SerializeField]internal Lien[] allLink;
     [SerializeField] internal Deck playerDeck;
     [SerializeField] internal Discard playerDiscard;
     [SerializeField] private CardGameManager EnemyManager;
@@ -33,15 +35,19 @@ public class CardGameManager : MonoBehaviour
     }
     private void Awake()
     {
-       
+        text = button.GetComponentInChildren<TextMeshProUGUI>();
+        text.text = "omegalol";
     }
     // Update is called once per frame
     void Update()
     {
 
     }
-
-    private void ChangeCurrentPhase()
+    private void OnMouseDown()
+    {
+        ChangeCurrentPhase();
+    }
+    public void ChangeCurrentPhase()
     {
         switch (currentPhase)
         {
@@ -76,16 +82,18 @@ public class CardGameManager : MonoBehaviour
     private void ChangeToDraw()
     {
         currentPhase = Phase.draw;
+        text.text = "Draw Phase";
         DrawCard();
         ChangeCurrentPhase();
     }
     private void ChangeToMain()
     {
-        
+
         currentPhase = Phase.main;
-        CardAttackReset();
+        text.text = "Main Phase";
         if (isAi)
         {
+            text.text = "Ennemie Main";
             Playcard();
             Playcard();
             ChangeCurrentPhase();
@@ -94,19 +102,18 @@ public class CardGameManager : MonoBehaviour
     private void ChangeToBattle()
     {
         currentPhase = Phase.battle;
-
-        if (isAi) { AiAttack(); }
+        text.text = "battle phase";
     }
     private void ChangeToEnd()
     {
         currentPhase = Phase.end;
+        text.text = "End Phase";
         enemyGameManager.ChangeCurrentPhase();
         ChangeCurrentPhase();
     }
     private void ChangeToEnnemy()
     {
         currentPhase = Phase.ennemy;
-        
     }
     private void DrawCard()
     {
@@ -124,55 +131,32 @@ public class CardGameManager : MonoBehaviour
     }
     private void Playcard()
     {
-        
-        
+
+
         if (playerHand.cards.Count > 0)
         {
             GameObject temp = playerHand.cards[Random.Range(0, playerHand.cards.Count)];
-            if (temp != null) { 
-                Field ftemp = allField[Random.Range(0,allField.Length)];
+            if (temp != null)
+            {
+                Field ftemp = allField[Random.Range(0, allField.Length)];
                 if (ftemp.carteSurField == null)// ajouter la condition pour voir si c jouable
                 {
                     //choisir un field et faire passer le meme truc de mouse down
-                    
+
                     ftemp.JouerCarte(temp);
-                    
+
                 }
                 else
                 {
                     Playcard();
                 }
             }
-            
-            
-        }
-    }
-    private void AiAttack()
-    {
-        for (int i = 0; i < allField.Length; i++)
-        {
-            if (allField[i].carteSurField != null && allField[i].carteSurField.canAttack)
-            {
-                Card temp = allField[i].carteSurField;
-                for (int j =0; j < allLink.Length; j++)
-                {
-                    if (allLink[j].active)
-                    {
-                        allLink[j].Dommage(temp.attack);
-                    }
-                }
-            }
-        }
-    }
-    private void CardAttackReset()
-    {
-        foreach (Field f in allField)
-        {
-            if (f.carteSurField != null)
-            {
-                f.carteSurField.canAttack = true;
-            }
-        }
-    }
 
+
+        }
+    }
+    private void AiAttack(int layerIndex)
+    {
+
+    }
 }

@@ -46,7 +46,7 @@ public class Lien : MonoBehaviour
     {
         if (field1.manager.enemyGameManager.currentPhase == CardGameManager.Phase.battle)
         {
-            if (field1.manager.enemyGameManager.selected !=null)  
+            if (field1.manager.enemyGameManager.selected.GetComponent<Card>())  
             {
                 Card temp = field1.manager.enemyGameManager.selected.GetComponent<Card>();
                 if (temp != null)
