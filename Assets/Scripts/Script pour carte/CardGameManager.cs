@@ -19,6 +19,7 @@ public class CardGameManager : MonoBehaviour
     internal Vector3 originalposSelected;
     [SerializeField] internal main playerHand;
     public CardGameManager enemyGameManager;
+    public bool isAi;
     [SerializeField] internal Deck playerDeck;
     [SerializeField] internal Discard playerDiscard;
     [SerializeField] private CardGameManager EnemyManager;
@@ -78,7 +79,14 @@ public class CardGameManager : MonoBehaviour
     }
     private void ChangeToMain()
     {
+        
         currentPhase = Phase.main;
+        if (isAi)
+        {
+            Playcard();
+            Playcard();
+            ChangeCurrentPhase();
+        }
     }
     private void ChangeToBattle()
     {
@@ -107,5 +115,34 @@ public class CardGameManager : MonoBehaviour
     private void LoseGame()
     {
 
+    }
+    private void Playcard()
+    {
+        bool cardPlayed = false;
+        
+        if (playerHand.cards.Count > 0)
+        {
+            GameObject temp = playerHand.cards[Random.Range(0, playerHand.cards.Count)];
+            if (temp != null) { 
+                // jouer sur le terrian si sa remplis les condition
+                if (temp != null)//placeholder
+                {
+                    //choisir un field et faire passer le meme truc de mouse down
+                    Field fTemp = new Field();
+                    fTemp.JouerCarte(temp);
+                    
+                }
+                else
+                {
+                    Playcard();
+                }
+            }
+            
+            
+        }
+    }
+    private void AiAttack(int layerIndex)
+    {
+        
     }
 }

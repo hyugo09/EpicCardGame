@@ -238,4 +238,31 @@ public class Field : MonoBehaviour
 
 
     }
+    public void JouerCarte(GameObject go)
+    {
+        carteSurField = go.GetComponent<Card>(); ;
+        carteSurField.cardonfield = true;
+        manager.playerHand.RemoveCard(carteSurField.gameObject);
+        carteSurField.transform.position = transform.position + offset;
+        
+
+        Debug.Log("je suis la");
+
+        foreach (GameObject child in listOfChildren)
+        {
+            int i = 0;
+            while (i < carteSurField.direction.Length)
+            {
+                if (child.name == carteSurField.direction[i].ToString())
+                {
+                    MeshRenderer temp = child.GetComponent<MeshRenderer>();
+                    temp.material = directionMaterial;
+
+                }
+                i++;
+            }
+        }
+
+        VerificationLien(true);
+    }
 }

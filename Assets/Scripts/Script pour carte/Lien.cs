@@ -61,6 +61,8 @@ public class Lien : MonoBehaviour
     {
         currentPV -= degats;
         SetLienText();
+
+        
     }
 
 }
