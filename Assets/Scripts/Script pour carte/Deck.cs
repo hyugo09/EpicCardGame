@@ -25,9 +25,9 @@ public class Deck : MonoBehaviour
             initialDeck[i] = initialDeck[j];
             initialDeck[j] = temp;
         }
-        foreach (GameObject temp in deck)
+        for (int i = 0;i < initialDeck.Length; i++) 
         {
-            deck.Push(temp);
+            deck.Push(initialDeck[i]);
         }
         PlaceCard();
 
