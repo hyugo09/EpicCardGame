@@ -6,7 +6,7 @@ using UnityEngine;
 public class Field : MonoBehaviour
 {
     Vector3 offset = new Vector3(0, 1, 0);
-    [SerializeField] CardGameManager manager;
+    public CardGameManager manager;
     [SerializeField]internal Card carteSurField = null;
     
     bool selected = false;
@@ -237,5 +237,32 @@ public class Field : MonoBehaviour
             }
 
 
+    }
+    public void JouerCarte(GameObject go)
+    {
+        carteSurField = go.GetComponent<Card>(); ;
+        carteSurField.cardonfield = true;
+        manager.playerHand.RemoveCard(carteSurField.gameObject);
+        carteSurField.transform.position = transform.position + offset;
+        
+
+        Debug.Log("je suis la");
+
+        foreach (GameObject child in listOfChildren)
+        {
+            int i = 0;
+            while (i < carteSurField.direction.Length)
+            {
+                if (child.name == carteSurField.direction[i].ToString())
+                {
+                    MeshRenderer temp = child.GetComponent<MeshRenderer>();
+                    temp.material = directionMaterial;
+
+                }
+                i++;
+            }
+        }
+
+        VerificationLien(true);
     }
 }

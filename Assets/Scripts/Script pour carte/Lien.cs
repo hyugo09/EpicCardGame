@@ -12,6 +12,7 @@ public class Lien : MonoBehaviour
 
     private int PV;
     private int currentPV = 0;
+    internal bool active = false;
     private void Awake()
     {
         text = GetComponent<TextMeshPro>();
@@ -41,4 +42,30 @@ public class Lien : MonoBehaviour
     {
         text.text = currentPV.ToString();
     }
+
+    private void OnMouseDown()
+    {
+        if (field1.manager.enemyGameManager.currentPhase == CardGameManager.Phase.battle)
+        {
+            if (field1.manager.enemyGameManager.selected.GetComponent<Card>())  
+            {
+                Card temp = field1.manager.enemyGameManager.selected.GetComponent<Card>();
+                if (temp != null)
+                {
+                    Dommage(temp.attack);
+                    BattleStartCameraController b = GameObject.FindFirstObjectByType<BattleStartCameraController>();
+                    b.SwitchCam();
+                }
+            }
+        }
+    }
+
+    public void Dommage(int degats)
+    {
+        currentPV -= degats;
+        SetLienText();
+
+        
+    }
+
 }

@@ -21,6 +21,7 @@ public class Card : MonoBehaviour
     void Start()
     {
         width = this.width* this.transform.localScale.x;
+
     }
 
     // Update is called once per frame
@@ -57,7 +58,11 @@ public class Card : MonoBehaviour
                     //je vais devoir bouger ce code a manager anyway pour que cette partie marche
                 }
             }
-
+            if(manager.currentPhase == CardGameManager.Phase.battle)
+            {
+                BattleStartCameraController b = GameObject.FindFirstObjectByType<BattleStartCameraController>();
+                b.SwitchCam();
+            }
             manager.selected = this.gameObject;
             manager.originalposSelected = this.gameObject.transform.position;
             transform.position = new Vector3(transform.position.x + 5, transform.position.y + 10, transform.position.z);
