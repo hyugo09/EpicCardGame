@@ -65,12 +65,21 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""InteractionNPC"",
-                    ""type"": ""Button"",
-                    ""id"": ""399232a0-c519-4bac-a7e9-9e895e47e15a"",
-                    ""expectedControlType"": ""Button"",
+                    ""type"": ""Value"",
+                    ""id"": ""27df074a-5260-45e5-b1b9-3affbafa2faa"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Value"",
+                    ""id"": ""c35f6959-6ca6-452a-9d7f-db79163fb0c5"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -263,12 +272,23 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""ab383d21-08ee-4cd7-88e4-7d3cd16c07f7"",
+                    ""id"": ""5cce99c2-a47c-4e11-91fa-132999599256"",
                     ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""InteractionNPC"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3b3213ce-a27c-4b69-ae71-71fb34dbddfb"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Escape"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -301,6 +321,40 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Menus"",
+            ""id"": ""f1e125cb-7840-43f6-9c97-8b82776986a9"",
+            ""actions"": [],
+            ""bindings"": []
+        },
+        {
+            ""name"": ""JeuCartes"",
+            ""id"": ""0ac60924-df67-42df-ab8b-7ed1b75b67a8"",
+            ""actions"": [
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""ee5b4091-3c59-4ddd-b128-85dec6dcb361"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""5ef98148-5235-4cb2-ae73-927122678cbd"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -312,9 +366,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_Saut = m_Player.FindAction("Saut", throwIfNotFound: true);
         m_Player_Viser = m_Player.FindAction("Viser", throwIfNotFound: true);
         m_Player_InteractionNPC = m_Player.FindAction("InteractionNPC", throwIfNotFound: true);
+        m_Player_Escape = m_Player.FindAction("Escape", throwIfNotFound: true);
         // Voiture
         m_Voiture = asset.FindActionMap("Voiture", throwIfNotFound: true);
         m_Voiture_Newaction = m_Voiture.FindAction("New action", throwIfNotFound: true);
+        // Menus
+        m_Menus = asset.FindActionMap("Menus", throwIfNotFound: true);
+        // JeuCartes
+        m_JeuCartes = asset.FindActionMap("JeuCartes", throwIfNotFound: true);
+        m_JeuCartes_Newaction = m_JeuCartes.FindAction("New action", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -381,6 +441,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Saut;
     private readonly InputAction m_Player_Viser;
     private readonly InputAction m_Player_InteractionNPC;
+    private readonly InputAction m_Player_Escape;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -390,6 +451,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Saut => m_Wrapper.m_Player_Saut;
         public InputAction @Viser => m_Wrapper.m_Player_Viser;
         public InputAction @InteractionNPC => m_Wrapper.m_Player_InteractionNPC;
+        public InputAction @Escape => m_Wrapper.m_Player_Escape;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -414,6 +476,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @InteractionNPC.started += instance.OnInteractionNPC;
             @InteractionNPC.performed += instance.OnInteractionNPC;
             @InteractionNPC.canceled += instance.OnInteractionNPC;
+            @Escape.started += instance.OnEscape;
+            @Escape.performed += instance.OnEscape;
+            @Escape.canceled += instance.OnEscape;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -433,6 +498,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @InteractionNPC.started -= instance.OnInteractionNPC;
             @InteractionNPC.performed -= instance.OnInteractionNPC;
             @InteractionNPC.canceled -= instance.OnInteractionNPC;
+            @Escape.started -= instance.OnEscape;
+            @Escape.performed -= instance.OnEscape;
+            @Escape.canceled -= instance.OnEscape;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -496,6 +564,90 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         }
     }
     public VoitureActions @Voiture => new VoitureActions(this);
+
+    // Menus
+    private readonly InputActionMap m_Menus;
+    private List<IMenusActions> m_MenusActionsCallbackInterfaces = new List<IMenusActions>();
+    public struct MenusActions
+    {
+        private @PlayerControls m_Wrapper;
+        public MenusActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputActionMap Get() { return m_Wrapper.m_Menus; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MenusActions set) { return set.Get(); }
+        public void AddCallbacks(IMenusActions instance)
+        {
+            if (instance == null || m_Wrapper.m_MenusActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_MenusActionsCallbackInterfaces.Add(instance);
+        }
+
+        private void UnregisterCallbacks(IMenusActions instance)
+        {
+        }
+
+        public void RemoveCallbacks(IMenusActions instance)
+        {
+            if (m_Wrapper.m_MenusActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IMenusActions instance)
+        {
+            foreach (var item in m_Wrapper.m_MenusActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_MenusActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public MenusActions @Menus => new MenusActions(this);
+
+    // JeuCartes
+    private readonly InputActionMap m_JeuCartes;
+    private List<IJeuCartesActions> m_JeuCartesActionsCallbackInterfaces = new List<IJeuCartesActions>();
+    private readonly InputAction m_JeuCartes_Newaction;
+    public struct JeuCartesActions
+    {
+        private @PlayerControls m_Wrapper;
+        public JeuCartesActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Newaction => m_Wrapper.m_JeuCartes_Newaction;
+        public InputActionMap Get() { return m_Wrapper.m_JeuCartes; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(JeuCartesActions set) { return set.Get(); }
+        public void AddCallbacks(IJeuCartesActions instance)
+        {
+            if (instance == null || m_Wrapper.m_JeuCartesActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_JeuCartesActionsCallbackInterfaces.Add(instance);
+            @Newaction.started += instance.OnNewaction;
+            @Newaction.performed += instance.OnNewaction;
+            @Newaction.canceled += instance.OnNewaction;
+        }
+
+        private void UnregisterCallbacks(IJeuCartesActions instance)
+        {
+            @Newaction.started -= instance.OnNewaction;
+            @Newaction.performed -= instance.OnNewaction;
+            @Newaction.canceled -= instance.OnNewaction;
+        }
+
+        public void RemoveCallbacks(IJeuCartesActions instance)
+        {
+            if (m_Wrapper.m_JeuCartesActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IJeuCartesActions instance)
+        {
+            foreach (var item in m_Wrapper.m_JeuCartesActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_JeuCartesActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public JeuCartesActions @JeuCartes => new JeuCartesActions(this);
     public interface IPlayerActions
     {
         void OnMouvement(InputAction.CallbackContext context);
@@ -503,8 +655,16 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnSaut(InputAction.CallbackContext context);
         void OnViser(InputAction.CallbackContext context);
         void OnInteractionNPC(InputAction.CallbackContext context);
+        void OnEscape(InputAction.CallbackContext context);
     }
     public interface IVoitureActions
+    {
+        void OnNewaction(InputAction.CallbackContext context);
+    }
+    public interface IMenusActions
+    {
+    }
+    public interface IJeuCartesActions
     {
         void OnNewaction(InputAction.CallbackContext context);
     }

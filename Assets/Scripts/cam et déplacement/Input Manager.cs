@@ -2,6 +2,8 @@ using Cinemachine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.InputSystem;
@@ -19,6 +21,9 @@ public class InputManager : MonoBehaviour
     public static bool jumpInput = false;
     public static bool isAimingInput = false;
 
+    public static bool interactionInput = false;
+    public static bool escapeInput = false;
+
 
 
     private void Awake()
@@ -29,6 +34,7 @@ public class InputManager : MonoBehaviour
 
     private void OnEnable()
     {
+
         //controls.Player.Mouvement.started += Move;
         controls.Player.Mouvement.performed += Move;
         controls.Player.Mouvement.canceled += Move;
@@ -42,6 +48,15 @@ public class InputManager : MonoBehaviour
 
         controls.Player.Saut.performed += ctx => jumpInput = true;
         controls.Player.Saut.canceled += ctx => jumpInput = false;
+
+        //interaction NPC
+        controls.Player.InteractionNPC.started += ctx => interactionInput = true;
+        controls.Player.InteractionNPC.canceled += ctx => interactionInput = false;
+
+        //Escape (Menu)
+        controls.Player.Escape.performed += ctx => escapeInput = true;
+        controls.Player.Escape.canceled += ctx => escapeInput = false;
+
 
 
     }
@@ -81,7 +96,6 @@ public class InputManager : MonoBehaviour
     {
         tournerInput = ctx.ReadValue<Vector2>();
     }
-
     //public void OnJump(InputAction.CallbackContext ctx)
     //{
 

@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -5,10 +6,10 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public GameObject pauseUI;
-
+    
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Escape))
+        if (InputManager.escapeInput)
         {
             TogglePause();
         }
@@ -31,8 +32,9 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
         pauseUI.SetActive(false);
-        Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
     }
 
     public void PauseGame()
@@ -42,6 +44,7 @@ public class GameManager : MonoBehaviour
         pauseUI.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
     }
 
     public void LoadSceneAsync(string sceneName)
