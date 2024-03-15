@@ -8,9 +8,11 @@ public class Menu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Escape))
+
+        if (InputManager.escapeInput && !pauseUI)
         {
             pauseUI.SetActive(true);
         }
+
     }
 }

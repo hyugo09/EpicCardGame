@@ -9,7 +9,7 @@ public class BattleStartCameraController : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera battleCamera;
     [SerializeField] private CinemachineVirtualCamera EnnemieCamera;
     [SerializeField] private GameObject button;
-    
+
     void Start()
     {
         firstCamera.Priority = 1;
@@ -22,7 +22,7 @@ public class BattleStartCameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     IEnumerator changementCamera(float delais)
     {
@@ -30,25 +30,26 @@ public class BattleStartCameraController : MonoBehaviour
         firstCamera.Priority = 0;
         battleCamera.Priority = 1;
         StartCoroutine(ActivateUI(3.8f));
-        
+
     }
     public IEnumerator ActivateUI(float delais)
     {
-        yield return new WaitForSeconds (delais);
-        button.SetActive (true);
-        
+        yield return new WaitForSeconds(delais);
+        button.SetActive(true);
+
     }
     public void SwitchCam()
     {
-        if(battleCamera.Priority == 1)
+        
+        if (battleCamera.Priority == 1)
         {
             battleCamera.Priority = 0;
-            EnnemieCamera.Priority =1;
+            EnnemieCamera.Priority = 1;
         }
         else
         {
             battleCamera.Priority = 1;
-            EnnemieCamera.Priority = 0; 
+            EnnemieCamera.Priority = 0;
         }
     }
 }

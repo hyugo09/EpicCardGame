@@ -12,7 +12,7 @@ public class PlayerInteraction : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && inRange)
+        if (InputManager.interactionInput && inRange)
         {
             dialogueUI.SetActive(true);
             npcCam.Priority = 2;
