@@ -15,7 +15,7 @@ public class main : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        ArrangeHand();
     }
     public void AddCards(GameObject card)
     {// va etre appeler par le deck pour piocher

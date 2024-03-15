@@ -9,7 +9,7 @@ public class CardData : MonoBehaviour
      internal GameObject[] tempd;
     private void Awake()
     {
-        PlayerInfo playerInfo = FindFirstObjectByType(typeof(PlayerInfo)).GetComponent<PlayerInfo>();
+        PlayerInfo playerInfo = FindFirstObjectByType<PlayerInfo>().GetComponent<PlayerInfo>();
 
         int[] temp = playerInfo.PlayerDeck;
          tempd = new GameObject[temp.Length];

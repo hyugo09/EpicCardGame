@@ -103,7 +103,10 @@ public class CardGameManager : MonoBehaviour
     private void ChangeToBattle()
     {
         currentPhase = Phase.battle;
+        
         text.text = "battle phase";
+        if (isAi) { AiAttack();
+        }
     }
     private void ChangeToEnd()
     {
@@ -164,11 +167,12 @@ public class CardGameManager : MonoBehaviour
             if (allField[i].carteSurField != null && allField[i].carteSurField.canAttack)
             {
                 Card temp = allField[i].carteSurField;
-                for (int j = 0; j < allLink.Length; j++)
+                for (int j = 0; j < allField[i].liens.Length; j++)
                 {
-                    if (allLink[j].active)
+                    if (allField[i].liens[j].active)
                     {
-                        allLink[j].Dommage(temp.attack);
+                        allField[i].liens[j].Dommage(temp.attack);
+                        break;
                     }
                 }
             }

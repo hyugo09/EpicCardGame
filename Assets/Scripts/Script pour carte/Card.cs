@@ -15,7 +15,8 @@ public class Card : MonoBehaviour
     public bool cardonfield = false;
     public int[] direction = {3};
     public float width;
-    
+    public bool canAttack = false;
+
 
     // Start is called before the first frame update
     void Start()
