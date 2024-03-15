@@ -28,6 +28,7 @@ public class CardGameManager : MonoBehaviour
     [SerializeField] internal Deck playerDeck;
     [SerializeField] internal Discard playerDiscard;
     [SerializeField] private CardGameManager EnemyManager;
+   
     // Start is called before the first frame update
     void Start()
     {

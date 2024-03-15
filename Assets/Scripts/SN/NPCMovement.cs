@@ -14,7 +14,7 @@ public class RandomMovement : MonoBehaviour
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
         if (agent.remainingDistance <= agent.stoppingDistance)
         {

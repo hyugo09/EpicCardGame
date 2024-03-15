@@ -8,15 +8,13 @@ public class Card : MonoBehaviour
 {
 
     internal bool selected;
-
+    public bool canAttack;
     public CardGameManager manager;
     [SerializeField] internal int attack;
     [SerializeField] internal int defense;
     public bool cardonfield = false;
     public int[] direction = {3};
     public float width;
-    public bool canAttack = false;
-
 
     // Start is called before the first frame update
     void Start()
