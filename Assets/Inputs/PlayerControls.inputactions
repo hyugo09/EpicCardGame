@@ -43,12 +43,21 @@
                 },
                 {
                     "name": "InteractionNPC",
-                    "type": "Button",
-                    "id": "399232a0-c519-4bac-a7e9-9e895e47e15a",
-                    "expectedControlType": "Button",
+                    "type": "Value",
+                    "id": "27df074a-5260-45e5-b1b9-3affbafa2faa",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Escape",
+                    "type": "Value",
+                    "id": "c35f6959-6ca6-452a-9d7f-db79163fb0c5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -241,12 +250,23 @@
                 },
                 {
                     "name": "",
-                    "id": "ab383d21-08ee-4cd7-88e4-7d3cd16c07f7",
+                    "id": "5cce99c2-a47c-4e11-91fa-132999599256",
                     "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "InteractionNPC",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3b3213ce-a27c-4b69-ae71-71fb34dbddfb",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Escape",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -270,6 +290,40 @@
                 {
                     "name": "",
                     "id": "9ce71575-9365-4c74-8ce6-45a26a0275d4",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Menus",
+            "id": "f1e125cb-7840-43f6-9c97-8b82776986a9",
+            "actions": [],
+            "bindings": []
+        },
+        {
+            "name": "JeuCartes",
+            "id": "0ac60924-df67-42df-ab8b-7ed1b75b67a8",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "ee5b4091-3c59-4ddd-b128-85dec6dcb361",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "5ef98148-5235-4cb2-ae73-927122678cbd",
                     "path": "",
                     "interactions": "",
                     "processors": "",
