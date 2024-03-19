@@ -12,7 +12,7 @@ public class Lien : MonoBehaviour
 
     private int PV;
     private int currentPV = 0;
-    internal bool active = false;
+    internal bool active = true;
     private void Awake()
     {
         text = GetComponent<TextMeshPro>();
