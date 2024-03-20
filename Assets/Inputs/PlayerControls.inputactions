@@ -54,7 +54,7 @@
                     "name": "Escape",
                     "type": "Value",
                     "id": "c35f6959-6ca6-452a-9d7f-db79163fb0c5",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -311,24 +311,24 @@
             "id": "0ac60924-df67-42df-ab8b-7ed1b75b67a8",
             "actions": [
                 {
-                    "name": "New action",
-                    "type": "Button",
+                    "name": "CliqueGauche",
+                    "type": "Value",
                     "id": "ee5b4091-3c59-4ddd-b128-85dec6dcb361",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
                 {
                     "name": "",
-                    "id": "5ef98148-5235-4cb2-ae73-927122678cbd",
-                    "path": "",
+                    "id": "bc983461-fb81-4456-8bfe-4b796a7e0d19",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "CliqueGauche",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -13,13 +13,13 @@ public class Card : MonoBehaviour
     [SerializeField] internal int attack;
     [SerializeField] internal int defense;
     public bool cardonfield = false;
-    public int[] direction = {3};
+    public int[] direction = { 3 };
     public float width;
 
     // Start is called before the first frame update
     void Start()
     {
-        width = this.width* this.transform.localScale.x;
+        width = this.width * this.transform.localScale.x;
 
     }
 
@@ -28,10 +28,10 @@ public class Card : MonoBehaviour
     {
         if (!selected)
         {
-            
+
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (InputManager.leftClickInput)
         {
             selected = false;
         }
@@ -46,7 +46,7 @@ public class Card : MonoBehaviour
             Debug.Log("selectionner");
             if (manager.selected != null)
             {
-                if(manager.selected.GetComponent<Card>() != null)
+                if (manager.selected.GetComponent<Card>() != null)
                 {
                     manager.selected.GetComponent<Card>().selected = false;
                     manager.selected.transform.position = manager.originalposSelected;
@@ -57,15 +57,19 @@ public class Card : MonoBehaviour
                     //je vais devoir bouger ce code a manager anyway pour que cette partie marche
                 }
             }
-            if(manager.currentPhase == CardGameManager.Phase.battle)
+            if (manager.currentPhase == CardGameManager.Phase.battle)
             {
                 BattleStartCameraController b = GameObject.FindFirstObjectByType<BattleStartCameraController>();
                 b.SwitchCam();
             }
-            manager.selected = this.gameObject;
-            manager.originalposSelected = this.gameObject.transform.position;
-            transform.position = new Vector3(transform.position.x + 5, transform.position.y + 10, transform.position.z);
-            selected = true;
+            if (Time.deltaTime > 0)
+            {
+                manager.selected = this.gameObject;
+                manager.originalposSelected = this.gameObject.transform.position;
+                transform.position = new Vector3(transform.position.x + 5, transform.position.y + 10, transform.position.z);
+                selected = true;
+            }
+            
         }
     }
 
