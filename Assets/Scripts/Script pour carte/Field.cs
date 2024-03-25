@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Field : MonoBehaviour
 {
-    Vector3 offset = new Vector3(0, 1, 0);
+    Vector3 offset = new Vector3(0, -0.3f, 0.375f);
     public CardGameManager manager;
     [SerializeField] internal Card carteSurField = null;
 
@@ -36,7 +36,7 @@ public class Field : MonoBehaviour
                 carteSurField = manager.selected.GetComponent<Card>(); ;
                 carteSurField.cardonfield = true;
                 manager.playerHand.RemoveCard(carteSurField.gameObject);
-                carteSurField.transform.position = transform.position + offset;
+                carteSurField.transform.position = transform.position + offset;// position de la carte après l'avoir placée
                 manager.selected = null;
 
                 Debug.Log("je suis la");
@@ -119,7 +119,7 @@ public class Field : MonoBehaviour
                                                 if (carteSurField.direction[i] == 9)
                                                 {
                                                     lienTrouver = true;
-                                                    lien.gameObject.SetActive(true);
+                                                    //lien.gameObject.SetActive(true);
                                                     lien.setLienPV();
                                                 }
                                                 break;
@@ -129,7 +129,7 @@ public class Field : MonoBehaviour
                                                 if (carteSurField.direction[i] == 8)
                                                 {
                                                     lienTrouver = true;
-                                                    lien.gameObject.SetActive(true);
+                                                    //lien.gameObject.SetActive(true);
                                                     lien.setLienPV();
                                                 }
                                                 break;
@@ -139,7 +139,7 @@ public class Field : MonoBehaviour
                                                 if (carteSurField.direction[i] == 7)
                                                 {
                                                     lienTrouver = true;
-                                                    lien.gameObject.SetActive(true);
+                                                    //lien.gameObject.SetActive(true);
                                                     lien.setLienPV();
                                                 }
                                                 break;
@@ -169,7 +169,7 @@ public class Field : MonoBehaviour
                                                 if (carteSurField.direction[i] == 3)
                                                 {
                                                     lienTrouver = true;
-                                                    lien.gameObject.SetActive(true);
+                                                    //lien.gameObject.SetActive(true);
                                                     lien.setLienPV();
                                                 }
                                                 break;
@@ -179,7 +179,7 @@ public class Field : MonoBehaviour
                                                 if (carteSurField.direction[i] == 2)
                                                 {
                                                     lienTrouver = true;
-                                                    lien.gameObject.SetActive(true);
+                                                    //lien.gameObject.SetActive(true);
                                                     lien.setLienPV();
                                                 }
                                                 break;
@@ -189,7 +189,7 @@ public class Field : MonoBehaviour
                                                 if (carteSurField.direction[i] == 1)
                                                 {
                                                     lienTrouver = true;
-                                                    lien.gameObject.SetActive(true);
+                                                    //lien.gameObject.SetActive(true);
                                                     lien.setLienPV();
                                                 }
                                                 break;

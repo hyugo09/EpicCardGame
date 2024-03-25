@@ -41,35 +41,36 @@ public class Card : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (cardonfield == false)
+        if (Time.deltaTime > 0)
         {
-            Debug.Log("selectionner");
-            if (manager.selected != null)
+            if (cardonfield == false)
             {
-                if (manager.selected.GetComponent<Card>() != null)
+                Debug.Log("selectionner");
+                if (manager.selected != null)
                 {
-                    manager.selected.GetComponent<Card>().selected = false;
-                    manager.selected.transform.position = manager.originalposSelected;
+                    if (manager.selected.GetComponent<Card>() != null)
+                    {
+                        manager.selected.GetComponent<Card>().selected = false;
+                        manager.selected.transform.position = manager.originalposSelected;
+                    }
+                    else
+                    {
+                        //je sais pas encore donc r pour le moment
+                        //je vais devoir bouger ce code a manager anyway pour que cette partie marche
+                    }
                 }
-                else
+                if (manager.currentPhase == CardGameManager.Phase.battle)
                 {
-                    //je sais pas encore donc r pour le moment
-                    //je vais devoir bouger ce code a manager anyway pour que cette partie marche
+                    BattleStartCameraController b = GameObject.FindFirstObjectByType<BattleStartCameraController>();
+                    b.SwitchCam();
                 }
-            }
-            if (manager.currentPhase == CardGameManager.Phase.battle)
-            {
-                BattleStartCameraController b = GameObject.FindFirstObjectByType<BattleStartCameraController>();
-                b.SwitchCam();
-            }
-            if (Time.deltaTime > 0)
-            {
+
                 manager.selected = this.gameObject;
                 manager.originalposSelected = this.gameObject.transform.position;
-                transform.position = new Vector3(transform.position.x + 5, transform.position.y + 10, transform.position.z);
+                transform.position = new Vector3(transform.position.x, transform.position.y + 8, transform.position.z + 3); //Détermine la position de la carte après l'avoir pris
                 selected = true;
             }
-            
+
         }
     }
 
