@@ -28,7 +28,8 @@ public class CardGameManager : MonoBehaviour
     [SerializeField] internal Deck playerDeck;
     [SerializeField] internal Discard playerDiscard;
     [SerializeField] private CardGameManager EnemyManager;
-   
+    private bool firstTurn = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,16 +39,16 @@ public class CardGameManager : MonoBehaviour
     private void Awake()
     {
         text = button.GetComponentInChildren<TextMeshProUGUI>();
-        text.text = "omegalol";
-    }
-    // Update is called once per frame
-    void Update()
-    {
 
     }
-    private void OnMouseDown()
+
+    public void FirstPhase()
     {
-        ChangeCurrentPhase();
+        DrawCard();
+        DrawCard();
+        DrawCard();
+        DrawCard();
+        DrawCard();
     }
     public void ChangeCurrentPhase()
     {
@@ -83,42 +84,63 @@ public class CardGameManager : MonoBehaviour
     }
     private void ChangeToDraw()
     {
+        if (firstTurn)
+        {
+            FirstPhase();
+        }
+        else
+        {
+            DrawCard();
+        }
         currentPhase = Phase.draw;
-        text.text = "Draw Phase";
-        DrawCard();
+        if (!isAi)
+            text.text = "Draw Phase";
         ChangeCurrentPhase();
     }
     private void ChangeToMain()
     {
 
         currentPhase = Phase.main;
-        text.text = "Main Phase";
+
         if (isAi)
         {
-            text.text = "Ennemie Main";
             Playcard();
             Playcard();
             ChangeCurrentPhase();
         }
+        else
+        {
+            text.text = "Main Phase";
+        }
     }
     private void ChangeToBattle()
     {
+
         currentPhase = Phase.battle;
-        
-        text.text = "battle phase";
-        if (isAi) { AiAttack();
+        if (!isAi)
+            text.text = "battle phase";
+        if (firstTurn)
+        {
+            ChangeCurrentPhase();
+        }
+        if (isAi)
+        {
+            AiAttack();
         }
     }
     private void ChangeToEnd()
     {
         currentPhase = Phase.end;
-        text.text = "End Phase";
+        if (!isAi)
+            text.text = "End Phase";
         enemyGameManager.ChangeCurrentPhase();
         ChangeCurrentPhase();
     }
     private void ChangeToEnnemy()
     {
         currentPhase = Phase.ennemy;
+        if (!isAi)
+            text.text = "Ennemy's turn";
     }
     private void DrawCard()
     {
