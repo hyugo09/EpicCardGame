@@ -53,6 +53,7 @@ public class Lien : MonoBehaviour
                 if (temp != null)
                 {
                     Dommage(temp.attack);
+                    temp.canAttack = false;
                     BattleStartCameraController b = GameObject.FindFirstObjectByType<BattleStartCameraController>();
                     b.SwitchCam();
                 }

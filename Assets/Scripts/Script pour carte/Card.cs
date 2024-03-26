@@ -13,14 +13,14 @@ public class Card : MonoBehaviour
     [SerializeField] internal int attack;
     [SerializeField] internal int defense;
     public bool cardonfield = false;
-    public int[] direction = {3};
+    public int[] direction = { 3 };
     public float width;
 
     // Start is called before the first frame update
     void Start()
     {
         //?????????????? pk
-        width = this.width* this.transform.localScale.x;
+        width = this.width * this.transform.localScale.x;
 
     }
 
@@ -29,10 +29,10 @@ public class Card : MonoBehaviour
     {
         if (!selected)
         {
-            
+
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (InputManager.leftClickInput)
         {
             selected = false;
         }
@@ -42,12 +42,13 @@ public class Card : MonoBehaviour
 
     private void OnMouseDown()
     {
+
         if (cardonfield == false)
         {
             Debug.Log("selectionner");
             if (manager.selected != null)
             {
-                if(manager.selected.GetComponent<Card>() != null)
+                if (manager.selected.GetComponent<Card>() != null)
                 {
                     manager.selected.GetComponent<Card>().selected = false;
                     manager.selected.transform.position = manager.originalposSelected;
@@ -58,12 +59,15 @@ public class Card : MonoBehaviour
                     //je vais devoir bouger ce code a manager anyway pour que cette partie marche
                 }
             }
-            else if(manager.currentPhase == CardGameManager.Phase.main)
+            if (manager.currentPhase == CardGameManager.Phase.battle)
             {
-                transform.position = new Vector3(transform.position.x + 5, transform.position.y + 10, transform.position.z);
+                BattleStartCameraController b = GameObject.FindFirstObjectByType<BattleStartCameraController>();
+                b.SwitchCam();
             }
+
             manager.selected = this.gameObject;
             manager.originalposSelected = this.gameObject.transform.position;
+            transform.position = new Vector3(transform.position.x, transform.position.y + 8, transform.position.z + 3); //Détermine la position de la carte après l'avoir pris
             selected = true;
         }
         else if (manager.currentPhase == CardGameManager.Phase.battle)
@@ -74,6 +78,7 @@ public class Card : MonoBehaviour
             BattleStartCameraController b = GameObject.FindFirstObjectByType<BattleStartCameraController>().GetComponent<BattleStartCameraController>();
             b.SwitchCam();
         }
+
     }
 
     //private void OnMouseDrag()
