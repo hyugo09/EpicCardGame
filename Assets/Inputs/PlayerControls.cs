@@ -76,7 +76,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""name"": ""Escape"",
                     ""type"": ""Value"",
                     ""id"": ""c35f6959-6ca6-452a-9d7f-db79163fb0c5"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -333,24 +333,24 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ""id"": ""0ac60924-df67-42df-ab8b-7ed1b75b67a8"",
             ""actions"": [
                 {
-                    ""name"": ""New action"",
-                    ""type"": ""Button"",
+                    ""name"": ""CliqueGauche"",
+                    ""type"": ""Value"",
                     ""id"": ""ee5b4091-3c59-4ddd-b128-85dec6dcb361"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""5ef98148-5235-4cb2-ae73-927122678cbd"",
-                    ""path"": """",
+                    ""id"": ""bc983461-fb81-4456-8bfe-4b796a7e0d19"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
+                    ""action"": ""CliqueGauche"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -374,7 +374,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Menus = asset.FindActionMap("Menus", throwIfNotFound: true);
         // JeuCartes
         m_JeuCartes = asset.FindActionMap("JeuCartes", throwIfNotFound: true);
-        m_JeuCartes_Newaction = m_JeuCartes.FindAction("New action", throwIfNotFound: true);
+        m_JeuCartes_CliqueGauche = m_JeuCartes.FindAction("CliqueGauche", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -606,12 +606,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     // JeuCartes
     private readonly InputActionMap m_JeuCartes;
     private List<IJeuCartesActions> m_JeuCartesActionsCallbackInterfaces = new List<IJeuCartesActions>();
-    private readonly InputAction m_JeuCartes_Newaction;
+    private readonly InputAction m_JeuCartes_CliqueGauche;
     public struct JeuCartesActions
     {
         private @PlayerControls m_Wrapper;
         public JeuCartesActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Newaction => m_Wrapper.m_JeuCartes_Newaction;
+        public InputAction @CliqueGauche => m_Wrapper.m_JeuCartes_CliqueGauche;
         public InputActionMap Get() { return m_Wrapper.m_JeuCartes; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -621,16 +621,16 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_JeuCartesActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_JeuCartesActionsCallbackInterfaces.Add(instance);
-            @Newaction.started += instance.OnNewaction;
-            @Newaction.performed += instance.OnNewaction;
-            @Newaction.canceled += instance.OnNewaction;
+            @CliqueGauche.started += instance.OnCliqueGauche;
+            @CliqueGauche.performed += instance.OnCliqueGauche;
+            @CliqueGauche.canceled += instance.OnCliqueGauche;
         }
 
         private void UnregisterCallbacks(IJeuCartesActions instance)
         {
-            @Newaction.started -= instance.OnNewaction;
-            @Newaction.performed -= instance.OnNewaction;
-            @Newaction.canceled -= instance.OnNewaction;
+            @CliqueGauche.started -= instance.OnCliqueGauche;
+            @CliqueGauche.performed -= instance.OnCliqueGauche;
+            @CliqueGauche.canceled -= instance.OnCliqueGauche;
         }
 
         public void RemoveCallbacks(IJeuCartesActions instance)
@@ -666,6 +666,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     }
     public interface IJeuCartesActions
     {
-        void OnNewaction(InputAction.CallbackContext context);
+        void OnCliqueGauche(InputAction.CallbackContext context);
     }
 }

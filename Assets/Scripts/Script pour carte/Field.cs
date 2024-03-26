@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class Field : MonoBehaviour
 {
-    Vector3 offset = new Vector3(0, 1, 0);
+    Vector3 offset = new Vector3(0, -0.3f, 0.375f);
     public CardGameManager manager;
-    [SerializeField]internal Card carteSurField = null;
-    
+    [SerializeField] internal Card carteSurField = null;
+
     bool selected = false;
     public List<GameObject> listOfChildren;
     [SerializeField] private Material directionMaterial;
@@ -28,15 +28,40 @@ public class Field : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        Debug.Log("selectionner");
-        if (manager.selected != null && manager.selected.GetComponent<Card>() != null)
+        if (Time.deltaTime > 0)
         {
-            JouerCarte(manager.selected);
+            Debug.Log("selectionner");
+            if (manager.selected != null && manager.selected.GetComponent<Card>() != null)
+            {
+                carteSurField = manager.selected.GetComponent<Card>(); ;
+                carteSurField.cardonfield = true;
+                manager.playerHand.RemoveCard(carteSurField.gameObject);
+                carteSurField.transform.position = transform.position + offset;// position de la carte après l'avoir placée
+                manager.selected = null;
 
-           
+                Debug.Log("je suis la");
+
+                foreach (GameObject child in listOfChildren)
+                {
+                    int i = 0;
+                    while (i < carteSurField.direction.Length)
+                    {
+                        if (child.name == carteSurField.direction[i].ToString())
+                        {
+                            MeshRenderer temp = child.GetComponent<MeshRenderer>();
+                            temp.material = directionMaterial;
+
+                        }
+                        i++;
+                    }
+                }
+
+                VerificationLien(true);
 
 
+            }
         }
+
 
 
     }
@@ -65,127 +90,127 @@ public class Field : MonoBehaviour
                 {
                     if (position != 2 || position != 5 || position != 8)
                     {
-                        
 
-                            if (lien.gameObject.name == $"{position}-{carteSurField.direction[i]}")
+
+                        if (lien.gameObject.name == $"{position}-{carteSurField.direction[i]}")
+                        {
+                            Field field = null;
+                            lienTrouver = true;
+                            if (lien.field1 == this)
                             {
-                                Field field = null;
-                                lienTrouver = true;
-                                if (lien.field1 == this)
+                                field = lien.field2;
+                            }
+                            else if (lien.field2 == this)
+                            {
+                                field = lien.field1;
+                            }
+                            else
+                            {
+                                break;
+                            }
+                            if (field.carteSurField != null)
+                            {
+                                for (int j = 0; j < field.carteSurField.direction.Length; j++)
                                 {
-                                    field = lien.field2;
-                                }
-                                else if (lien.field2 == this)
-                                {
-                                    field = lien.field1;
-                                }
-                                else
-                                {
-                                    break;
-                                }
-                                if (field.carteSurField != null)
-                                {
-                                    for (int j = 0; j < field.carteSurField.direction.Length; j++)
+                                    switch (field.carteSurField.direction[j])
                                     {
-                                        switch (field.carteSurField.direction[j])
-                                        {
-                                            case 1:
+                                        case 1:
+                                            {
+                                                if (carteSurField.direction[i] == 9)
                                                 {
-                                                    if (carteSurField.direction[i] == 9)
-                                                    {
-                                                        lienTrouver = true;
-                                                        lien.gameObject.SetActive(true);
-                                                        lien.setLienPV();
-                                                    }
-                                                    break;
+                                                    lienTrouver = true;
+                                                    //lien.gameObject.SetActive(true);
+                                                    lien.setLienPV();
                                                 }
-                                            case 2:
+                                                break;
+                                            }
+                                        case 2:
+                                            {
+                                                if (carteSurField.direction[i] == 8)
                                                 {
-                                                    if (carteSurField.direction[i] == 8)
-                                                    {
-                                                        lienTrouver = true;
-                                                        lien.gameObject.SetActive(true);
-                                                        lien.setLienPV();
-                                                    }
-                                                    break;
+                                                    lienTrouver = true;
+                                                    //lien.gameObject.SetActive(true);
+                                                    lien.setLienPV();
                                                 }
-                                            case 3:
+                                                break;
+                                            }
+                                        case 3:
+                                            {
+                                                if (carteSurField.direction[i] == 7)
                                                 {
-                                                    if (carteSurField.direction[i] == 7)
-                                                    {
-                                                        lienTrouver = true;
-                                                        lien.gameObject.SetActive(true);
-                                                        lien.setLienPV();
-                                                    }
-                                                    break;
+                                                    lienTrouver = true;
+                                                    //lien.gameObject.SetActive(true);
+                                                    lien.setLienPV();
                                                 }
-                                            case 4:
+                                                break;
+                                            }
+                                        case 4:
+                                            {
+                                                if (carteSurField.direction[i] == 6)
                                                 {
-                                                    if (carteSurField.direction[i] == 6)
-                                                    {
-                                                        lienTrouver = true;
-                                                        //lien.gameObject.SetActive(true);
-                                                        lien.setLienPV();
-                                                    }
-                                                    break;
+                                                    lienTrouver = true;
+                                                    //lien.gameObject.SetActive(true);
+                                                    lien.setLienPV();
                                                 }
-                                            case 6:
+                                                break;
+                                            }
+                                        case 6:
+                                            {
+                                                if (carteSurField.direction[i] == 4)
                                                 {
-                                                    if (carteSurField.direction[i] == 4)
-                                                    {
-                                                        lienTrouver = true;
-                                                        //lien.gameObject.SetActive(true);
-                                                        lien.setLienPV();
-                                                    }
-                                                    break;
+                                                    lienTrouver = true;
+                                                    //lien.gameObject.SetActive(true);
+                                                    lien.setLienPV();
                                                 }
-                                            case 7:
+                                                break;
+                                            }
+                                        case 7:
+                                            {
+                                                if (carteSurField.direction[i] == 3)
                                                 {
-                                                    if (carteSurField.direction[i] == 3)
-                                                    {
-                                                        lienTrouver = true;
-                                                        lien.gameObject.SetActive(true);
-                                                        lien.setLienPV();
-                                                    }
-                                                    break;
+                                                    lienTrouver = true;
+                                                    //lien.gameObject.SetActive(true);
+                                                    lien.setLienPV();
                                                 }
-                                            case 8:
+                                                break;
+                                            }
+                                        case 8:
+                                            {
+                                                if (carteSurField.direction[i] == 2)
                                                 {
-                                                    if (carteSurField.direction[i] == 2)
-                                                    {
-                                                        lienTrouver = true;
-                                                        lien.gameObject.SetActive(true);
-                                                        lien.setLienPV();
-                                                    }
-                                                    break;
+                                                    lienTrouver = true;
+                                                    //lien.gameObject.SetActive(true);
+                                                    lien.setLienPV();
                                                 }
-                                            case 9:
+                                                break;
+                                            }
+                                        case 9:
+                                            {
+                                                if (carteSurField.direction[i] == 1)
                                                 {
-                                                    if (carteSurField.direction[i] == 1)
-                                                    {
-                                                        lienTrouver = true;
-                                                        lien.gameObject.SetActive(true);
-                                                        lien.setLienPV();
-                                                    }
-                                                    break;
+                                                    lienTrouver = true;
+                                                    //lien.gameObject.SetActive(true);
+                                                    lien.setLienPV();
                                                 }
-                                            default:
-                                                {
-                                                    Debug.Log("recherche lien echouer");
-                                                    break;
-                                                }
-                                        }
+                                                break;
+                                            }
+                                        default:
+                                            {
+                                                Debug.Log("recherche lien echouer");
+                                                break;
+                                            }
                                     }
                                 }
                             }
-                            // apres if (lien.gameObject.name == $"{position}-{carteSurField.direction[i]}") 
-                       
+                        }
+                        // apres if (lien.gameObject.name == $"{position}-{carteSurField.direction[i]}") 
+
                     }
                     else if (carteSurField.direction[i] == 2 || carteSurField.direction[i] == 8)
                     {
 
                     }
-                   
+
                 }
                 //apres for i
                 if (lienTrouver == false && repeat)
@@ -219,33 +244,30 @@ public class Field : MonoBehaviour
     }
     public void JouerCarte(GameObject go)
     {
-        carteSurField = go.GetComponent<Card>();
-        if (carteSurField.cardonfield == false)
+        carteSurField = go.GetComponent<Card>(); ;
+        carteSurField.cardonfield = true;
+        manager.playerHand.RemoveCard(carteSurField.gameObject);
+        manager.selected = null;
+        carteSurField.transform.position = transform.position + offset;
+
+
+        Debug.Log("je suis la");
+
+        foreach (GameObject child in listOfChildren)
         {
-            carteSurField.cardonfield = true;
-            manager.playerHand.RemoveCard(carteSurField.gameObject);
-            manager.selected = null;
-            carteSurField.transform.position = transform.position + offset;
-
-
-            Debug.Log("je suis la");
-
-            foreach (GameObject child in listOfChildren)
+            int i = 0;
+            while (i < carteSurField.direction.Length)
             {
-                int i = 0;
-                while (i < carteSurField.direction.Length)
+                if (child.name == carteSurField.direction[i].ToString())
                 {
-                    if (child.name == carteSurField.direction[i].ToString())
-                    {
-                        MeshRenderer temp = child.GetComponent<MeshRenderer>();
-                        temp.material = directionMaterial;
+                    MeshRenderer temp = child.GetComponent<MeshRenderer>();
+                    temp.material = directionMaterial;
 
-                    }
-                    i++;
                 }
+                i++;
             }
-
-            VerificationLien(true);
         }
+
+        VerificationLien(true);
     }
 }
