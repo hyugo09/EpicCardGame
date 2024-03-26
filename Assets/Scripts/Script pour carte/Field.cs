@@ -31,30 +31,9 @@ public class Field : MonoBehaviour
         Debug.Log("selectionner");
         if (manager.selected != null && manager.selected.GetComponent<Card>() != null)
         {
-            carteSurField = manager.selected.GetComponent<Card>(); ;
-            carteSurField.cardonfield = true;
-            manager.playerHand.RemoveCard(carteSurField.gameObject);
-            carteSurField.transform.position = transform.position + offset;
-            manager.selected = null;
+            JouerCarte(manager.selected);
 
-            Debug.Log("je suis la");
-
-            foreach (GameObject child in listOfChildren)
-            {
-                int i = 0;
-                while (i < carteSurField.direction.Length)
-                {
-                    if (child.name == carteSurField.direction[i].ToString())
-                    {
-                        MeshRenderer temp = child.GetComponent<MeshRenderer>();
-                        temp.material = directionMaterial;
-
-                    }
-                    i++;
-                }
-            }
-
-            VerificationLien(true);
+           
 
 
         }
@@ -240,29 +219,33 @@ public class Field : MonoBehaviour
     }
     public void JouerCarte(GameObject go)
     {
-        carteSurField = go.GetComponent<Card>(); ;
-        carteSurField.cardonfield = true;
-        manager.playerHand.RemoveCard(carteSurField.gameObject);
-        carteSurField.transform.position = transform.position + offset;
-        
-
-        Debug.Log("je suis la");
-
-        foreach (GameObject child in listOfChildren)
+        carteSurField = go.GetComponent<Card>();
+        if (carteSurField.cardonfield == false)
         {
-            int i = 0;
-            while (i < carteSurField.direction.Length)
+            carteSurField.cardonfield = true;
+            manager.playerHand.RemoveCard(carteSurField.gameObject);
+            manager.selected = null;
+            carteSurField.transform.position = transform.position + offset;
+
+
+            Debug.Log("je suis la");
+
+            foreach (GameObject child in listOfChildren)
             {
-                if (child.name == carteSurField.direction[i].ToString())
+                int i = 0;
+                while (i < carteSurField.direction.Length)
                 {
-                    MeshRenderer temp = child.GetComponent<MeshRenderer>();
-                    temp.material = directionMaterial;
+                    if (child.name == carteSurField.direction[i].ToString())
+                    {
+                        MeshRenderer temp = child.GetComponent<MeshRenderer>();
+                        temp.material = directionMaterial;
 
+                    }
+                    i++;
                 }
-                i++;
             }
-        }
 
-        VerificationLien(true);
+            VerificationLien(true);
+        }
     }
 }

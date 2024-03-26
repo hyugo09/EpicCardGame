@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class CardGameManager : MonoBehaviour
 {
+    public UnityEvent DrawPhase;
+    public UnityEvent MainPhase;
+    public UnityEvent BattlePhase;
+    public UnityEvent EndPhase;
     internal enum Phase
     {
         draw,
@@ -22,18 +27,23 @@ public class CardGameManager : MonoBehaviour
     internal Vector3 originalposSelected;
     [SerializeField] internal main playerHand;
     public CardGameManager enemyGameManager;
+    public Card Core;
+    internal int corePos = 5;
     public bool isAi;
     [SerializeField] Lien[] allLink;
-    [SerializeField] Field[] allField;
+    [SerializeField] internal Field[] allField ;
     [SerializeField] internal Deck playerDeck;
     [SerializeField] internal Discard playerDiscard;
     [SerializeField] private CardGameManager EnemyManager;
-   
+    
     // Start is called before the first frame update
     void Start()
     {
         CardData datat = FindFirstObjectByType(typeof(CardData)).GetComponent<CardData>();
         playerDeck.ShuffleDeck(datat.tempd);
+
+        allField[corePos-1].JouerCarte(Core.gameObject);
+
     }
     private void Awake()
     {
@@ -90,24 +100,25 @@ public class CardGameManager : MonoBehaviour
     }
     private void ChangeToMain()
     {
-
+        
         currentPhase = Phase.main;
-        text.text = "Main Phase";
-        if (isAi)
+        if (text != null)
         {
-            text.text = "Ennemie Main";
-            Playcard();
-            Playcard();
-            ChangeCurrentPhase();
+            text.text = "Main Phase";
         }
+        MainPhase.Invoke();
+        
     }
     private void ChangeToBattle()
     {
         currentPhase = Phase.battle;
-        
-        text.text = "battle phase";
-        if (isAi) { AiAttack();
+        if (text != null)
+        {
+            text.text = "battle phase";
         }
+        BattlePhase.Invoke();
+        
+        
     }
     private void ChangeToEnd()
     {
@@ -134,51 +145,8 @@ public class CardGameManager : MonoBehaviour
     {
 
     }
-    private void Playcard()
-    {
-
-
-        if (playerHand.cards.Count > 0)
-        {
-            GameObject temp = playerHand.cards[Random.Range(0, playerHand.cards.Count)];
-            if (temp != null)
-            {
-                Field ftemp = allField[Random.Range(0, allField.Length)];
-                if (ftemp.carteSurField == null)// ajouter la condition pour voir si c jouable
-                {
-                    //choisir un field et faire passer le meme truc de mouse down
-
-                    ftemp.JouerCarte(temp);
-
-                }
-                else
-                {
-                    Playcard();
-                }
-            }
-
-
-        }
-    }
-    private void AiAttack()
-    {
-
-        for (int i = 0; i < allField.Length; i++)
-        {
-            if (allField[i].carteSurField != null && allField[i].carteSurField.canAttack)
-            {
-                Card temp = allField[i].carteSurField;
-                for (int j = 0; j < allField[i].liens.Length; j++)
-                {
-                    if (allField[i].liens[j].active)
-                    {
-                        allField[i].liens[j].Dommage(temp.attack);
-                        break;
-                    }
-                }
-            }
-        }
-    }
+    
+   
     private void CardAttackReset()
     {
         foreach (Field f in allField)
