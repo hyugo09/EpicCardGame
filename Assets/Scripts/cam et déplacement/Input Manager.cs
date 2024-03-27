@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.Rendering.LookDev;
+//using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.InputSystem;
@@ -14,6 +14,7 @@ public class InputManager : MonoBehaviour
 {
     Rigidbody rb;
     PlayerControls controls;
+    GameManager gameManager;
 
     public static Vector2 mouvementInput;
     public static Vector2 tournerInput;
@@ -23,6 +24,7 @@ public class InputManager : MonoBehaviour
 
     public static bool interactionInput = false;
     public static bool escapeInput = false;
+    public static bool leftClickInput = false;
 
 
 
@@ -43,6 +45,7 @@ public class InputManager : MonoBehaviour
         controls.Player.Tourner.performed += Tourner;
         controls.Player.Tourner.canceled += Tourner;
 
+
         controls.Player.Viser.performed += ctx => isAimingInput = true;
         controls.Player.Viser.canceled += ctx => isAimingInput = false;
 
@@ -54,8 +57,21 @@ public class InputManager : MonoBehaviour
         controls.Player.InteractionNPC.canceled += ctx => interactionInput = false;
 
         //Escape (Menu)
-        controls.Player.Escape.performed += ctx => escapeInput = true;
+        controls.Player.Escape.started += ctx => escapeInput = true;
         controls.Player.Escape.canceled += ctx => escapeInput = false;
+
+        //Clique gauche(carte)
+        controls.JeuCartes.CliqueGauche.performed += ctx => leftClickInput = true;
+        controls.JeuCartes.CliqueGauche.canceled += ctx => leftClickInput = false;
+
+        //if (controls.Player.Escape.phase == InputActionPhase.Started && !gameManager.isPaused)
+        //{
+        //    controls.Player.Escape.canceled += ctx => escapeInput = true;
+        //}
+        //else
+        //{
+        //    controls.Player.Escape.canceled += ctx => escapeInput = false;
+        //}
 
 
 
@@ -96,6 +112,7 @@ public class InputManager : MonoBehaviour
     {
         tournerInput = ctx.ReadValue<Vector2>();
     }
+
     //public void OnJump(InputAction.CallbackContext ctx)
     //{
 

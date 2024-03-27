@@ -1,14 +1,17 @@
 using Cinemachine;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public GameObject pauseUI;
-    
-    private void Update()
+    Scene currentScene;
+
+    private void FixedUpdate()
     {
+        currentScene = SceneManager.GetActiveScene();
         if (InputManager.escapeInput)
         {
             TogglePause();
@@ -32,9 +35,18 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
         pauseUI.SetActive(false);
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
 
+        switch (currentScene.name) //switch pour gérer le curseur lorsqu'on résume la partie
+        {
+            case "Scene test":
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                break;
+            case "CardFieldScene":
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                break;         
+        }
     }
 
     public void PauseGame()
