@@ -12,7 +12,7 @@ public class Lien : MonoBehaviour
 
     private int PV;
     private int currentPV = 0;
-    internal bool active = true;
+    internal bool active = false;
     private void Awake()
     {
         text = GetComponent<TextMeshPro>();
@@ -29,11 +29,14 @@ public class Lien : MonoBehaviour
                 PV = field1.carteSurField.defense + field2.carteSurField.defense;
                 currentPV += PV - temp;
             }
+            
             else
             {
                 PV = field1.carteSurField.defense + field2.carteSurField.defense;
                 currentPV = PV;
-            }  
+                active = true;
+            }
+
         }
         SetLienText();
     }

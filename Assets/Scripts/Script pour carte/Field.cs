@@ -28,6 +28,7 @@ public class Field : MonoBehaviour
     }
     private void OnMouseDown()
     {
+       
         Debug.Log("selectionner");
         if (manager.selected != null && manager.selected.GetComponent<Card>() != null && manager.currentPhase == CardGameManager.Phase.main)
         {
@@ -37,8 +38,9 @@ public class Field : MonoBehaviour
                 carteSurField = manager.selected.GetComponent<Card>(); ;
                 carteSurField.cardonfield = true;
                 manager.playerHand.RemoveCard(carteSurField.gameObject);
-                carteSurField.transform.position = transform.position + offset;// position de la carte après l'avoir placée
                 manager.selected = null;
+                carteSurField.transform.position = transform.position + offset;
+
 
                 Debug.Log("je suis la");
 
@@ -58,7 +60,6 @@ public class Field : MonoBehaviour
                 }
 
                 VerificationLien(true);
-
 
             }
         }
@@ -277,4 +278,6 @@ public class Field : MonoBehaviour
 
         VerificationLien(true);
     }
+
+    
 }
