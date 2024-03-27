@@ -25,18 +25,19 @@ public class RandomAi : MonoBehaviour
             GameObject temp = gameManager.playerHand.cards[Random.Range(0, gameManager.playerHand.cards.Count)];
             if (temp != null)
             {
-                Field ftemp = gameManager.allField[Random.Range(0, gameManager.allField.Length)];
-                if (ftemp.carteSurField == null)// ajouter la condition pour voir si c jouable
+                bool reussi = false;
+                while(reussi == false)
                 {
-                    //choisir un field et faire passer le meme truc de mouse down
+                    Field ftemp = gameManager.allField[Random.Range(0, gameManager.allField.Length)];
+                    if (ftemp.carteSurField == null)// ajouter la condition pour voir si c jouable
+                    {
+                        //choisir un field et faire passer le meme truc de mouse down
 
-                    ftemp.JouerCarte(temp);
-
+                        ftemp.JouerCarte(temp.GetComponent<Card>());
+                        reussi = true;
+                    }
                 }
-                else
-                {
-                    Playcard();
-                }
+                
             }
 
 

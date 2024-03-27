@@ -50,7 +50,7 @@ public class CardGameManager : MonoBehaviour
             playerDeck.ShuffleDeck(datat.tempPlayer);
             Core = datat.tPlayerCore;
         }
-        
+       
 
     }
     private void Awake()
@@ -66,7 +66,7 @@ public class CardGameManager : MonoBehaviour
         DrawCard();
         DrawCard();
         DrawCard();
-        allField[corePos - 1].JouerCarte(Core.gameObject);
+
 
     }
     public void ChangeCurrentPhase()
@@ -161,6 +161,10 @@ public class CardGameManager : MonoBehaviour
     }
     private void ChangeToEnd()
     {
+        if (firstTurn)
+        {
+            firstTurn = false;
+        }
         currentPhase = Phase.end;
         if (!isAi)
             text.text = "End Phase";
