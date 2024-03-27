@@ -19,6 +19,7 @@ public class Card : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //?????????????? pk
         width = this.width * this.transform.localScale.x;
 
     }
@@ -41,37 +42,43 @@ public class Card : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (Time.deltaTime > 0)
-        {
-            if (cardonfield == false)
-            {
-                Debug.Log("selectionner");
-                if (manager.selected != null)
-                {
-                    if (manager.selected.GetComponent<Card>() != null)
-                    {
-                        manager.selected.GetComponent<Card>().selected = false;
-                        manager.selected.transform.position = manager.originalposSelected;
-                    }
-                    else
-                    {
-                        //je sais pas encore donc r pour le moment
-                        //je vais devoir bouger ce code a manager anyway pour que cette partie marche
-                    }
-                }
-                if (manager.currentPhase == CardGameManager.Phase.battle)
-                {
-                    BattleStartCameraController b = GameObject.FindFirstObjectByType<BattleStartCameraController>();
-                    b.SwitchCam();
-                }
 
-                manager.selected = this.gameObject;
-                manager.originalposSelected = this.gameObject.transform.position;
-                transform.position = new Vector3(transform.position.x, transform.position.y + 8, transform.position.z + 3); //Détermine la position de la carte après l'avoir pris
-                selected = true;
+        if (cardonfield == false)
+        {
+            Debug.Log("selectionner");
+            if (manager.selected != null)
+            {
+                if (manager.selected.GetComponent<Card>() != null)
+                {
+                    manager.selected.GetComponent<Card>().selected = false;
+                    manager.selected.transform.position = manager.originalposSelected;
+                }
+                else
+                {
+                    //je sais pas encore donc r pour le moment
+                    //je vais devoir bouger ce code a manager anyway pour que cette partie marche
+                }
+            }
+            if (manager.currentPhase == CardGameManager.Phase.battle)
+            {
+                BattleStartCameraController b = GameObject.FindFirstObjectByType<BattleStartCameraController>();
+                b.SwitchCam();
             }
 
+            manager.selected = this.gameObject;
+            manager.originalposSelected = this.gameObject.transform.position;
+            transform.position = new Vector3(transform.position.x, transform.position.y + 8, transform.position.z + 3); //Détermine la position de la carte après l'avoir pris
+            selected = true;
         }
+        else if (manager.currentPhase == CardGameManager.Phase.battle)
+        {
+            manager.selected = this.gameObject;
+            manager.originalposSelected = this.gameObject.transform.position;
+            selected = true;
+            BattleStartCameraController b = GameObject.FindFirstObjectByType<BattleStartCameraController>().GetComponent<BattleStartCameraController>();
+            b.SwitchCam();
+        }
+
     }
 
     //private void OnMouseDrag()

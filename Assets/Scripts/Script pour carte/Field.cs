@@ -28,7 +28,8 @@ public class Field : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (Time.deltaTime > 0)
+        Debug.Log("selectionner");
+        if (manager.selected != null && manager.selected.GetComponent<Card>() != null && manager.currentPhase == CardGameManager.Phase.main)
         {
             Debug.Log("selectionner");
             if (manager.selected != null && manager.selected.GetComponent<Card>() != null)
@@ -60,6 +61,12 @@ public class Field : MonoBehaviour
 
 
             }
+        }
+        else if(manager.currentPhase == CardGameManager.Phase.battle)
+        {
+            manager.selected = carteSurField.gameObject;
+            BattleStartCameraController b = GameObject.FindFirstObjectByType<BattleStartCameraController>().GetComponent<BattleStartCameraController>();
+            b.SwitchCam();
         }
 
 
