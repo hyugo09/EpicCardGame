@@ -42,7 +42,6 @@ public class CardGameManager : MonoBehaviour
         CardData datat = FindFirstObjectByType(typeof(CardData)).GetComponent<CardData>();
         playerDeck.ShuffleDeck(datat.tempd);
 
-        allField[corePos-1].JouerCarte(Core.gameObject);
 
     }
     private void Awake()
@@ -152,6 +151,10 @@ public class CardGameManager : MonoBehaviour
     }
     private void ChangeToEnd()
     {
+        if (firstTurn)
+        {
+            firstTurn = false;
+        }
         currentPhase = Phase.end;
         if (!isAi)
             text.text = "End Phase";

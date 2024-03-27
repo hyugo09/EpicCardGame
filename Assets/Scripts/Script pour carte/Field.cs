@@ -87,19 +87,19 @@ public class Field : MonoBehaviour
         }
     }
 
-    private void VerificationLien(bool repeat)
+    private bool VerificationLien(bool repeat, Card Carte = null)
     {
         bool lienTrouver = false;
-        if (carteSurField != null)
+        if (Carte != null)
             foreach (Lien lien in liens)
             {
-                for (int i = 0; i < carteSurField.direction.Length; i++)
+                for (int i = 0; i < Carte.direction.Length; i++)
                 {
                     if (position != 2 || position != 5 || position != 8)
                     {
 
 
-                        if (lien.gameObject.name == $"{position}-{carteSurField.direction[i]}")
+                        if (lien.gameObject.name == $"{position}-{Carte.direction[i]}")
                         {
                             Field field = null;
                             lienTrouver = true;
@@ -123,7 +123,7 @@ public class Field : MonoBehaviour
                                     {
                                         case 1:
                                             {
-                                                if (carteSurField.direction[i] == 9)
+                                                if (Carte.direction[i] == 9)
                                                 {
                                                     lienTrouver = true;
                                                     //lien.gameObject.SetActive(true);
@@ -133,7 +133,7 @@ public class Field : MonoBehaviour
                                             }
                                         case 2:
                                             {
-                                                if (carteSurField.direction[i] == 8)
+                                                if (Carte.direction[i] == 8)
                                                 {
                                                     lienTrouver = true;
                                                     //lien.gameObject.SetActive(true);
@@ -143,7 +143,7 @@ public class Field : MonoBehaviour
                                             }
                                         case 3:
                                             {
-                                                if (carteSurField.direction[i] == 7)
+                                                if (Carte.direction[i] == 7)
                                                 {
                                                     lienTrouver = true;
                                                     //lien.gameObject.SetActive(true);
@@ -153,7 +153,7 @@ public class Field : MonoBehaviour
                                             }
                                         case 4:
                                             {
-                                                if (carteSurField.direction[i] == 6)
+                                                if (Carte.direction[i] == 6)
                                                 {
                                                     lienTrouver = true;
                                                     //lien.gameObject.SetActive(true);
@@ -163,7 +163,7 @@ public class Field : MonoBehaviour
                                             }
                                         case 6:
                                             {
-                                                if (carteSurField.direction[i] == 4)
+                                                if (Carte.direction[i] == 4)
                                                 {
                                                     lienTrouver = true;
                                                     //lien.gameObject.SetActive(true);
@@ -173,7 +173,7 @@ public class Field : MonoBehaviour
                                             }
                                         case 7:
                                             {
-                                                if (carteSurField.direction[i] == 3)
+                                                if (Carte.direction[i] == 3)
                                                 {
                                                     lienTrouver = true;
                                                     //lien.gameObject.SetActive(true);
@@ -183,7 +183,7 @@ public class Field : MonoBehaviour
                                             }
                                         case 8:
                                             {
-                                                if (carteSurField.direction[i] == 2)
+                                                if (Carte.direction[i] == 2)
                                                 {
                                                     lienTrouver = true;
                                                     //lien.gameObject.SetActive(true);
@@ -193,7 +193,7 @@ public class Field : MonoBehaviour
                                             }
                                         case 9:
                                             {
-                                                if (carteSurField.direction[i] == 1)
+                                                if (Carte.direction[i] == 1)
                                                 {
                                                     lienTrouver = true;
                                                     //lien.gameObject.SetActive(true);
@@ -210,10 +210,10 @@ public class Field : MonoBehaviour
                                 }
                             }
                         }
-                        // apres if (lien.gameObject.name == $"{position}-{carteSurField.direction[i]}") 
+                        // apres if (lien.gameObject.name == $"{position}-{Carte.direction[i]}") 
 
                     }
-                    else if (carteSurField.direction[i] == 2 || carteSurField.direction[i] == 8)
+                    else if (Carte.direction[i] == 2 || Carte.direction[i] == 8)
                     {
 
                     }
@@ -234,47 +234,44 @@ public class Field : MonoBehaviour
                     }
                     else
                     {
-                        break;
+                        return lienTrouver;
                     }
 
                     if (field != null)
                     {
-                        field.VerificationLien(false);
+                        carteSurField = Carte;
+                        return field.VerificationLien(false, field.carteSurField);
                     }
                 }
 
-
-
             }
-
+        return lienTrouver;
 
     }
-    public void JouerCarte(GameObject go)
+    public void JouerCarte(Card carte)
     {
-        carteSurField = go.GetComponent<Card>(); ;
-        carteSurField.cardonfield = true;
-        manager.playerHand.RemoveCard(carteSurField.gameObject);
-        manager.selected = null;
-        carteSurField.transform.position = transform.position + offset;
-
-
-        Debug.Log("je suis la");
-
-        foreach (GameObject child in listOfChildren)
+        if (VerificationLien(true, carte))
         {
-            int i = 0;
-            while (i < carteSurField.direction.Length)
-            {
-                if (child.name == carteSurField.direction[i].ToString())
-                {
-                    MeshRenderer temp = child.GetComponent<MeshRenderer>();
-                    temp.material = directionMaterial;
+            carteSurField = carte;
+            carteSurField.cardonfield = true;
+            manager.playerHand.RemoveCard(carteSurField.gameObject);
+            manager.selected = null;
+            carteSurField.transform.position = transform.position + offset;
 
+            foreach (GameObject child in listOfChildren)
+            {
+                int i = 0;
+                while (i < carteSurField.direction.Length)
+                {
+                    if (child.name == carteSurField.direction[i].ToString())
+                    {
+                        MeshRenderer temp = child.GetComponent<MeshRenderer>();
+                        temp.material = directionMaterial;
+
+                    }
+                    i++;
                 }
-                i++;
             }
         }
-
-        VerificationLien(true);
     }
 }
