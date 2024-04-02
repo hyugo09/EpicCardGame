@@ -138,7 +138,7 @@ PrefabInstance:
     - target: {fileID: 1800432127756886132, guid: cd9105db08385364c834cbd6814d9b2f, type: 3}
       propertyPath: manager
       value: 
-      objectReference: {fileID: 1047972675}
+      objectReference: {fileID: 1047972677}
     - target: {fileID: 1800432127756886132, guid: cd9105db08385364c834cbd6814d9b2f, type: 3}
       propertyPath: position
       value: 3
@@ -429,7 +429,7 @@ PrefabInstance:
     - target: {fileID: 1800432127756886132, guid: cd9105db08385364c834cbd6814d9b2f, type: 3}
       propertyPath: manager
       value: 
-      objectReference: {fileID: 1047972675}
+      objectReference: {fileID: 1047972677}
     - target: {fileID: 1800432127756886132, guid: cd9105db08385364c834cbd6814d9b2f, type: 3}
       propertyPath: position
       value: 7
@@ -1113,11 +1113,11 @@ PrefabInstance:
     - target: {fileID: 1800432127756886132, guid: cd9105db08385364c834cbd6814d9b2f, type: 3}
       propertyPath: manager
       value: 
-      objectReference: {fileID: 1047972675}
+      objectReference: {fileID: 1047972677}
     - target: {fileID: 1800432127756886132, guid: cd9105db08385364c834cbd6814d9b2f, type: 3}
       propertyPath: carteSurField
       value: 
-      objectReference: {fileID: 1523412491}
+      objectReference: {fileID: 0}
     - target: {fileID: 1800432127756886132, guid: cd9105db08385364c834cbd6814d9b2f, type: 3}
       propertyPath: liens.Array.size
       value: 3
@@ -1238,11 +1238,11 @@ MonoBehaviour:
       m_Calls: []
   button: {fileID: 1879864837}
   text: {fileID: 0}
-  selected: {fileID: 0}
+  selected: {fileID: 1047972674}
   currentPhase: 0
   playerHand: {fileID: 1939740841}
-  enemyGameManager: {fileID: 1047972675}
-  Core: {fileID: 1109705085}
+  enemyGameManager: {fileID: 1047972677}
+  Core: {fileID: 0}
   isAi: 0
   allLink: []
   allField:
@@ -1257,7 +1257,7 @@ MonoBehaviour:
   - {fileID: 836949165}
   playerDeck: {fileID: 955782508}
   playerDiscard: {fileID: 1705193646}
-  EnemyManager: {fileID: 1047972675}
+  EnemyManager: {fileID: 1047972677}
 --- !u!4 &374399208
 Transform:
   m_ObjectHideFlags: 0
@@ -4054,6 +4054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ca7e6e9053e4347b468c1498e527c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deckList: []
 --- !u!1001 &979583867
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4469,7 +4470,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1047972676}
-  - component: {fileID: 1047972675}
+  - component: {fileID: 1047972677}
   m_Layer: 0
   m_Name: CardGameManager
   m_TagString: Untagged
@@ -4477,7 +4478,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1047972675
+--- !u!4 &1047972676
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047972674}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 228743910}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1047972677
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4540,10 +4556,10 @@ MonoBehaviour:
   button: {fileID: 0}
   text: {fileID: 0}
   selected: {fileID: 0}
-  currentPhase: 0
+  currentPhase: 4
   playerHand: {fileID: 1012850442}
   enemyGameManager: {fileID: 374399207}
-  Core: {fileID: 168361682}
+  Core: {fileID: 0}
   isAi: 0
   allLink: []
   allField:
@@ -4559,21 +4575,6 @@ MonoBehaviour:
   playerDeck: {fileID: 1679914806}
   playerDiscard: {fileID: 1327689920}
   EnemyManager: {fileID: 374399207}
---- !u!4 &1047972676
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1047972674}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 228743910}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1060335791
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4711,7 +4712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 032ca0040340a454ba641ccd51a49056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 1047972675}
+  gameManager: {fileID: 1047972677}
 --- !u!4 &1063916182
 Transform:
   m_ObjectHideFlags: 0
@@ -4911,17 +4912,6 @@ Transform:
   - {fileID: 1328709275}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1109705085 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8978594057361221394, guid: 86761e1174e0055498e03f5bd800ba8a, type: 3}
-  m_PrefabInstance: {fileID: 231400031284515777}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bf8a1ebf5e276942b6e59ac1f408744, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1143199199
 GameObject:
   m_ObjectHideFlags: 3
@@ -5120,7 +5110,7 @@ PrefabInstance:
     - target: {fileID: 1800432127756886132, guid: cd9105db08385364c834cbd6814d9b2f, type: 3}
       propertyPath: manager
       value: 
-      objectReference: {fileID: 1047972675}
+      objectReference: {fileID: 1047972677}
     - target: {fileID: 1800432127756886132, guid: cd9105db08385364c834cbd6814d9b2f, type: 3}
       propertyPath: position
       value: 4
@@ -5383,7 +5373,7 @@ PrefabInstance:
     - target: {fileID: 1800432127756886132, guid: cd9105db08385364c834cbd6814d9b2f, type: 3}
       propertyPath: manager
       value: 
-      objectReference: {fileID: 1047972675}
+      objectReference: {fileID: 1047972677}
     - target: {fileID: 1800432127756886132, guid: cd9105db08385364c834cbd6814d9b2f, type: 3}
       propertyPath: position
       value: 2
@@ -5484,7 +5474,7 @@ PrefabInstance:
     - target: {fileID: 1800432127756886132, guid: cd9105db08385364c834cbd6814d9b2f, type: 3}
       propertyPath: manager
       value: 
-      objectReference: {fileID: 1047972675}
+      objectReference: {fileID: 1047972677}
     - target: {fileID: 1800432127756886132, guid: cd9105db08385364c834cbd6814d9b2f, type: 3}
       propertyPath: position
       value: 9
@@ -7721,6 +7711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ca7e6e9053e4347b468c1498e527c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deckList: []
 --- !u!1 &1684247700
 GameObject:
   m_ObjectHideFlags: 3
@@ -9062,7 +9053,7 @@ PrefabInstance:
     - target: {fileID: 1800432127756886132, guid: cd9105db08385364c834cbd6814d9b2f, type: 3}
       propertyPath: manager
       value: 
-      objectReference: {fileID: 1047972675}
+      objectReference: {fileID: 1047972677}
     - target: {fileID: 1800432127756886132, guid: cd9105db08385364c834cbd6814d9b2f, type: 3}
       propertyPath: position
       value: 8
@@ -9489,7 +9480,7 @@ PrefabInstance:
     - target: {fileID: 1800432127756886132, guid: cd9105db08385364c834cbd6814d9b2f, type: 3}
       propertyPath: manager
       value: 
-      objectReference: {fileID: 1047972675}
+      objectReference: {fileID: 1047972677}
     - target: {fileID: 1800432127756886132, guid: cd9105db08385364c834cbd6814d9b2f, type: 3}
       propertyPath: position
       value: 5
@@ -9610,7 +9601,7 @@ PrefabInstance:
     - target: {fileID: 1800432127756886132, guid: cd9105db08385364c834cbd6814d9b2f, type: 3}
       propertyPath: manager
       value: 
-      objectReference: {fileID: 1047972675}
+      objectReference: {fileID: 1047972677}
     - target: {fileID: 1800432127756886132, guid: cd9105db08385364c834cbd6814d9b2f, type: 3}
       propertyPath: position
       value: 6

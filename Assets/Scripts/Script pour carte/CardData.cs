@@ -13,7 +13,7 @@ public class CardData : MonoBehaviour
     private void Awake()
     {
         PlayerInfo playerInfo = FindFirstObjectByType<PlayerInfo>().GetComponent<PlayerInfo>();
-        AiInfo aiInfo = FindAnyObjectByType<AiInfo>().GetComponent<AiInfo>();
+        AiInfo aiInfo = FindFirstObjectByType<AiInfo>().GetComponent<AiInfo>();
         int[] temp = playerInfo.PlayerDeck;
          tempPlayer = new GameObject[temp.Length];
         for (int i = 0; i < temp.Length; i++)
@@ -22,11 +22,11 @@ public class CardData : MonoBehaviour
         }
         tPlayerCore = Database[playerInfo.PlayerCore];
         Instantiate(tPlayerCore);
-         temp = aiInfo.AiDeck;
+        temp = aiInfo.AiDeck;
         tempAi = new GameObject[temp.Length];
         for (int i = 0; i < temp.Length; i++)
         {
-            tempPlayer[i] = Instantiate(Database[temp[i]], new Vector3(0, 0, 0), Quaternion.identity);
+            tempAi[i] = Instantiate(Database[temp[i]], new Vector3(0, 0, 0), Quaternion.identity);
         }
         tAiCore = Database[aiInfo.aiCore];
         Instantiate (tAiCore);

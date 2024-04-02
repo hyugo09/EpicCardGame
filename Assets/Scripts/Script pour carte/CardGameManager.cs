@@ -39,6 +39,12 @@ public class CardGameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+       DoDeck();
+
+    }
+    public void DoDeck()
+    {
         CardData datat = FindFirstObjectByType(typeof(CardData)).GetComponent<CardData>();
         if (isAi)
         {
@@ -50,8 +56,6 @@ public class CardGameManager : MonoBehaviour
             playerDeck.ShuffleDeck(datat.tempPlayer);
             Core = datat.tPlayerCore;
         }
-       
-
     }
     private void Awake()
     {
