@@ -2,16 +2,19 @@ using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Rendering;
 
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera cameraNormale;
     [SerializeField] private CinemachineVirtualCamera cameraViser;
+    [SerializeField] private Camera mainCamera;
 
 
 
     void FixedUpdate()
     {
+        mainCamera.depthTextureMode = DepthTextureMode.DepthNormals;
         if (InputManager.isAimingInput == true)
         {
             cameraNormale.Priority = 1;
