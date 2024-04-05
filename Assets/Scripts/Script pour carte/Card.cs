@@ -19,9 +19,7 @@ public class Card : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //?????????????? pk
         width = this.width * this.transform.localScale.x;
-
     }
 
     // Update is called once per frame
@@ -70,7 +68,7 @@ public class Card : MonoBehaviour
             transform.position = new Vector3(transform.position.x, transform.position.y + 8, transform.position.z + 3); //Détermine la position de la carte après l'avoir pris
             selected = true;
         }
-        else if (manager.currentPhase == CardGameManager.Phase.battle)
+        else if (manager.currentPhase == CardGameManager.Phase.battle && !GetComponent<Core>())
         {
             manager.selected = this.gameObject;
             manager.originalposSelected = this.gameObject.transform.position;
@@ -81,6 +79,11 @@ public class Card : MonoBehaviour
 
     }
 
+    internal void EnvoyerAuCimetiere()
+    {
+        cardonfield = false;
+        manager.playerDiscard.list.Add(this.gameObject);
+    }
     //private void OnMouseDrag()
     //{
     //    Debug.Log("mouse dragging");

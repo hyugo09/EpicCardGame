@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class Deck : MonoBehaviour
 {
-    public Stack<GameObject> deck = new Stack<GameObject>();
+    [SerializeField]public Stack<GameObject> deck = new Stack<GameObject>();
+    public List<GameObject> deckList = new List<GameObject>();
     void Start()
     {
         
@@ -28,6 +29,7 @@ public class Deck : MonoBehaviour
         for (int i = 0;i < initialDeck.Length; i++) 
         {
             deck.Push(initialDeck[i]);
+            deckList.Add(initialDeck[i]);
         }
         PlaceCard();
 
