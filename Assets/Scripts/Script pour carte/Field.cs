@@ -32,8 +32,35 @@ public class Field : MonoBehaviour
         Debug.Log("selectionner");
         if (manager.selected != null && manager.selected.GetComponent<Card>() != null && manager.currentPhase == CardGameManager.Phase.main)
         {
-            Debug.Log("selectionner");
-            if (manager.selected != null && manager.selected.GetComponent<Card>() != null)
+            if (manager.selected.GetComponent<Core>())
+            {
+                Core core = manager.selected.GetComponent<Core>();
+                carteSurField = core.Carte;
+                carteSurField.cardonfield = true;
+                manager.playerHand.RemoveCard(carteSurField.gameObject);
+                manager.selected = null;
+                carteSurField.transform.position = transform.position + offset;
+
+                foreach (GameObject child in listOfChildren)
+                {
+                    if (child.GetComponent<MeshRenderer>())
+                    {
+                        int i = 0;
+                        while (i < carteSurField.direction.Length)
+                        {
+                            if (child.name == carteSurField.direction[i].ToString())
+                            {
+                                MeshRenderer temp = child.GetComponent<MeshRenderer>();
+                                temp.material = directionMaterial;
+
+                            }
+                            i++;
+                        }
+                    }
+                    
+                }
+            }
+            else if (VerEtActivationLien(true, manager.selected.GetComponent<Card>()))
             {
                 carteSurField = manager.selected.GetComponent<Card>(); ;
                 carteSurField.cardonfield = true;
@@ -59,7 +86,7 @@ public class Field : MonoBehaviour
                     }
                 }
 
-                VerificationLien(true);
+                
 
             }
         }
@@ -87,8 +114,18 @@ public class Field : MonoBehaviour
 
         }
     }
-
-    private bool VerificationLien(bool repeat, Card Carte = null)
+    public bool VerificationLien()
+    {
+        foreach(Lien lien in liens)
+        {
+            if (lien.active)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    private bool VerEtActivationLien(bool repeat, Card Carte = null)
     {
         bool lienTrouver = false;
         if (Carte != null)
@@ -241,7 +278,7 @@ public class Field : MonoBehaviour
                     if (field != null)
                     {
                         carteSurField = Carte;
-                        lienTrouver = field.VerificationLien(false, field.carteSurField);
+                        lienTrouver = field.VerEtActivationLien(false, field.carteSurField);
                     }
                 }
 
@@ -251,7 +288,7 @@ public class Field : MonoBehaviour
     }
     public void JouerCarte(Card carte)
     {
-        if (VerificationLien(true, carte))
+        if (VerEtActivationLien(true, carte))
         {
             carteSurField = carte;
             carteSurField.cardonfield = true;

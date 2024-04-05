@@ -19,6 +19,7 @@ public class CardData : MonoBehaviour
         for (int i = 0; i < temp.Length; i++)
         {
             tempPlayer[i] = Instantiate(Database[temp[i]],new Vector3(0,0,0), Quaternion.identity);
+            //tempPlayer[i].GetComponent<Card>().manager = le manager du joueur, doit parler a gameryan
         }
         tPlayerCore = Database[playerInfo.PlayerCore];
         Instantiate(tPlayerCore);

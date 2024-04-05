@@ -30,8 +30,7 @@ public class CardGameManager : MonoBehaviour
     public GameObject Core;
     internal int corePos = 5;
     public bool isAi;
-    [SerializeField] Lien[] allLink;
-    [SerializeField] internal Field[] allField ;
+    [SerializeField] internal Field[] allField;
     [SerializeField] internal Deck playerDeck;
     [SerializeField] internal Discard playerDiscard;
     [SerializeField] private CardGameManager EnemyManager;
@@ -39,7 +38,6 @@ public class CardGameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
        DoDeck();
 
     }
@@ -191,12 +189,11 @@ public class CardGameManager : MonoBehaviour
             playerHand.cards.Add(playerDeck.deck.Pop());
 
     }
-    private void LoseGame()
+    internal void LoseGame()
     {
+        //rappelle de faire un game over, probablement besoin d'un report pour aller dans l'autre scenen aussi
         Debug.Log("un joueur a perdu");
     }
-    
-   
     private void CardAttackReset()
     {
         foreach (Field f in allField)

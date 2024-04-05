@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class Core : MonoBehaviour
 {
-    public int[] direction = { 3 };
-    public int position = 5;
+    internal Card Carte;
+    internal Lien Lien;
+    internal Field Field;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Carte = GetComponent<Card>();
+        Lien = GetComponent<Lien>();
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

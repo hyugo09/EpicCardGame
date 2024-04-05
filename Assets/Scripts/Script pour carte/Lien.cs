@@ -55,10 +55,46 @@ public class Lien : MonoBehaviour
                 Card temp = field1.manager.enemyGameManager.selected.GetComponent<Card>();
                 if (temp != null)
                 {
-                    Dommage(temp.attack);
-                    temp.canAttack = false;
-                    BattleStartCameraController b = GameObject.FindFirstObjectByType<BattleStartCameraController>();
-                    b.SwitchCam();
+                    if (!GetComponent<Core>())
+                    {
+                        Dommage(temp.attack);
+                        //quand le lien est detruit
+                        if(currentPV <= 0)
+                        {
+                            //désactiver
+                            active = false;
+                            //envoyer au cimetiere la carte s'il n'a plus d'autre lien 
+                            if (!field1.VerificationLien())
+                            {
+                                field1.carteSurField.EnvoyerAuCimetiere();
+                                field1.carteSurField = null;
+                            }
+                            if (!field2.VerificationLien())
+                            {
+                                field2.carteSurField.EnvoyerAuCimetiere();
+                                field2.carteSurField = null;
+                            }
+                        }
+                        temp.canAttack = false;
+                        BattleStartCameraController b = GameObject.FindFirstObjectByType<BattleStartCameraController>();
+                        b.SwitchCam();
+                    }
+                    else
+                    {
+                        Core core = GetComponent<Core>();
+                        if (!core.Field.VerificationLien())
+                        {
+                            Dommage(temp.attack);
+                            if (currentPV <= 0)
+                            {
+                                field1.manager.LoseGame();
+                            }
+                            //jsp si on en a besoin ou pas mais je le laisse au cas ou
+                            BattleStartCameraController b = GameObject.FindFirstObjectByType<BattleStartCameraController>();
+                            b.SwitchCam();
+                        }
+                        
+                    }
                 }
             }
         }
@@ -68,7 +104,6 @@ public class Lien : MonoBehaviour
     {
         currentPV -= degats;
         SetLienText();
-
         
     }
 
