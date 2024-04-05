@@ -115,7 +115,9 @@ public class CardGameManager : MonoBehaviour
         }
         currentPhase = Phase.draw;
         if (!isAi)
+        {
             text.text = "Draw Phase";
+        }
         ChangeCurrentPhase();
     }
     private void ChangeToMain()
@@ -143,7 +145,7 @@ public class CardGameManager : MonoBehaviour
     {
 
         currentPhase = Phase.battle;
-        if (!isAi)
+       // if (!isAi)
             text.text = "battle phase";
         if (firstTurn)
         {
@@ -152,6 +154,7 @@ public class CardGameManager : MonoBehaviour
         if (isAi)
         {
             BattlePhase.Invoke();
+            
         }
         if (text != null)
         {
@@ -168,9 +171,11 @@ public class CardGameManager : MonoBehaviour
             firstTurn = false;
         }
         currentPhase = Phase.end;
+        
         if (!isAi)
             text.text = "End Phase";
-        enemyGameManager.ChangeCurrentPhase();
+       // else EndPhase.Invoke();
+        EnemyManager.ChangeCurrentPhase();
         ChangeCurrentPhase();
     }
     private void ChangeToEnnemy()

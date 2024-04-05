@@ -6,7 +6,7 @@ public class RandomAi : MonoBehaviour
 {
     [SerializeField] CardGameManager gameManager;
 
-    private void Start()
+    private void Awake()
     {
         gameManager.isAi = true;
 
@@ -37,7 +37,7 @@ public class RandomAi : MonoBehaviour
                     if (ftemp.carteSurField == null)// ajouter la condition pour voir si c jouable
                     {
                         //choisir un field et faire passer le meme truc de mouse down
-
+                        Debug.Log("trying");
                         ftemp.JouerCarte(temp.GetComponent<Card>());
                         reussi = true;
                     }
@@ -47,6 +47,7 @@ public class RandomAi : MonoBehaviour
 
 
         }
+        else { return; }
     }
 
     public void AiAttack()
