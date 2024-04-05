@@ -8926,6 +8926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerDeck: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  PlayerCore: 0
 --- !u!4 &746829145
 Transform:
   m_ObjectHideFlags: 0
@@ -11169,7 +11170,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 961181328}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.010362059, y: 0.9883648, z: -0.079073325, w: 0.12951899}
+  m_LocalRotation: {x: 0.01036206, y: 0.9883648, z: -0.07907332, w: 0.12951899}
   m_LocalPosition: {x: -7, y: 2.75, z: 13.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -19691,6 +19692,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c52f148446da13c49ae7e2394b853f42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AiDeck: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  aiCore: 0
 --- !u!4 &1768649370
 Transform:
   m_ObjectHideFlags: 0
@@ -24541,6 +24544,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: -876546973899608171, guid: 7f3bdc6fd92af4529b40bcf8d577c8fb, type: 3}
+    - target: {fileID: 3778645017404455274, guid: b0f5e367173b19848a76aeb12f805b03, type: 3}
+      propertyPath: slipMat
+      value: 
+      objectReference: {fileID: 13400000, guid: d02b16be33deacd4aa16d779d5097d7f, type: 2}
+    - target: {fileID: 3778645017404455274, guid: b0f5e367173b19848a76aeb12f805b03, type: 3}
+      propertyPath: rigidMat
+      value: 
+      objectReference: {fileID: 13400000, guid: f00e81228a9346f449a73c03361299cd, type: 2}
     - target: {fileID: 4745869712703675902, guid: b0f5e367173b19848a76aeb12f805b03, type: 3}
       propertyPath: m_Name
       value: Player
@@ -24583,6 +24594,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5760872829902962933, guid: b0f5e367173b19848a76aeb12f805b03, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6550225232024443771, guid: b0f5e367173b19848a76aeb12f805b03, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
