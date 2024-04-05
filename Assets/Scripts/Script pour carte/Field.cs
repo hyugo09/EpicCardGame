@@ -240,7 +240,7 @@ public class Field : MonoBehaviour
                     if (field != null)
                     {
                         carteSurField = Carte;
-                        return field.VerificationLien(false, field.carteSurField);
+                        lienTrouver = field.VerificationLien(false, field.carteSurField);
                     }
                 }
 

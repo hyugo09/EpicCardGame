@@ -23,7 +23,7 @@ public class CardGameManager : MonoBehaviour
     [SerializeField] private Button button;
     [SerializeField] private TextMeshProUGUI text;
     public GameObject selected = null;
-    [SerializeField] internal Phase currentPhase;
+    [SerializeField] internal Phase currentPhase = Phase.ennemy;
     internal Vector3 originalposSelected;
     [SerializeField] internal main playerHand;
     public CardGameManager enemyGameManager;
