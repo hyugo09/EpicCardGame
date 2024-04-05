@@ -10,6 +10,7 @@ public class PlayerInteraction : MonoBehaviour
     public CinemachineVirtualCamera npcCam;
     public Transform playerTransform;
 
+
     void Update()
     {
         if (InputManager.interactionInput && inRange)

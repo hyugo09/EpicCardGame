@@ -23,15 +23,14 @@ public class CardGameManager : MonoBehaviour
     [SerializeField] private Button button;
     [SerializeField] private TextMeshProUGUI text;
     public GameObject selected = null;
-    [SerializeField] internal Phase currentPhase;
+    [SerializeField] internal Phase currentPhase = Phase.ennemy;
     internal Vector3 originalposSelected;
     [SerializeField] internal main playerHand;
     public CardGameManager enemyGameManager;
-    public Card Core;
+    public GameObject Core;
     internal int corePos = 5;
     public bool isAi;
-    [SerializeField] Lien[] allLink;
-    [SerializeField] internal Field[] allField ;
+    [SerializeField] internal Field[] allField;
     [SerializeField] internal Deck playerDeck;
     [SerializeField] internal Discard playerDiscard;
     [SerializeField] private CardGameManager EnemyManager;
@@ -39,11 +38,22 @@ public class CardGameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       DoDeck();
+
+    }
+    public void DoDeck()
+    {
         CardData datat = FindFirstObjectByType(typeof(CardData)).GetComponent<CardData>();
-        playerDeck.ShuffleDeck(datat.tempd);
-
-        allField[corePos-1].JouerCarte(Core.gameObject);
-
+        if (isAi)
+        {
+            playerDeck.ShuffleDeck(datat.tempAi);
+            Core = datat.tAiCore;
+        }
+        else
+        {
+            playerDeck.ShuffleDeck(datat.tempPlayer);
+            Core = datat.tPlayerCore;
+        }
     }
     private void Awake()
     {
@@ -58,6 +68,8 @@ public class CardGameManager : MonoBehaviour
         DrawCard();
         DrawCard();
         DrawCard();
+
+
     }
     public void ChangeCurrentPhase()
     {
@@ -113,8 +125,7 @@ public class CardGameManager : MonoBehaviour
 
         if (isAi)
         {
-            //Playcard();
-            //Playcard();
+            MainPhase.Invoke();
             ChangeCurrentPhase();
         }
         else
@@ -125,7 +136,7 @@ public class CardGameManager : MonoBehaviour
         {
             text.text = "Main Phase";
         }
-        MainPhase.Invoke();
+        
         
     }
     private void ChangeToBattle()
@@ -140,18 +151,22 @@ public class CardGameManager : MonoBehaviour
         }
         if (isAi)
         {
-            //AiAttack();
+            BattlePhase.Invoke();
         }
         if (text != null)
         {
             text.text = "battle phase";
         }
-        BattlePhase.Invoke();
+        
         
         
     }
     private void ChangeToEnd()
     {
+        if (firstTurn)
+        {
+            firstTurn = false;
+        }
         currentPhase = Phase.end;
         if (!isAi)
             text.text = "End Phase";
@@ -166,7 +181,7 @@ public class CardGameManager : MonoBehaviour
     }
     private void DrawCard()
     {
-        if (playerDeck.deck.Peek() == null)
+        if (playerDeck.deck.Count == 0)
         {
             LoseGame();
         }
@@ -174,12 +189,11 @@ public class CardGameManager : MonoBehaviour
             playerHand.cards.Add(playerDeck.deck.Pop());
 
     }
-    private void LoseGame()
+    internal void LoseGame()
     {
-
+        //rappelle de faire un game over, probablement besoin d'un report pour aller dans l'autre scenen aussi
+        Debug.Log("un joueur a perdu");
     }
-    
-   
     private void CardAttackReset()
     {
         foreach (Field f in allField)
