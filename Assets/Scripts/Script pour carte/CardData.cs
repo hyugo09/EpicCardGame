@@ -10,6 +10,8 @@ public class CardData : MonoBehaviour
     internal GameObject[] tempAi;
     internal GameObject tAiCore;
     internal GameObject tPlayerCore;
+    [SerializeField]private CardGameManager playerManager;
+    [SerializeField] private CardGameManager aiManager;
     private void Awake()
     {
         PlayerInfo playerInfo = FindFirstObjectByType<PlayerInfo>().GetComponent<PlayerInfo>();
@@ -19,10 +21,11 @@ public class CardData : MonoBehaviour
         for (int i = 0; i < temp.Length; i++)
         {
             tempPlayer[i] = Instantiate(Database[temp[i]],new Vector3(0,0,0), Quaternion.identity);
-            //tempPlayer[i].GetComponent<Card>().manager = le manager du joueur, doit parler a gameryan
+            tempPlayer[i].GetComponent<Card>().manager = playerManager;
         }
         tPlayerCore = Database[playerInfo.PlayerCore];
-        Instantiate(tPlayerCore);
+        Core core =  Instantiate(tPlayerCore).GetComponent<Core>();
+        core.Carte.manager = playerManager;
         temp = aiInfo.AiDeck;
         tempAi = new GameObject[temp.Length];
         for (int i = 0; i < temp.Length; i++)
@@ -30,7 +33,7 @@ public class CardData : MonoBehaviour
             tempAi[i] = Instantiate(Database[temp[i]], new Vector3(0, 0, 0), Quaternion.identity);
         }
         tAiCore = Database[aiInfo.aiCore];
-        Instantiate (tAiCore);
-
+        core = Instantiate(tAiCore).GetComponent<Core>();
+        core.Carte.manager = aiManager;
     }
 }
