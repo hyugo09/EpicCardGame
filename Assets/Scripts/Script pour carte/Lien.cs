@@ -12,16 +12,59 @@ public class Lien : MonoBehaviour
 
     private int PV;
     private int currentPV = 0;
+    private int coreDef = 5;
     internal bool active = false;
-    private void Awake()
+    private void Start()
     {
+        if (GetComponent<Core>())
+        {
+            text = GetComponentInChildren<TextMeshPro>();
+        }
+        else
         text = GetComponent<TextMeshPro>();
         setLienPV();
     }
 
     public void setLienPV()
     {
-        if(field1.carteSurField != null & field2.carteSurField)
+        if (GetComponent<Core>())
+        {
+            PV = GetComponent<Core>().Carte.defense;
+            currentPV = PV;
+        }
+        else if (field1.carteSurField.GetComponent<Core>())
+        {
+            if (currentPV != 0 || currentPV != PV)
+            {
+                int temp = PV;
+                PV = coreDef + field2.carteSurField.defense;
+                currentPV += PV - temp;
+            }
+
+            else
+            {
+                PV = coreDef + field2.carteSurField.defense;
+                currentPV = PV;
+                active = true;
+            }
+        }
+        else if (field2.carteSurField.GetComponent<Core>())
+        {
+            if (currentPV != 0 || currentPV != PV)
+            {
+                int temp = PV;
+                PV = field1.carteSurField.defense + coreDef;
+                currentPV += PV - temp;
+            }
+
+            else
+            {
+                PV = field1.carteSurField.defense + coreDef;
+                currentPV = PV;
+                active = true;
+            }
+        }
+        else if (field1.carteSurField != null && field2.carteSurField != null)
         {
             if (currentPV != 0 || currentPV != PV)
             {
@@ -29,7 +72,7 @@ public class Lien : MonoBehaviour
                 PV = field1.carteSurField.defense + field2.carteSurField.defense;
                 currentPV += PV - temp;
             }
-            
+
             else
             {
                 PV = field1.carteSurField.defense + field2.carteSurField.defense;
@@ -50,7 +93,7 @@ public class Lien : MonoBehaviour
     {
         if (field1.manager.enemyGameManager.currentPhase == CardGameManager.Phase.battle)
         {
-            if (field1.manager.enemyGameManager.selected.GetComponent<Card>())  
+            if (field1.manager.enemyGameManager.selected.GetComponent<Card>())
             {
                 Card temp = field1.manager.enemyGameManager.selected.GetComponent<Card>();
                 if (temp != null)
@@ -59,7 +102,7 @@ public class Lien : MonoBehaviour
                     {
                         Dommage(temp.attack);
                         //quand le lien est detruit
-                        if(currentPV <= 0)
+                        if (currentPV <= 0)
                         {
                             //désactiver
                             active = false;
@@ -93,7 +136,7 @@ public class Lien : MonoBehaviour
                             BattleStartCameraController b = GameObject.FindFirstObjectByType<BattleStartCameraController>();
                             b.SwitchCam();
                         }
-                        
+
                     }
                 }
             }
@@ -104,7 +147,7 @@ public class Lien : MonoBehaviour
     {
         currentPV -= degats;
         SetLienText();
-        
+
     }
 
 }

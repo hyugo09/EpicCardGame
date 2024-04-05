@@ -140,7 +140,6 @@ public class Field : MonoBehaviour
                         if (lien.gameObject.name == $"{position}-{Carte.direction[i]}")
                         {
                             Field field = null;
-                            lienTrouver = true;
                             if (lien.field1 == this)
                             {
                                 field = lien.field2;
