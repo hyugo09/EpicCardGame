@@ -27,7 +27,7 @@ public class CardGameManager : MonoBehaviour
     internal Vector3 originalposSelected;
     [SerializeField] internal main playerHand;
     public CardGameManager enemyGameManager;
-    public Card Core;
+    public GameObject Core;
     internal int corePos = 5;
     public bool isAi;
     [SerializeField] Lien[] allLink;
@@ -39,10 +39,23 @@ public class CardGameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+       DoDeck();
+
+    }
+    public void DoDeck()
+    {
         CardData datat = FindFirstObjectByType(typeof(CardData)).GetComponent<CardData>();
-        playerDeck.ShuffleDeck(datat.tempd);
-
-
+        if (isAi)
+        {
+            playerDeck.ShuffleDeck(datat.tempAi);
+            Core = datat.tAiCore;
+        }
+        else
+        {
+            playerDeck.ShuffleDeck(datat.tempPlayer);
+            Core = datat.tPlayerCore;
+        }
     }
     private void Awake()
     {
@@ -57,6 +70,8 @@ public class CardGameManager : MonoBehaviour
         DrawCard();
         DrawCard();
         DrawCard();
+
+
     }
     public void ChangeCurrentPhase()
     {
@@ -112,8 +127,7 @@ public class CardGameManager : MonoBehaviour
 
         if (isAi)
         {
-            //Playcard();
-            //Playcard();
+            MainPhase.Invoke();
             ChangeCurrentPhase();
         }
         else
@@ -124,7 +138,7 @@ public class CardGameManager : MonoBehaviour
         {
             text.text = "Main Phase";
         }
-        MainPhase.Invoke();
+        
         
     }
     private void ChangeToBattle()
@@ -139,13 +153,13 @@ public class CardGameManager : MonoBehaviour
         }
         if (isAi)
         {
-            //AiAttack();
+            BattlePhase.Invoke();
         }
         if (text != null)
         {
             text.text = "battle phase";
         }
-        BattlePhase.Invoke();
+        
         
         
     }
@@ -169,7 +183,7 @@ public class CardGameManager : MonoBehaviour
     }
     private void DrawCard()
     {
-        if (playerDeck.deck.Peek() == null)
+        if (playerDeck.deck.Count == 0)
         {
             LoseGame();
         }
@@ -179,7 +193,7 @@ public class CardGameManager : MonoBehaviour
     }
     private void LoseGame()
     {
-
+        Debug.Log("un joueur a perdu");
     }
     
    

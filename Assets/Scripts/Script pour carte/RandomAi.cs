@@ -9,6 +9,11 @@ public class RandomAi : MonoBehaviour
     private void Start()
     {
         gameManager.isAi = true;
+
+       
+        
+           gameManager.DoDeck();
+        
     }
     // Update is called once per frame
     void Update()

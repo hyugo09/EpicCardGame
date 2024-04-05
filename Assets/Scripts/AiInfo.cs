@@ -2,22 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInfo : MonoBehaviour
+public class AiInfo : MonoBehaviour
 {
-   public int[] PlayerDeck = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-    public int PlayerCore = 0;
+    public int[] AiDeck = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+    public int aiCore = 0;
     // Start is called before the first frame update
     void Start()
     {
         DontDestroyOnLoad(gameObject);
-        FindAnyObjectByType(typeof(PlayerInfo));
-        
+        FindAnyObjectByType(typeof(AiInfo));
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
-    
 }
