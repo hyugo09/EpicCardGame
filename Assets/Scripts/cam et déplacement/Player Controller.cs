@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float vitesse = 5f;
     Rigidbody rb;
+
     private bool isMoving = false;
 
     private float groundCheckDistance;
@@ -128,7 +129,6 @@ public class PlayerController : MonoBehaviour
             TurnTowardsMovementDirection(forwardDirection);
             isMoving = false;
         }
-
         Vector3 movement = movementDirection.normalized * (vitesse * Time.fixedDeltaTime);
 
         rb.MovePosition(rb.position + movement);
