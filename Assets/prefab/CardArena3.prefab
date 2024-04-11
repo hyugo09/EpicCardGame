@@ -1636,6 +1636,8 @@ MonoBehaviour:
   manager: {fileID: 0}
   attack: 2
   defense: 2
+  textAttack: {fileID: 0}
+  textDefense: {fileID: 0}
   cardonfield: 0
   direction: 0100000002000000030000000400000006000000070000000800000009000000
   width: 0
@@ -2177,6 +2179,8 @@ MonoBehaviour:
   manager: {fileID: 0}
   attack: 2
   defense: 3
+  textAttack: {fileID: 0}
+  textDefense: {fileID: 0}
   cardonfield: 0
   direction: 0100000002000000030000000400000006000000070000000800000009000000
   width: 0
