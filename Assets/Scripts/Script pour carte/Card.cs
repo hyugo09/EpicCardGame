@@ -41,7 +41,7 @@ public class Card : MonoBehaviour
     private void OnMouseDown()
     {
 
-        if (cardonfield == false || !manager.selected.GetComponent<Core>())
+        if (cardonfield == false && (manager.selected == null || !manager.selected.GetComponent<Core>()))
         {
             Debug.Log("selectionner");
             if (manager.selected != null)

@@ -37,28 +37,10 @@ public class Field : MonoBehaviour
                 Core core = manager.selected.GetComponent<Core>();
                 carteSurField = core.Carte;
                 carteSurField.cardonfield = true;
-                manager.playerHand.RemoveCard(carteSurField.gameObject);
                 manager.selected = null;
                 carteSurField.transform.position = transform.position + offset;
 
-                foreach (GameObject child in listOfChildren)
-                {
-                    if (child.GetComponent<MeshRenderer>())
-                    {
-                        int i = 0;
-                        while (i < carteSurField.direction.Length)
-                        {
-                            if (child.name == carteSurField.direction[i].ToString())
-                            {
-                                MeshRenderer temp = child.GetComponent<MeshRenderer>();
-                                temp.material = directionMaterial;
-
-                            }
-                            i++;
-                        }
-                    }
-                    
-                }
+                ActiverLienVisuel();
             }
             else if (VerEtActivationLien(true, manager.selected.GetComponent<Card>()))
             {
@@ -71,20 +53,7 @@ public class Field : MonoBehaviour
 
                 Debug.Log("je suis la");
 
-                foreach (GameObject child in listOfChildren)
-                {
-                    int i = 0;
-                    while (i < carteSurField.direction.Length)
-                    {
-                        if (child.name == carteSurField.direction[i].ToString())
-                        {
-                            MeshRenderer temp = child.GetComponent<MeshRenderer>();
-                            temp.material = directionMaterial;
-
-                        }
-                        i++;
-                    }
-                }
+                
 
                 
 
@@ -165,6 +134,7 @@ public class Field : MonoBehaviour
                                                     lienTrouver = true;
                                                     //lien.gameObject.SetActive(true);
                                                     lien.setLienPV();
+                                                    ActiverLienVisuel(Carte, i);
                                                 }
                                                 break;
                                             }
@@ -175,6 +145,7 @@ public class Field : MonoBehaviour
                                                     lienTrouver = true;
                                                     //lien.gameObject.SetActive(true);
                                                     lien.setLienPV();
+                                                    ActiverLienVisuel(Carte, i);
                                                 }
                                                 break;
                                             }
@@ -185,6 +156,7 @@ public class Field : MonoBehaviour
                                                     lienTrouver = true;
                                                     //lien.gameObject.SetActive(true);
                                                     lien.setLienPV();
+                                                    ActiverLienVisuel(Carte, i);
                                                 }
                                                 break;
                                             }
@@ -195,6 +167,7 @@ public class Field : MonoBehaviour
                                                     lienTrouver = true;
                                                     //lien.gameObject.SetActive(true);
                                                     lien.setLienPV();
+                                                    ActiverLienVisuel(Carte, i);
                                                 }
                                                 break;
                                             }
@@ -205,6 +178,7 @@ public class Field : MonoBehaviour
                                                     lienTrouver = true;
                                                     //lien.gameObject.SetActive(true);
                                                     lien.setLienPV();
+                                                    ActiverLienVisuel(Carte, i);
                                                 }
                                                 break;
                                             }
@@ -215,6 +189,7 @@ public class Field : MonoBehaviour
                                                     lienTrouver = true;
                                                     //lien.gameObject.SetActive(true);
                                                     lien.setLienPV();
+                                                    ActiverLienVisuel(Carte, i);
                                                 }
                                                 break;
                                             }
@@ -225,6 +200,7 @@ public class Field : MonoBehaviour
                                                     lienTrouver = true;
                                                     //lien.gameObject.SetActive(true);
                                                     lien.setLienPV();
+                                                    ActiverLienVisuel(Carte, i);
                                                 }
                                                 break;
                                             }
@@ -235,6 +211,7 @@ public class Field : MonoBehaviour
                                                     lienTrouver = true;
                                                     //lien.gameObject.SetActive(true);
                                                     lien.setLienPV();
+                                                    ActiverLienVisuel(Carte, i);
                                                 }
                                                 break;
                                             }
@@ -278,12 +255,45 @@ public class Field : MonoBehaviour
                     {
                         carteSurField = Carte;
                         lienTrouver = field.VerEtActivationLien(false, field.carteSurField);
+                        carteSurField = null;
                     }
                 }
 
             }
         return lienTrouver;
 
+    }
+    private void ActiverLienVisuel()
+    {
+        foreach (GameObject child in listOfChildren)
+        {
+            if (child.GetComponent<MeshRenderer>())
+            {
+                int i = 0;
+                while (i < carteSurField.direction.Length)
+                {
+                    if (child.name == carteSurField.direction[i].ToString())
+                    {
+                        MeshRenderer temp = child.GetComponent<MeshRenderer>();
+                        temp.material = directionMaterial;
+
+                    }
+                    i++;
+                }
+            }
+
+        }
+    }
+    private void ActiverLienVisuel(Card Carte, int position)
+    {
+        foreach (GameObject child in listOfChildren)
+        {
+            if (child.name == Carte.direction[position].ToString())
+            {
+                MeshRenderer temp = child.GetComponent<MeshRenderer>();
+                temp.material = directionMaterial;
+            }
+        }
     }
     public void JouerCarte(Card carte)
     {

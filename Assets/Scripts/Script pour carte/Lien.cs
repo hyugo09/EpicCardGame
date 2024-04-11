@@ -13,7 +13,7 @@ public class Lien : MonoBehaviour
     private int PV;
     private int currentPV = 0;
     private int coreDef = 5;
-    internal bool active = false;
+    [SerializeField] internal bool active = false;
     private void Start()
     {
         if (GetComponent<Core>())
