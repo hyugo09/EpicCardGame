@@ -63,7 +63,11 @@
     ],
     "m_Keywords": [],
     "m_Dropdowns": [],
-    "m_CategoryData": [],
+    "m_CategoryData": [
+        {
+            "m_Id": "38072435417447dfa2b4a91aca77253c"
+        }
+    ],
     "m_Nodes": [
         {
             "m_Id": "a241c26feb17f88eba2560a374e58644"
@@ -7551,6 +7555,72 @@
     "m_DefaultValue": 0.0,
     "m_Labels": [
         "X"
+    ]
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.CategoryData",
+    "m_ObjectId": "38072435417447dfa2b4a91aca77253c",
+    "m_Name": "",
+    "m_ChildObjectList": [
+        {
+            "m_Id": "c6ec7b30e1783e80953830a60a13ad8c"
+        },
+        {
+            "m_Id": "4673aefd972b6a8ab8dd7edbf36fcf72"
+        },
+        {
+            "m_Id": "5161ab73f1eccb8492f37b787f42f969"
+        },
+        {
+            "m_Id": "b549c8e9e34d6686be68580d0d61271b"
+        },
+        {
+            "m_Id": "903eea04de84e28a9653598e14ef0264"
+        },
+        {
+            "m_Id": "0b7a50f71444998a9a9ca4b13d2cd539"
+        },
+        {
+            "m_Id": "648338347d26958bbf8a4cadd475efe7"
+        },
+        {
+            "m_Id": "e8a12967ad533584bdc6412afa71160a"
+        },
+        {
+            "m_Id": "54ce34613a030581920c418dc4f3f859"
+        },
+        {
+            "m_Id": "e02764ad70bb2e88a7d4ef832c49fb28"
+        },
+        {
+            "m_Id": "8c38c009d5d4068dbc53ed266e3146ce"
+        },
+        {
+            "m_Id": "5581ea97896866808228b553b1ad4c7c"
+        },
+        {
+            "m_Id": "798ae1f15b12f58495e2c1b2892a138e"
+        },
+        {
+            "m_Id": "028550fa09283381b4f77c274e7d2606"
+        },
+        {
+            "m_Id": "b966b0a24252b38291a3c7dbed4ff811"
+        },
+        {
+            "m_Id": "7c360368dfa1e680b9a5f45799caffe5"
+        },
+        {
+            "m_Id": "3d517cc51deba784bdb4b935465c1af4"
+        },
+        {
+            "m_Id": "128ea88b7ca3678f83d9e98a09ced8e7"
+        },
+        {
+            "m_Id": "378aa3bd725bf688a07aae629e04879f"
+        }
     ]
 }
 
