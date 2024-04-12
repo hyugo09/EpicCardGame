@@ -6,7 +6,7 @@ public class RandomAi : MonoBehaviour
 {
     [SerializeField] CardGameManager gameManager;
 
-    private void Awake()
+    private void Start()
     {
         gameManager.isAi = true;
 
