@@ -18,22 +18,60 @@ public class CardData : MonoBehaviour
         AiInfo aiInfo = FindFirstObjectByType<AiInfo>().GetComponent<AiInfo>();
         int[] temp = playerInfo.PlayerDeck;
          tempPlayer = new GameObject[temp.Length];
-        for (int i = 0; i < temp.Length; i++)
+        while (!Verif(tempPlayer))
         {
-            tempPlayer[i] = Instantiate(Database[temp[i]],new Vector3(0,0,0), Quaternion.identity);
-            tempPlayer[i].GetComponent<Card>().manager = playerManager;
+            for (int i = 0; i < temp.Length; i++)
+            {
+               if (tempPlayer[i] != null)
+                {
+                    tempPlayer[i] = null;
+                }
+                
+            }
+
+            for (int i = 0; i < temp.Length; i++)
+            {
+                tempPlayer[i] = Instantiate(Database[temp[i]], new Vector3(0, 0, 0), Quaternion.identity);
+                tempPlayer[i].GetComponent<Card>().manager = playerManager;
+            }
         }
-        tPlayerCore = Database[playerInfo.PlayerCore];
-        Core core =  Instantiate(tPlayerCore).GetComponent<Core>();
-        core.Carte.manager = playerManager;
+        //tPlayerCore = Database[playerInfo.PlayerCore];
+        //Core core =  Instantiate(tPlayerCore).GetComponent<Core>();
+       // core.Carte.manager = playerManager;
         temp = aiInfo.AiDeck;
         tempAi = new GameObject[temp.Length];
-        for (int i = 0; i < temp.Length; i++)
+        while (!Verif(tempAi))
         {
-            tempAi[i] = Instantiate(Database[temp[i]], new Vector3(0, 0, 0), Quaternion.identity);
+            for (int i = 0; i < temp.Length; i++)
+            {
+                if (tempAi[i] == null)
+                {
+                    tempAi[i] = null;
+                }
+            }
+
+            for (int i = 0; i < temp.Length; i++)
+            {
+                tempAi[i] = Instantiate(Database[temp[i]], new Vector3(0, 0, 0), Quaternion.identity);
+                tempAi[i].GetComponent<Card>().manager = aiManager;
+            }
         }
         tAiCore = Database[aiInfo.aiCore];
-        core = Instantiate(tAiCore).GetComponent<Core>();
-        core.Carte.manager = aiManager;
+        //core = Instantiate(tAiCore).GetComponent<Core>();
+       // core.Carte.manager = aiManager;
+        
+    }
+
+    private bool Verif(GameObject[] Deck)
+    {
+        for(int i = 0; i < Deck.Length; i++)
+        {
+            if (Deck[i] == null)
+            {
+                return false;
+            }
+
+        }
+        return true;
     }
 }

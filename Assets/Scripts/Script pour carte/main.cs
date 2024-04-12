@@ -7,6 +7,7 @@ public class main : MonoBehaviour
     
     public List<GameObject> cards = new List<GameObject>();
     
+    
     void Start()
     {
         
@@ -39,7 +40,7 @@ public class main : MonoBehaviour
     private void ArrangeHand()
     {
         float cardWidth = 3.5f; 
-        float spacing = 2.5f; 
+        float spacing = 1.9f; 
 
         
         float totalWidth = (cardWidth + spacing) * cards.Count - spacing;
@@ -58,7 +59,9 @@ public class main : MonoBehaviour
 
                 // Set the position of the card
                 Vector3 newPosition = transform.position + new Vector3(xPos, 0f, 0f);
+                
                 cards[i].transform.position = newPosition;
+                cards[i].transform.rotation = this.transform.rotation;
             }
             
         }

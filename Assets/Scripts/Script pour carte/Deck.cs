@@ -6,6 +6,7 @@ using UnityEngine;
 public class Deck : MonoBehaviour
 {
     [SerializeField]public Stack<GameObject> deck = new Stack<GameObject>();
+    [SerializeField] CardGameManager gameManager;
     public List<GameObject> deckList = new List<GameObject>();
     void Start()
     {
@@ -28,12 +29,16 @@ public class Deck : MonoBehaviour
         }
         for (int i = 0;i < initialDeck.Length; i++) 
         {
+            initialDeck[i].GetComponent<Card>().manager = gameManager;
             deck.Push(initialDeck[i]);
             deckList.Add(initialDeck[i]);
         }
         PlaceCard();
 
     }
+
+    
+
     public void ShuffleDeck()
     {
         GameObject[] initialDeck = deck.ToArray();
@@ -58,7 +63,8 @@ public class Deck : MonoBehaviour
         foreach (GameObject card in deck)
         {
             card.transform.position = new Vector3(transform.position.x,offset,transform.position.z);
-            offset += 0.01f;
+            card.transform.rotation = this.gameObject.transform.rotation;
+            offset += 0.03f;
         }
     }
 }
