@@ -23,7 +23,7 @@ public class CardData : MonoBehaviour
             tempPlayer[i] = Instantiate(Database[temp[i]],new Vector3(0,0,0), Quaternion.identity);
             tempPlayer[i].GetComponent<Card>().manager = playerManager;
         }
-        tPlayerCore = Database[playerInfo.PlayerCore];
+        //tPlayerCore = Database[playerInfo.PlayerCore];
         Core core =  Instantiate(tPlayerCore).GetComponent<Core>();
         core.Carte.manager = playerManager;
         temp = aiInfo.AiDeck;
