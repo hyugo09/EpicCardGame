@@ -1,6 +1,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -12,6 +13,10 @@ public class Card : MonoBehaviour
     public CardGameManager manager;
     [SerializeField] internal int attack;
     [SerializeField] internal int defense;
+    [SerializeField] private string nom;
+    [SerializeField] private TextMeshPro textAttack;
+    [SerializeField] private TextMeshPro textDefense;
+    [SerializeField] private TextMeshPro textNom;
     public bool cardonfield = false;
     public int[] direction = { 3 };
     public float width;
@@ -20,6 +25,10 @@ public class Card : MonoBehaviour
     void Start()
     {
         width = this.width * this.transform.localScale.x;
+        textAttack.text = attack.ToString();
+        textDefense.text = defense.ToString();
+        textNom.text = nom.Replace("\\n", "\n");
+        
     }
 
     // Update is called once per frame
@@ -41,7 +50,7 @@ public class Card : MonoBehaviour
     private void OnMouseDown()
     {
 
-        if (cardonfield == false || !manager.selected.GetComponent<Core>())
+        if (cardonfield == false && (manager.selected == null || !manager.selected.GetComponent<Core>()))
         {
             Debug.Log("selectionner");
             if (manager.selected != null)

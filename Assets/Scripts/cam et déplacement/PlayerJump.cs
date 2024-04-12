@@ -10,7 +10,10 @@ using UnityEngine.InputSystem.HID;
 public class PlayerJump : MonoBehaviour
 {
     [SerializeField] private float jumpHeight = 5f;
+    [SerializeField] private PhysicMaterial rigidMat;
+    [SerializeField] private PhysicMaterial slipMat;
     Rigidbody rb;
+    CapsuleCollider capsuleCollider;
 
     private bool isGrounded = false;
 
@@ -27,13 +30,14 @@ public class PlayerJump : MonoBehaviour
     private void Start()
     {
         rb = this.GetComponent<Rigidbody>();
+        capsuleCollider = this.GetComponent<CapsuleCollider>();
     }
 
     // Update is called once per frame
     private void Update()
     {
         jump();
-
+        changePhysicsMat();
     }
 
     private void jump()
@@ -43,7 +47,7 @@ public class PlayerJump : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, -transform.up, out hit, groundCheckDistance))
         {
-
+            
             isGrounded = true;
         }
 
@@ -52,26 +56,34 @@ public class PlayerJump : MonoBehaviour
 
             if (InputManager.jumpInput == true && isGrounded)
             {
-
                 //https://gamedevbeginner.com/how-to-jump-in-unity-with-or-without-physics/
 
                 float jumpForce = Mathf.Sqrt(jumpHeight * -2 * (Physics.gravity.y * gravityScale));
                 //rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
 
                 rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
-                
+
                 isGrounded = false;
-
-
 
             }
             else if (InputManager.jumpInput == true && !isGrounded)
             {
+                
                 StartCoroutine(jumpCooldownFunction(jumpCooldown));
             }
         }
     }
-
+    private void changePhysicsMat()
+    {
+        if (!isGrounded)
+        {
+            capsuleCollider.material = slipMat;
+        }
+        else
+        {
+            capsuleCollider.material = rigidMat;
+        }
+    }
     IEnumerator jumpCooldownFunction(float time)
     {
         canJump = false;
