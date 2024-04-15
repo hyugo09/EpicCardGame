@@ -1,23 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.TerrainTools;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerInfo : MonoBehaviour
 {
-   public int[] PlayerDeck = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-    public int PlayerCore = 0;
+    public int[] PlayerDeck = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+    public List<int> coreDirections = new List<int>();
+    public int corePV = 40;
     // Start is called before the first frame update
     void Start()
     {
         DontDestroyOnLoad(gameObject);
-        FindAnyObjectByType(typeof(PlayerInfo));
-        
+        //jsp pas pk cette ligne est la donc je vais la mettre en commentaire
+        //FindAnyObjectByType(typeof(PlayerInfo));
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     
 }
