@@ -16,4 +16,13 @@ public class Discard : MonoBehaviour
         //jsp rn
     }
 
+    public void SendCard(GameObject card)
+    {
+        float offset = 0.3f;
+        list.Add(card);
+        card.transform.SetParent(transform);
+        
+
+    }
+
 }
