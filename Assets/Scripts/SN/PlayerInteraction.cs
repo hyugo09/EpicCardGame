@@ -2,6 +2,7 @@ using UnityEngine;
 using Unity.AI;
 using UnityEngine.AI;
 using Cinemachine;
+using UnityEngine.InputSystem;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -16,7 +17,8 @@ public class PlayerInteraction : MonoBehaviour
         if (InputManager.interactionInput && inRange)
         {
             dialogueUI.SetActive(true);
-            npcCam.Priority = 2;
+            //npcCam.Priority = 2;
+            
 
             DialogueTrigger dialogueTrigger = GetComponent<DialogueTrigger>();
             if (dialogueTrigger != null)
@@ -37,8 +39,8 @@ public class PlayerInteraction : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             inRange = true;
-            npcCam.Follow = transform;
-            npcCam.LookAt = transform;
+            //npcCam.Follow = transform;
+            //npcCam.LookAt = transform;
             GetComponent<NavMeshAgent>().isStopped = true;
         }
     }
@@ -48,7 +50,7 @@ public class PlayerInteraction : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             inRange = false;
-            npcCam.Priority = 0;
+            //npcCam.Priority = 0;
             GetComponent<NavMeshAgent>().isStopped = false;
             dialogueUI.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;

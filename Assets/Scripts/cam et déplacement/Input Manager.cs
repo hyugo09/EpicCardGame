@@ -54,6 +54,7 @@ public class InputManager : MonoBehaviour
 
         //interaction NPC
         controls.Player.InteractionNPC.started += ctx => interactionInput = true;
+        controls.Player.InteractionNPC.performed += ctx => interactionInput = true;
         controls.Player.InteractionNPC.canceled += ctx => interactionInput = false;
 
         //Escape (Menu)

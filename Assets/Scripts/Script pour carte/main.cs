@@ -40,7 +40,7 @@ public class main : MonoBehaviour
     private void ArrangeHand()
     {
         float cardWidth = 3.5f; 
-        float spacing = 1.9f; 
+        float spacing = 2.5f; 
 
         
         float totalWidth = (cardWidth + spacing) * cards.Count - spacing;

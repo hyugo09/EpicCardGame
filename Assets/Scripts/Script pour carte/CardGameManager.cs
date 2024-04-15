@@ -34,6 +34,7 @@ public class CardGameManager : MonoBehaviour
     [SerializeField] internal Deck playerDeck;
     [SerializeField] internal Discard playerDiscard;
     [SerializeField] private CardGameManager EnemyManager;
+    public Transform coreStand;
     private bool firstTurn = true;
     // Start is called before the first frame update
     void Start()
@@ -179,6 +180,8 @@ public class CardGameManager : MonoBehaviour
 
         if (!isAi)
         { text.text = "End Phase"; }
+
+        
        
         
         this.ChangeCurrentPhase();
