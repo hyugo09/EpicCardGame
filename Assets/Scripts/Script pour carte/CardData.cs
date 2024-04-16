@@ -37,7 +37,9 @@ public class CardData : MonoBehaviour
         }
         //tPlayerCore = Database[playerInfo.PlayerCore];
         //Core core =  Instantiate(tPlayerCore).GetComponent<Core>();
-        // core.Carte.manager = playerManager;
+       // core.Carte.manager = playerManager;
+       // core.gameObject.transform.position = playerManager.coreStand.position;
+
         temp = aiInfo.AiDeck;
         tempAi = new GameObject[temp.Length];
         while (!Verif(tempAi))

@@ -12,9 +12,11 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
     public GameData currentGameData;
+    public PlayerInteraction currentInteraction;
 
     private void FixedUpdate()
     {
+        currentInteraction = gameObject.GetComponent<PlayerInteraction>();
         currentScene = SceneManager.GetActiveScene();
         if (InputManager.escapeInput)
         {
@@ -43,13 +45,22 @@ public class GameManager : MonoBehaviour
         switch (currentScene.name) //switch pour gérer le curseur lorsqu'on résume la partie
         {
             case "Scene test":
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
+                if (currentInteraction.dialogueUI)
+                {
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+                }
+                else
+                {
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
+                }
+
                 break;
             case "CardFieldScene":
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
-                break;         
+                break;
         }
     }
 

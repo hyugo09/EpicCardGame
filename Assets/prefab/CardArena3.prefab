@@ -905,8 +905,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5477749408508380018, guid: 326040fbaf9c9e949b18903edf86ece4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: -5477749408508380018, guid: 326040fbaf9c9e949b18903edf86ece4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: -5477749408508380018, guid: 326040fbaf9c9e949b18903edf86ece4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 99.63
+      objectReference: {fileID: 0}
+    - target: {fileID: -4683669308469848369, guid: 326040fbaf9c9e949b18903edf86ece4, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -4683669308469848369, guid: 326040fbaf9c9e949b18903edf86ece4, type: 3}
       propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 130bdef55a96a2441ab7709e05ba62a9, type: 2}
+    - target: {fileID: -4683669308469848369, guid: 326040fbaf9c9e949b18903edf86ece4, type: 3}
+      propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 094c835627124fe4bbbaa762d2240cb1, type: 2}
     - target: {fileID: 919132149155446097, guid: 326040fbaf9c9e949b18903edf86ece4, type: 3}
@@ -1636,8 +1656,10 @@ MonoBehaviour:
   manager: {fileID: 0}
   attack: 2
   defense: 2
+  nom: 
   textAttack: {fileID: 0}
   textDefense: {fileID: 0}
+  textNom: {fileID: 0}
   cardonfield: 0
   direction: 0100000002000000030000000400000006000000070000000800000009000000
   width: 0
@@ -2179,8 +2201,10 @@ MonoBehaviour:
   manager: {fileID: 0}
   attack: 2
   defense: 3
+  nom: 
   textAttack: {fileID: 0}
   textDefense: {fileID: 0}
+  textNom: {fileID: 0}
   cardonfield: 0
   direction: 0100000002000000030000000400000006000000070000000800000009000000
   width: 0

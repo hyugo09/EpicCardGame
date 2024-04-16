@@ -22,7 +22,7 @@ public class InputManager : MonoBehaviour
     public static bool jumpInput = false;
     public static bool isAimingInput = false;
 
-    public static bool interactionInput = false;
+    public static bool isInteracting = false;
     public static bool escapeInput = false;
     public static bool leftClickInput = false;
 
@@ -53,8 +53,9 @@ public class InputManager : MonoBehaviour
         controls.Player.Saut.canceled += ctx => jumpInput = false;
 
         //interaction NPC
-        controls.Player.InteractionNPC.started += ctx => interactionInput = true;
-        controls.Player.InteractionNPC.canceled += ctx => interactionInput = false;
+        controls.Player.InteractionNPC.started += ctx => isInteracting = true;
+        //controls.Player.InteractionNPC.performed += ctx => isInteracting = true;
+        controls.Player.InteractionNPC.canceled += ctx => isInteracting = false;
 
         //Escape (Menu)
         controls.Player.Escape.started += ctx => escapeInput = true;
@@ -76,7 +77,7 @@ public class InputManager : MonoBehaviour
 
 
     }
-
+    
     private void OnDisable()
     {
         //controls.Player.Mouvement.Disable();
@@ -84,6 +85,7 @@ public class InputManager : MonoBehaviour
         controls.Player.Tourner.performed -= Tourner;
 
     }
+    
 
     private void Move(InputAction.CallbackContext ctx) //ctx:  contexte
     {
