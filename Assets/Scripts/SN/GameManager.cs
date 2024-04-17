@@ -14,9 +14,10 @@ public class GameManager : MonoBehaviour
     public GameData currentGameData;
     public PlayerInteraction currentInteraction;
 
+    
     private void FixedUpdate()
     {
-        currentInteraction = gameObject.GetComponent<PlayerInteraction>();
+        //currentInteraction = gameObject.GetComponent<PlayerInteraction>();
         currentScene = SceneManager.GetActiveScene();
         if (InputManager.escapeInput)
         {

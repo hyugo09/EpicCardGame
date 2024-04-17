@@ -22,6 +22,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: CardFrame
+    second: {fileID: 2100000, guid: 5ad6cc5284c3a8e449996499ab5c3316, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Left
     second: {fileID: 2100000, guid: 62742d473ea89ec408c33254e80b9988, type: 2}
   - first:
