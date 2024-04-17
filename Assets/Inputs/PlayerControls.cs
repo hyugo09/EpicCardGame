@@ -65,11 +65,11 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""InteractionNPC"",
-                    ""type"": ""Value"",
+                    ""type"": ""Button"",
                     ""id"": ""27df074a-5260-45e5-b1b9-3affbafa2faa"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": true
                 },
                 {
@@ -272,9 +272,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""5cce99c2-a47c-4e11-91fa-132999599256"",
+                    ""id"": ""1c1e7540-4353-4ee3-a89a-c3fa5c2c4c65"",
                     ""path"": ""<Keyboard>/f"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""InteractionNPC"",
