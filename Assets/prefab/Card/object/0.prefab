@@ -525,27 +525,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 942feb4562a5a4249a48691817695b10, type: 3}
       propertyPath: m_LocalScale.x
-      value: 120.00008
+      value: 92
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 942feb4562a5a4249a48691817695b10, type: 3}
       propertyPath: m_LocalScale.y
-      value: 120.00004
+      value: 92
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 942feb4562a5a4249a48691817695b10, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.19999999
+      value: 0.22439012
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 942feb4562a5a4249a48691817695b10, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.76
+      value: 3.72
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 942feb4562a5a4249a48691817695b10, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.83
+      value: 50.68
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 942feb4562a5a4249a48691817695b10, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.92
+      value: 1.06
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 942feb4562a5a4249a48691817695b10, type: 3}
       propertyPath: m_LocalRotation.w
@@ -579,9 +579,25 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 530bf3a66e86f1f4e9ef957c0e378d5f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 942feb4562a5a4249a48691817695b10, type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8fcc62e1b821d6a469895404ff10bc77, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 942feb4562a5a4249a48691817695b10, type: 3}
+      propertyPath: m_Materials.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8fcc62e1b821d6a469895404ff10bc77, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 942feb4562a5a4249a48691817695b10, type: 3}
+      propertyPath: m_Materials.Array.data[8]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8fcc62e1b821d6a469895404ff10bc77, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 942feb4562a5a4249a48691817695b10, type: 3}
+      propertyPath: m_Materials.Array.data[9]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8fcc62e1b821d6a469895404ff10bc77, type: 2}
     - target: {fileID: 919132149155446097, guid: 942feb4562a5a4249a48691817695b10, type: 3}
       propertyPath: m_Name
-      value: CardTemplate3Dfbx
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -622,14 +638,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canAttack: 0
   manager: {fileID: 0}
-  attack: 2
-  defense: 3
+  attack: 1
+  defense: 1
   nom: b
   textAttack: {fileID: 7060142441896614653}
   textDefense: {fileID: 768983721155201330}
   textNom: {fileID: 3462097535239158476}
-  cardonfield: 1
-  direction: 0100000002000000030000000400000006000000070000000800000009000000
+  cardonfield: 0
+  direction: 01000000030000000700000009000000
   width: 0
 --- !u!65 &8835033776298177624
 BoxCollider:
