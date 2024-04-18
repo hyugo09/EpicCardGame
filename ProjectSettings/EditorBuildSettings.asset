@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 4c7ea630ff26f65449efa6e60b8a2e56
   - enabled: 1
-    path: Assets/Scenes/Scene test.unity
-    guid: bd05bfaf218fe6b48a396be40e2327c9
+    path: Assets/Scenes/Terrain.unity
+    guid: 305dfb8799337a742a4f9239492045a4
   - enabled: 1
     path: Assets/Scenes/CardFieldScene.unity
     guid: 9672cfac3078abc4a9ab9c4e4eca74b6

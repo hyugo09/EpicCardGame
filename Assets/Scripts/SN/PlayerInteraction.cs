@@ -15,11 +15,6 @@ public class PlayerInteraction : MonoBehaviour
     public PlayerInteract player;
 
 
-
-    private void Awake()
-    {
-        
-    }
     private void Update()
     {
         
