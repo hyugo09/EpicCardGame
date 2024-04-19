@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1
-  Image: {fileID: 21300000, guid: c23d83addcbb6664cb9fb950d79fe846, type: 3}
+  Image: {fileID: 21300000, guid: e6acae2d3ce930b4e9918fbc25a5413b, type: 3}
