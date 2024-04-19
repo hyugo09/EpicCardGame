@@ -69,7 +69,7 @@ public class RandomAi : MonoBehaviour
             {
                 foreach (Lien l in a.liens)
                 {
-                    if (l.field1.carteSurField != null && l.field2 != null)
+                    if (l.active)
                     {
                         if (!attackable.Contains(l))
                         { attackable.Add(l); }

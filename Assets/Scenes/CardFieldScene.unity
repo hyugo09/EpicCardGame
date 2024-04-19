@@ -490,13 +490,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 105920285}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
   m_LocalPosition: {x: -0.05, y: 2.58, z: 22.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2082358881}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 180}
 --- !u!114 &105920287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1119,6 +1119,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardArena3
       objectReference: {fileID: 0}
+    - target: {fileID: 3177462392392747110, guid: e0dbcbc5e4ff5704595d77880ab1190a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -76.6
+      objectReference: {fileID: 0}
     - target: {fileID: 4322497090616923782, guid: e0dbcbc5e4ff5704595d77880ab1190a, type: 3}
       propertyPath: manager
       value: 
@@ -1127,6 +1131,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5ad6cc5284c3a8e449996499ab5c3316, type: 2}
+    - target: {fileID: 4909115717095654693, guid: e0dbcbc5e4ff5704595d77880ab1190a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -667
+      objectReference: {fileID: 0}
     - target: {fileID: 5493359622420216293, guid: e0dbcbc5e4ff5704595d77880ab1190a, type: 3}
       propertyPath: manager
       value: 

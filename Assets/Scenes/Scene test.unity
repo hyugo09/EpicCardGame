@@ -6114,8 +6114,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Collection:
-  - {fileID: 2501433691950793082, guid: e930bd6f3988a8745bd01ede2cc272e0, type: 3}
-  - {fileID: -6154613160032846659, guid: 83ae53d9b72d4614188e87b03c3b8f2e, type: 3}
+  - {fileID: 2501433691950793082, guid: 5dc556a0ec57c98459dc4958c200d444, type: 3}
+  - {fileID: -6154613160032846659, guid: 9e3a28db898ce81468f212caa3860f40, type: 3}
   changer: 0
 --- !u!4 &424626999
 Transform:
@@ -10574,26 +10574,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerDeck:
-  - {fileID: 2501433691950793082, guid: e930bd6f3988a8745bd01ede2cc272e0, type: 3}
-  - {fileID: 2501433691950793082, guid: e930bd6f3988a8745bd01ede2cc272e0, type: 3}
-  - {fileID: 2501433691950793082, guid: e930bd6f3988a8745bd01ede2cc272e0, type: 3}
-  - {fileID: 2501433691950793082, guid: e930bd6f3988a8745bd01ede2cc272e0, type: 3}
-  - {fileID: 2501433691950793082, guid: e930bd6f3988a8745bd01ede2cc272e0, type: 3}
-  - {fileID: 2501433691950793082, guid: e930bd6f3988a8745bd01ede2cc272e0, type: 3}
-  - {fileID: 2501433691950793082, guid: e930bd6f3988a8745bd01ede2cc272e0, type: 3}
-  - {fileID: 2501433691950793082, guid: e930bd6f3988a8745bd01ede2cc272e0, type: 3}
-  - {fileID: 2501433691950793082, guid: e930bd6f3988a8745bd01ede2cc272e0, type: 3}
-  - {fileID: 2501433691950793082, guid: e930bd6f3988a8745bd01ede2cc272e0, type: 3}
-  - {fileID: 2501433691950793082, guid: e930bd6f3988a8745bd01ede2cc272e0, type: 3}
-  - {fileID: 2501433691950793082, guid: e930bd6f3988a8745bd01ede2cc272e0, type: 3}
-  - {fileID: 2501433691950793082, guid: e930bd6f3988a8745bd01ede2cc272e0, type: 3}
-  - {fileID: 2501433691950793082, guid: e930bd6f3988a8745bd01ede2cc272e0, type: 3}
-  - {fileID: 2501433691950793082, guid: e930bd6f3988a8745bd01ede2cc272e0, type: 3}
-  - {fileID: 2501433691950793082, guid: e930bd6f3988a8745bd01ede2cc272e0, type: 3}
-  - {fileID: 2501433691950793082, guid: e930bd6f3988a8745bd01ede2cc272e0, type: 3}
-  - {fileID: 2501433691950793082, guid: e930bd6f3988a8745bd01ede2cc272e0, type: 3}
-  - {fileID: 2501433691950793082, guid: e930bd6f3988a8745bd01ede2cc272e0, type: 3}
-  - {fileID: 2501433691950793082, guid: e930bd6f3988a8745bd01ede2cc272e0, type: 3}
+  - {fileID: 2501433691950793082, guid: 5dc556a0ec57c98459dc4958c200d444, type: 3}
+  - {fileID: 2501433691950793082, guid: 5dc556a0ec57c98459dc4958c200d444, type: 3}
+  - {fileID: 2501433691950793082, guid: 5dc556a0ec57c98459dc4958c200d444, type: 3}
+  - {fileID: 2501433691950793082, guid: 5dc556a0ec57c98459dc4958c200d444, type: 3}
+  - {fileID: 2501433691950793082, guid: 5dc556a0ec57c98459dc4958c200d444, type: 3}
+  - {fileID: 2501433691950793082, guid: 5dc556a0ec57c98459dc4958c200d444, type: 3}
+  - {fileID: 2501433691950793082, guid: 5dc556a0ec57c98459dc4958c200d444, type: 3}
+  - {fileID: 2501433691950793082, guid: 5dc556a0ec57c98459dc4958c200d444, type: 3}
+  - {fileID: 2501433691950793082, guid: 5dc556a0ec57c98459dc4958c200d444, type: 3}
+  - {fileID: 2501433691950793082, guid: 5dc556a0ec57c98459dc4958c200d444, type: 3}
+  - {fileID: 2501433691950793082, guid: 5dc556a0ec57c98459dc4958c200d444, type: 3}
+  - {fileID: 2501433691950793082, guid: 5dc556a0ec57c98459dc4958c200d444, type: 3}
+  - {fileID: 2501433691950793082, guid: 5dc556a0ec57c98459dc4958c200d444, type: 3}
+  - {fileID: 2501433691950793082, guid: 5dc556a0ec57c98459dc4958c200d444, type: 3}
+  - {fileID: 2501433691950793082, guid: 5dc556a0ec57c98459dc4958c200d444, type: 3}
+  - {fileID: 2501433691950793082, guid: 5dc556a0ec57c98459dc4958c200d444, type: 3}
+  - {fileID: 2501433691950793082, guid: 5dc556a0ec57c98459dc4958c200d444, type: 3}
+  - {fileID: 2501433691950793082, guid: 5dc556a0ec57c98459dc4958c200d444, type: 3}
+  - {fileID: 2501433691950793082, guid: 5dc556a0ec57c98459dc4958c200d444, type: 3}
+  - {fileID: 2501433691950793082, guid: 5dc556a0ec57c98459dc4958c200d444, type: 3}
   coreDirections: 
   corePV: 40
 --- !u!1 &748701128
@@ -21576,7 +21576,7 @@ MonoBehaviour:
   tempDeck: []
   deckBox: {fileID: 1212940317}
   collectionBox: {fileID: 69918916}
-  button: {fileID: 6403603312571245086, guid: e930bd6f3988a8745bd01ede2cc272e0, type: 3}
+  button: {fileID: 6403603312571245086, guid: 5dc556a0ec57c98459dc4958c200d444, type: 3}
   texteNombreCarte: {fileID: 1016983507}
 --- !u!1 &1509710653
 GameObject:

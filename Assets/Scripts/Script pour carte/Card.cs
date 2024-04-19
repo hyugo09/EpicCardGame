@@ -66,7 +66,7 @@ public class Card : MonoBehaviour
                     //je vais devoir bouger ce code a manager anyway pour que cette partie marche
                 }
             }
-            if (manager.currentPhase == CardGameManager.Phase.battle)
+            if (manager.currentPhase == CardGameManager.Phase.battle && canAttack)
             {
                 BattleStartCameraController b = GameObject.FindFirstObjectByType<BattleStartCameraController>();
                 b.SwitchCam();
@@ -91,7 +91,7 @@ public class Card : MonoBehaviour
     internal void EnvoyerAuCimetiere()
     {
         cardonfield = false;
-        manager.playerDiscard.list.Add(this.gameObject);
+        manager.playerDiscard.SendCard(this.gameObject);
     }
     //private void OnMouseDrag()
     //{
