@@ -42,8 +42,9 @@ public class Field : MonoBehaviour
 
                 ActiverLienVisuel();
             }
-            else if (VerEtActivationLien(true, manager.selected.GetComponent<Card>()))
-            {
+            //pour les images
+            //else if (VerEtActivationLien(true, manager.selected.GetComponent<Card>()))
+            //{
                 carteSurField = manager.selected.GetComponent<Card>(); ;
                 carteSurField.cardonfield = true;
                 manager.playerHand.RemoveCard(carteSurField.gameObject);
@@ -53,11 +54,11 @@ public class Field : MonoBehaviour
 
                 Debug.Log("je suis la");
 
-                
+                ActiverLienVisuel();
 
                 
 
-            }
+            //}
         }
         else if(manager.currentPhase == CardGameManager.Phase.battle)
         {

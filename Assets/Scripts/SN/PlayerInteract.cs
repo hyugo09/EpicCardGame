@@ -30,7 +30,7 @@ public class PlayerInteract : MonoBehaviour
 
         if (weHitSomething && raycastHit.collider.CompareTag("NPC"))
         {
-            Debug.Log("TOUCHEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
+            //Debug.Log("TOUCHEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
             inRange = true;
         }
         else

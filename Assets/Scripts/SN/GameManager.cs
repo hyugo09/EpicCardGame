@@ -14,9 +14,10 @@ public class GameManager : MonoBehaviour
     public GameData currentGameData;
     public PlayerInteraction currentInteraction;
 
+    
     private void FixedUpdate()
     {
-        currentInteraction = gameObject.GetComponent<PlayerInteraction>();
+        //currentInteraction = gameObject.GetComponent<PlayerInteraction>();
         currentScene = SceneManager.GetActiveScene();
         if (InputManager.escapeInput)
         {
@@ -55,7 +56,18 @@ public class GameManager : MonoBehaviour
                     Cursor.lockState = CursorLockMode.Locked;
                     Cursor.visible = false;
                 }
-
+                break;
+            case "Terrain":
+                if (currentInteraction.dialogueUI)
+                {
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+                }
+                else
+                {
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
+                }
                 break;
             case "CardFieldScene":
                 Cursor.lockState = CursorLockMode.None;
@@ -98,7 +110,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayGame()
     {
-        LoadSceneAsync("Scene test");
+        LoadSceneAsync("Terrain");
     }
 
     public void LeaveGame()
