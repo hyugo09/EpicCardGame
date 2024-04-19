@@ -2244,6 +2244,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Database:
   - {fileID: 8384637620297548171, guid: 86761e1174e0055498e03f5bd800ba8a, type: 3}
+  CoreData:
+  - {fileID: 6940937646581306200, guid: 282f9710125bb94428cc5f414f9899b4, type: 3}
   playerManager: {fileID: 2134899065}
   aiManager: {fileID: 0}
 --- !u!4 &563131015
@@ -3191,7 +3193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3177462392392747110, guid: e0dbcbc5e4ff5704595d77880ab1190a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.6600013
+      value: 48.64
       objectReference: {fileID: 0}
     - target: {fileID: 3177462392392747110, guid: e0dbcbc5e4ff5704595d77880ab1190a, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -3307,7 +3309,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4909115717095654693, guid: e0dbcbc5e4ff5704595d77880ab1190a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.9
+      value: 28.59
       objectReference: {fileID: 0}
     - target: {fileID: 4909115717095654693, guid: e0dbcbc5e4ff5704595d77880ab1190a, type: 3}
       propertyPath: m_ConstrainProportionsScale

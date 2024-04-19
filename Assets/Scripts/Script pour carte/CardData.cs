@@ -6,6 +6,7 @@ using UnityEngine;
 public class CardData : MonoBehaviour
 {
     public GameObject[] Database;
+    public GameObject[] CoreData;
     internal GameObject[] tempPlayer;
     internal GameObject[] tempAi;
     internal GameObject tAiCore;
@@ -35,10 +36,21 @@ public class CardData : MonoBehaviour
                 tempPlayer[i].GetComponent<Card>().manager = playerManager;
             }
         }
-        //tPlayerCore = Database[playerInfo.PlayerCore];
-        //Core core =  Instantiate(tPlayerCore).GetComponent<Core>();
-       // core.Carte.manager = playerManager;
-       // core.gameObject.transform.position = playerManager.coreStand.position;
+        tPlayerCore = CoreData[0];
+        Core core = Instantiate(tPlayerCore).GetComponent<Core>();
+        if (core.Carte == null)
+        {
+            Card tcard = core.gameObject.GetComponent<Card>();
+            tcard.manager = playerManager;
+        }
+        else
+        core.Carte.manager = playerManager;
+        
+        for (int i = 0; i> playerInfo.coreDirections.Count; i++)
+        {
+            core.Carte.direction[i] = playerInfo.coreDirections[i];
+        }
+        core.gameObject.transform.position = playerManager.coreStand.position;
 
         temp = aiInfo.AiDeck;
         tempAi = new GameObject[temp.Length];
@@ -58,7 +70,7 @@ public class CardData : MonoBehaviour
                 tempAi[i].GetComponent<Card>().manager = aiManager;
             }
         }
-        tAiCore = Database[aiInfo.aiCore];
+        //tAiCore = Database[aiInfo.aiCore];
         //core = Instantiate(tAiCore).GetComponent<Core>();
         // core.Carte.manager = aiManager;
 

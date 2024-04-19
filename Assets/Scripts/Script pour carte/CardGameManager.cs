@@ -199,6 +199,12 @@ public class CardGameManager : MonoBehaviour
         {
             LoseGame();
         }
+        else if (playerHand.cards.Count == 9)
+        {
+            GameObject tCard = playerHand.cards[0];
+            playerHand.RemoveCard(tCard);
+            playerDiscard.SendCard(tCard);
+        }
         else
             playerHand.cards.Add(playerDeck.deck.Pop());
 

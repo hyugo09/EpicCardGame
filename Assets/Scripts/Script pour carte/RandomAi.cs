@@ -55,8 +55,8 @@ public class RandomAi : MonoBehaviour
 
         for (int i = 0; i < gameManager.allField.Length; i++)
         {
-            if (i != gameManager.corePos - 1)
-            {
+            
+            
                 if (gameManager.allField[i].carteSurField != null && gameManager.allField[i].carteSurField.canAttack)
                 {
 
@@ -65,12 +65,12 @@ public class RandomAi : MonoBehaviour
                     {
                         if (gameManager.allField[i].liens[j].active)
                         {
-                            gameManager.allField[i].liens[j].Dommage(temp.attack);
+                            gameManager.enemyGameManager.allField[i].liens[j].Dommage(temp.attack);
                             break;
                         }
                     }
                 }
-            }
+            
         }
     }
 }
