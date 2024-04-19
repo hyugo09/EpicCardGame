@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerInfo : MonoBehaviour
 {
-    public int[] PlayerDeck = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+    public CardMenu[] PlayerDeck;
     public List<int> coreDirections = new List<int>();
     public int corePV = 40;
     // Start is called before the first frame update

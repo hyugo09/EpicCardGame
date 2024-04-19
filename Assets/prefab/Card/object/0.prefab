@@ -644,7 +644,7 @@ MonoBehaviour:
   manager: {fileID: 0}
   attack: 1
   defense: 1
-  nom: b
+  nom: Monk Ey\nL'original zero
   textAttack: {fileID: 7060142441896614653}
   textDefense: {fileID: 768983721155201330}
   textNom: {fileID: 3462097535239158476}

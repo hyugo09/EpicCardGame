@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -17,7 +18,12 @@ public class CardData : MonoBehaviour
     {
         PlayerInfo playerInfo = FindFirstObjectByType<PlayerInfo>().GetComponent<PlayerInfo>();
         AiInfo aiInfo = FindFirstObjectByType<AiInfo>().GetComponent<AiInfo>();
-        int[] temp = playerInfo.PlayerDeck;
+        int[] temp = new int[20];
+        for (int i = 0; i < temp.Length; i++)
+        {
+            temp[i] = playerInfo.PlayerDeck.ElementAt(i).ID;
+        }
+        
         tempPlayer = new GameObject[temp.Length];
         while (!Verif(tempPlayer))
         {
