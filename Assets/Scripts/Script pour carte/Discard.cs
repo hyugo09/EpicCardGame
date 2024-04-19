@@ -20,7 +20,6 @@ public class Discard : MonoBehaviour
 
     public void SendCard(GameObject card)
     {
-        float offset = 0.3f;
         list.Add(card);
         card.transform.SetParent(transform);
         ArrangeGy();

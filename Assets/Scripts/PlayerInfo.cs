@@ -9,6 +9,8 @@ public class PlayerInfo : MonoBehaviour
     public CardMenu[] PlayerDeck;
     public List<int> coreDirections = new List<int>();
     public int corePV = 40;
+    public int gamejouer = 0;
+    public bool derniereGameW;
     // Start is called before the first frame update
     void Start()
     {

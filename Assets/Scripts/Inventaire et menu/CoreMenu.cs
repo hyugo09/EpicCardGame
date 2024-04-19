@@ -28,7 +28,7 @@ public class CoreMenu : MonoBehaviour
     }
     public void ChangeColor(Image image)
     {
-        if (image.color == Color.white)
+        if (playerInfo.corePV - 10 > 0 && image.color == Color.white)
         {
             image.color = Color.blue;
         }

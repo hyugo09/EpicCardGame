@@ -32,7 +32,7 @@ public class main : MonoBehaviour
         cards.Remove(card);
 
         
-        card.transform.SetParent(null);
+        //card.transform.SetParent(null);
 
         
         ArrangeHand();
