@@ -278,10 +278,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
+  m_Radius: 0.58743554
+  m_Height: 5.6878033
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0.00000003973643, y: 0, z: -0.08743565}
 --- !u!114 &7928489805232672648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,8 +298,12 @@ MonoBehaviour:
   manager: {fileID: 0}
   attack: 0
   defense: 20
+  nom: 
+  textAttack: {fileID: 0}
+  textDefense: {fileID: 0}
+  textNom: {fileID: 0}
   cardonfield: 0
-  direction: 080000000400000007000000
+  direction: 020000000400000006000000
   width: 0
 --- !u!114 &6232170888275817457
 MonoBehaviour:
@@ -315,6 +319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   field1: {fileID: 0}
   field2: {fileID: 0}
+  active: 0
 --- !u!114 &1466660584916492868
 MonoBehaviour:
   m_ObjectHideFlags: 0
