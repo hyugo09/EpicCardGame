@@ -11,7 +11,7 @@ public class Lien : MonoBehaviour
     private TextMeshPro text;
 
     private int PV;
-    private int currentPV = 0;
+    public int currentPV = 0;
     private int coreDef = 5;
     [SerializeField] internal bool active = false;
     private void Start()
@@ -31,8 +31,9 @@ public class Lien : MonoBehaviour
         {
             PV = GetComponent<Core>().Carte.defense;
             currentPV = PV;
+            text.text = currentPV.ToString();
         }
-        else if (field1.carteSurField.GetComponent<Core>())
+        else if (field1.carteSurField != null&&field1.carteSurField.GetComponent<Core>())
         {
             if (currentPV != 0 || currentPV != PV)
             {
@@ -48,7 +49,7 @@ public class Lien : MonoBehaviour
                 active = true;
             }
         }
-        else if (field2.carteSurField.GetComponent<Core>())
+        else if (field2.carteSurField != null && field2.carteSurField.GetComponent<Core>())
         {
             if (currentPV != 0 || currentPV != PV)
             {

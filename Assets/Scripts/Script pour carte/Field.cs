@@ -43,8 +43,8 @@ public class Field : MonoBehaviour
                 ActiverLienVisuel();
             }
             //pour les images
-            //else if (VerEtActivationLien(true, manager.selected.GetComponent<Card>()))
-            //{
+            else if (VerEtActivationLien(true, manager.selected.GetComponent<Card>()))
+            {
                 carteSurField = manager.selected.GetComponent<Card>(); ;
                 carteSurField.cardonfield = true;
                 manager.playerHand.RemoveCard(carteSurField.gameObject);
@@ -58,7 +58,7 @@ public class Field : MonoBehaviour
 
                 
 
-            //}
+            }
         }
         else if(manager.currentPhase == CardGameManager.Phase.battle)
         {
@@ -134,6 +134,7 @@ public class Field : MonoBehaviour
                                                 {
                                                     lienTrouver = true;
                                                     //lien.gameObject.SetActive(true);
+                                                    carteSurField = Carte;
                                                     lien.setLienPV();
                                                     ActiverLienVisuel(Carte, i);
                                                 }
@@ -145,6 +146,7 @@ public class Field : MonoBehaviour
                                                 {
                                                     lienTrouver = true;
                                                     //lien.gameObject.SetActive(true);
+                                                    carteSurField = Carte;
                                                     lien.setLienPV();
                                                     ActiverLienVisuel(Carte, i);
                                                 }
@@ -156,6 +158,7 @@ public class Field : MonoBehaviour
                                                 {
                                                     lienTrouver = true;
                                                     //lien.gameObject.SetActive(true);
+                                                    carteSurField = Carte;
                                                     lien.setLienPV();
                                                     ActiverLienVisuel(Carte, i);
                                                 }
@@ -167,6 +170,7 @@ public class Field : MonoBehaviour
                                                 {
                                                     lienTrouver = true;
                                                     //lien.gameObject.SetActive(true);
+                                                    carteSurField = Carte;
                                                     lien.setLienPV();
                                                     ActiverLienVisuel(Carte, i);
                                                 }
@@ -178,6 +182,7 @@ public class Field : MonoBehaviour
                                                 {
                                                     lienTrouver = true;
                                                     //lien.gameObject.SetActive(true);
+                                                    carteSurField = Carte;
                                                     lien.setLienPV();
                                                     ActiverLienVisuel(Carte, i);
                                                 }
@@ -189,6 +194,7 @@ public class Field : MonoBehaviour
                                                 {
                                                     lienTrouver = true;
                                                     //lien.gameObject.SetActive(true);
+                                                    carteSurField = Carte;
                                                     lien.setLienPV();
                                                     ActiverLienVisuel(Carte, i);
                                                 }
@@ -200,6 +206,7 @@ public class Field : MonoBehaviour
                                                 {
                                                     lienTrouver = true;
                                                     //lien.gameObject.SetActive(true);
+                                                    carteSurField = Carte;
                                                     lien.setLienPV();
                                                     ActiverLienVisuel(Carte, i);
                                                 }
@@ -211,6 +218,7 @@ public class Field : MonoBehaviour
                                                 {
                                                     lienTrouver = true;
                                                     //lien.gameObject.SetActive(true);
+                                                    carteSurField = Carte;
                                                     lien.setLienPV();
                                                     ActiverLienVisuel(Carte, i);
                                                 }
@@ -320,6 +328,19 @@ public class Field : MonoBehaviour
                     i++;
                 }
             }
+        }
+    }
+    public void JouerCore()
+    {
+        if (manager.selected.GetComponent<Core>())
+        {
+            Core core = manager.selected.GetComponent<Core>();
+            carteSurField = core.gameObject.GetComponent<Card>();  
+            carteSurField.cardonfield = true;
+            manager.selected = null;
+            carteSurField.transform.position = transform.position + offset;
+
+            ActiverLienVisuel();
         }
     }
 

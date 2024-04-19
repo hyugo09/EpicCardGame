@@ -23,7 +23,10 @@ public class RandomAi : MonoBehaviour
 
     public void Playcard()
     {
-
+        if (!gameManager.Core.GetComponent<Card>().cardonfield)
+        {
+            PlaceCore();
+        }
 
         if (gameManager.playerHand.cards.Count > 0)
         {
@@ -52,25 +55,41 @@ public class RandomAi : MonoBehaviour
 
     public void AiAttack()
     {
-
-        for (int i = 0; i < gameManager.allField.Length; i++)
-        {
-            
-            
-                if (gameManager.allField[i].carteSurField != null && gameManager.allField[i].carteSurField.canAttack)
+            List<Card> attackCards = new List<Card>();
+            List<Lien> attackable = new List<Lien>();
+            foreach (Field a in gameManager.allField)
+            {
+                if (a.carteSurField != null)
                 {
+                    attackCards.Add(a.carteSurField);
+                }
+            }
 
-                    Card temp = gameManager.allField[i].carteSurField;
-                    for (int j = 0; j < gameManager.allField[i].liens.Length; j++)
+            foreach (Field a in gameManager.enemyGameManager.allField)
+            {
+                foreach (Lien l in a.liens)
+                {
+                    if (l.field1.carteSurField != null && l.field2 != null)
                     {
-                        if (gameManager.allField[i].liens[j].active)
-                        {
-                            gameManager.enemyGameManager.allField[i].liens[j].Dommage(temp.attack);
-                            break;
-                        }
+                        if (!attackable.Contains(l))
+                        { attackable.Add(l); }
                     }
                 }
+            }
+                for (int i =0; i < attackCards.Count; i++)
+                {
+                    
+                    attackable[Random.Range(0, attackable.Count)].Dommage(attackCards[i].attack);
+                }
             
-        }
+
+        
+    }
+    public void PlaceCore()
+    {
+        gameManager.selected = gameManager.Core;
+        gameManager.allField[4].JouerCore();
     }
 }
+
+

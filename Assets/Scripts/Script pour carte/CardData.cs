@@ -38,18 +38,13 @@ public class CardData : MonoBehaviour
         }
         tPlayerCore = CoreData[0];
         Core core = Instantiate(tPlayerCore).GetComponent<Core>();
-        if (core.Carte == null)
-        {
-            Card tcard = core.gameObject.GetComponent<Card>();
-            tcard.manager = playerManager;
-        }
-        else
-        core.Carte.manager = playerManager;
-        
-        for (int i = 0; i> playerInfo.coreDirections.Count; i++)
-        {
-            core.Carte.direction[i] = playerInfo.coreDirections[i];
-        }
+
+        Card tcard = core.gameObject.GetComponent<Card>();
+        tcard.manager = playerManager;
+
+
+        tcard.direction = playerInfo.coreDirections.ToArray();
+
         core.gameObject.transform.position = playerManager.coreStand.position;
 
         temp = aiInfo.AiDeck;
@@ -70,8 +65,11 @@ public class CardData : MonoBehaviour
                 tempAi[i].GetComponent<Card>().manager = aiManager;
             }
         }
-        //tAiCore = Database[aiInfo.aiCore];
-        //core = Instantiate(tAiCore).GetComponent<Core>();
+        tAiCore = CoreData[0];
+        core = Instantiate(tAiCore).GetComponent<Core>();
+        tcard = core.gameObject.GetComponent<Card>();
+        tcard.manager = aiManager;
+        tcard.direction = aiInfo.aiCore;
         // core.Carte.manager = aiManager;
 
     }

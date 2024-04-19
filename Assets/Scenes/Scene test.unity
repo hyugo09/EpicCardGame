@@ -9221,7 +9221,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1474639778}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: ResumeGame
         m_Mode: 1
@@ -27200,7 +27200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2f349937df1b1d46816b1ec7a31039f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInfo: {fileID: 0}
+  playerInfo: {fileID: 746829146}
   textPV: {fileID: 1141213995}
 --- !u!222 &2077318724
 CanvasRenderer:
