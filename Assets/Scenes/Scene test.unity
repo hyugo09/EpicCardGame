@@ -897,7 +897,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: -4.635, y: -333.69836}
-  m_SizeDelta: {x: 606.66, y: 0}
+  m_SizeDelta: {x: 606.66, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &69918918
 CanvasRenderer:
@@ -4015,24 +4015,24 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1236980712}
         m_TargetAssemblyTypeName: CoreMenu, Assembly-CSharp
-        m_MethodName: AddCoreDirection
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1236980712}
-        m_TargetAssemblyTypeName: CoreMenu, Assembly-CSharp
         m_MethodName: ChangeColor
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 247674076}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1236980712}
+        m_TargetAssemblyTypeName: CoreMenu, Assembly-CSharp
+        m_MethodName: AddCoreDirection
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -10596,6 +10596,8 @@ MonoBehaviour:
   - {fileID: 2501433691950793082, guid: e930bd6f3988a8745bd01ede2cc272e0, type: 3}
   coreDirections: 
   corePV: 40
+  gamejouer: 0
+  derniereGameW: 0
 --- !u!1 &748701128
 GameObject:
   m_ObjectHideFlags: 0
@@ -12336,7 +12338,7 @@ RectTransform:
   m_Father: {fileID: 1509710654}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -16032,7 +16034,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: -4.635, y: -333.69836}
-  m_SizeDelta: {x: 606.66, y: 0}
+  m_SizeDelta: {x: 606.66, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1212940319
 MonoBehaviour:
@@ -17081,24 +17083,24 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1236980712}
         m_TargetAssemblyTypeName: CoreMenu, Assembly-CSharp
-        m_MethodName: AddCoreDirection
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1236980712}
-        m_TargetAssemblyTypeName: CoreMenu, Assembly-CSharp
         m_MethodName: ChangeColor
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1264703901}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1236980712}
+        m_TargetAssemblyTypeName: CoreMenu, Assembly-CSharp
+        m_MethodName: AddCoreDirection
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -18001,24 +18003,24 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1236980712}
         m_TargetAssemblyTypeName: CoreMenu, Assembly-CSharp
-        m_MethodName: AddCoreDirection
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 8
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1236980712}
-        m_TargetAssemblyTypeName: CoreMenu, Assembly-CSharp
         m_MethodName: ChangeColor
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1269866148}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1236980712}
+        m_TargetAssemblyTypeName: CoreMenu, Assembly-CSharp
+        m_MethodName: AddCoreDirection
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 8
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -18243,7 +18245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1283313769
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20632,24 +20634,24 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1236980712}
         m_TargetAssemblyTypeName: CoreMenu, Assembly-CSharp
-        m_MethodName: AddCoreDirection
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1236980712}
-        m_TargetAssemblyTypeName: CoreMenu, Assembly-CSharp
         m_MethodName: ChangeColor
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1381753633}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1236980712}
+        m_TargetAssemblyTypeName: CoreMenu, Assembly-CSharp
+        m_MethodName: AddCoreDirection
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -21227,7 +21229,7 @@ RectTransform:
   m_Father: {fileID: 2108008197}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -21923,24 +21925,24 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1236980712}
         m_TargetAssemblyTypeName: CoreMenu, Assembly-CSharp
-        m_MethodName: AddCoreDirection
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 7
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1236980712}
-        m_TargetAssemblyTypeName: CoreMenu, Assembly-CSharp
         m_MethodName: ChangeColor
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1536227984}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1236980712}
+        m_TargetAssemblyTypeName: CoreMenu, Assembly-CSharp
+        m_MethodName: AddCoreDirection
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -23996,7 +23998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AiDeck: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  aiCore: 0
+  aiCore: 
 --- !u!4 &1768649370
 Transform:
   m_ObjectHideFlags: 0
@@ -24955,24 +24957,24 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1236980712}
         m_TargetAssemblyTypeName: CoreMenu, Assembly-CSharp
-        m_MethodName: AddCoreDirection
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 9
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1236980712}
-        m_TargetAssemblyTypeName: CoreMenu, Assembly-CSharp
         m_MethodName: ChangeColor
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1812968323}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1236980712}
+        m_TargetAssemblyTypeName: CoreMenu, Assembly-CSharp
+        m_MethodName: AddCoreDirection
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 9
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -26813,24 +26815,24 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1236980712}
         m_TargetAssemblyTypeName: CoreMenu, Assembly-CSharp
-        m_MethodName: AddCoreDirection
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 6
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1236980712}
-        m_TargetAssemblyTypeName: CoreMenu, Assembly-CSharp
         m_MethodName: ChangeColor
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1916625871}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1236980712}
+        m_TargetAssemblyTypeName: CoreMenu, Assembly-CSharp
+        m_MethodName: AddCoreDirection
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -27054,7 +27056,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1940314202
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28095,24 +28097,24 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1236980712}
         m_TargetAssemblyTypeName: CoreMenu, Assembly-CSharp
-        m_MethodName: AddCoreDirection
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1236980712}
-        m_TargetAssemblyTypeName: CoreMenu, Assembly-CSharp
         m_MethodName: ChangeColor
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 2055004360}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1236980712}
+        m_TargetAssemblyTypeName: CoreMenu, Assembly-CSharp
+        m_MethodName: AddCoreDirection
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

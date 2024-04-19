@@ -17,6 +17,7 @@ public class Core : MonoBehaviour
         Carte = gameObject.GetComponent<Card>();
         Lien = gameObject.GetComponent<Lien>();
         Carte.manager.selected = this.gameObject;
+        Lien.setLienPV();
     }
 
     

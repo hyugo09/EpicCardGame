@@ -48,9 +48,11 @@ public class CardData : MonoBehaviour
         Card tcard = core.gameObject.GetComponent<Card>();
         tcard.manager = playerManager;
 
-
-        tcard.direction = playerInfo.coreDirections.ToArray();
-
+        if(playerInfo.corePV != 40)
+        {
+            tcard.direction = playerInfo.coreDirections.ToArray();
+            tcard.defense = playerInfo.corePV;
+        }        
         core.gameObject.transform.position = playerManager.coreStand.position;
 
         temp = aiInfo.AiDeck;

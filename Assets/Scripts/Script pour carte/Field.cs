@@ -311,24 +311,11 @@ public class Field : MonoBehaviour
         {
             carteSurField = carte;
             carteSurField.cardonfield = true;
-            manager.playerHand.RemoveCard(carteSurField.gameObject);
+            //manager.playerHand.RemoveCard(carteSurField.gameObject);
             manager.selected = null;
             carteSurField.transform.position = transform.position + offset;
 
-            foreach (GameObject child in listOfChildren)
-            {
-                int i = 0;
-                while (i < carteSurField.direction.Length)
-                {
-                    if (child.name == carteSurField.direction[i].ToString())
-                    {
-                        MeshRenderer temp = child.GetComponent<MeshRenderer>();
-                        temp.material = directionMaterial;
-
-                    }
-                    i++;
-                }
-            }
+            ActiverLienVisuel();
         }
     }
     public void JouerCore()

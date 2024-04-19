@@ -202,7 +202,7 @@ Transform:
   m_GameObject: {fileID: 6940937646581306200}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.46, y: 3.99, z: -2.45}
+  m_LocalPosition: {x: 0, y: 47.6, z: 51.875}
   m_LocalScale: {x: 3, y: 0.6196792, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -302,8 +302,8 @@ MonoBehaviour:
   textAttack: {fileID: 0}
   textDefense: {fileID: 0}
   textNom: {fileID: 0}
-  cardonfield: 0
-  direction: 020000000400000006000000
+  cardonfield: 1
+  direction: 0100000009000000
   width: 0
 --- !u!114 &6232170888275817457
 MonoBehaviour:
@@ -319,6 +319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   field1: {fileID: 0}
   field2: {fileID: 0}
+  currentPV: 0
   active: 0
 --- !u!114 &1466660584916492868
 MonoBehaviour:

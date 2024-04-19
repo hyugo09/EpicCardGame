@@ -36,10 +36,12 @@ public class CardGameManager : MonoBehaviour
     [SerializeField] private CardGameManager EnemyManager;
     public Transform coreStand;
     private bool firstTurn = true;
+    [SerializeField] private GameObject gameUI;
+    [SerializeField] private GameObject endGameUI;
     // Start is called before the first frame update
     void Start()
     {
-      DoDeck();
+        DoDeck();
 
     }
     public void DoDeck()
@@ -123,7 +125,7 @@ public class CardGameManager : MonoBehaviour
     }
     private void ChangeToMain()
     {
-        
+
         currentPhase = Phase.main;
 
         if (isAi)
@@ -140,8 +142,8 @@ public class CardGameManager : MonoBehaviour
         {
             text.text = "Main Phase";
         }
-        
-        
+
+
     }
     private void ChangeToBattle()
     {
@@ -153,13 +155,13 @@ public class CardGameManager : MonoBehaviour
         {
             text.text = "battle phase";
         }
-        
+
         if (isAi && !firstTurn)
         {
             Debug.Log("battle");
             BattlePhase.Invoke();
             this.ChangeCurrentPhase();
-            
+
         }
         if (firstTurn)
         {
@@ -181,9 +183,9 @@ public class CardGameManager : MonoBehaviour
         if (!isAi)
         { text.text = "End Phase"; }
 
-        
-       
-        
+
+
+
         this.ChangeCurrentPhase();
     }
     private void ChangeToEnnemy()
@@ -210,15 +212,31 @@ public class CardGameManager : MonoBehaviour
             playerHand.cards.Add(playerDeck.deck.Pop());
 
     }
+    internal void Abandon()
+    {
+        PlayerInfo playerInfo = GameObject.FindAnyObjectByType<PlayerInfo>().GetComponent<PlayerInfo>();
+        playerInfo.gamejouer++;
+        endGameUI.SetActive(true);
+        endGameUI.GetComponentInChildren<TextMeshProUGUI>().text = "Yo come on la, t'aurait put continuer";
+        playerInfo.derniereGameW = false;
+    }
     internal void LoseGame()
     {
         //rappelle de faire un game over, probablement besoin d'un report pour aller dans l'autre scenen aussi
+        PlayerInfo playerInfo = GameObject.FindAnyObjectByType<PlayerInfo>().GetComponent<PlayerInfo>();
+        playerInfo.gamejouer++;
+        endGameUI.SetActive(true);
         if (isAi)
         {
+            endGameUI.GetComponentInChildren<TextMeshProUGUI>().text = "GG's BRO !!!!";
+            playerInfo.derniereGameW = true;
             //activer l'ecran qui montre la w
         }
         else
         {
+
+            endGameUI.GetComponentInChildren<TextMeshProUGUI>().text = "L+RATIO";
+            playerInfo.derniereGameW = false;
             //activer ecran qui montre le L+ratio
         }
         Debug.Log("un joueur a perdu");

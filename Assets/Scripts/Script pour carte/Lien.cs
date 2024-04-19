@@ -21,9 +21,10 @@ public class Lien : MonoBehaviour
             text = GetComponentInChildren<TextMeshPro>();
         }
         else
+        {
             text = GetComponent<TextMeshPro>();
-        setLienPV();
-        SetLienText();
+            setLienPV();
+        }
     }
 
     public void setLienPV()

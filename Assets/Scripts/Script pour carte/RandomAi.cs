@@ -45,7 +45,7 @@ public class RandomAi : MonoBehaviour
                         reussi = true;
                     }
                 }
-                
+                gameManager.playerHand.cards.Remove(temp);
             }
 
 
