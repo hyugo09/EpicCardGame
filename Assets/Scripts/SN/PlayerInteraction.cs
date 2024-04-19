@@ -17,7 +17,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Update()
     {
-        
+
         if (player.inRange == true)
         {
             NavMeshAgent npc = GetComponent<NavMeshAgent>();
@@ -28,7 +28,6 @@ public class PlayerInteraction : MonoBehaviour
             {
                 dialogueUI.SetActive(true);
                 npcCam.Priority = 2;
-                //Time.timeScale = 0;
 
                 DialogueTrigger dialogueTrigger = GetComponent<DialogueTrigger>();
                 if (dialogueTrigger != null)
@@ -36,28 +35,27 @@ public class PlayerInteraction : MonoBehaviour
                     dialogueTrigger.TriggerDialogue();
                 }
 
-                //transform.LookAt(new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z));
+                transform.LookAt(new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z));
 
 
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
             }
-            
+
         }
-        else if (InputManager.isInteracting && dialogueUI)
+        else if (InputManager.isInteracting)
         {
             interactText.enabled = false;
-            //inter
             npcCam.Priority = 0;
-            GetComponent<NavMeshAgent>().isStopped = false;
             dialogueUI.SetActive(false);
+            GetComponent<NavMeshAgent>().isStopped = false;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
         if (!player.inRange)
         {
             interactText.enabled = false;
-           
+
         }
     }
 

@@ -28,7 +28,7 @@ public class PlayerInteract : MonoBehaviour
 
         Debug.DrawRay(rayOrigin, 5f * rayDirection, Color.blue);
 
-        if (weHitSomething && raycastHit.collider.CompareTag("NPC"))
+        if (weHitSomething && raycastHit.collider.CompareTag("NPC") && !dialogueUI.activeSelf)
         {
             //Debug.Log("TOUCHEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
             inRange = true;
