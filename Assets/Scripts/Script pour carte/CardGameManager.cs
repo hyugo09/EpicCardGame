@@ -174,6 +174,7 @@ public class CardGameManager : MonoBehaviour
     }
     private void ChangeToEnd()
     {
+        
         if (firstTurn)
         {
             firstTurn = false;
@@ -185,7 +186,7 @@ public class CardGameManager : MonoBehaviour
 
 
 
-
+        CardAttackReset();
         this.ChangeCurrentPhase();
     }
     private void ChangeToEnnemy()
