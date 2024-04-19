@@ -14,8 +14,8 @@ public class Core : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Carte = GetComponent<Card>();
-        Lien = GetComponent<Lien>();
+        Carte = gameObject.GetComponent<Card>();
+        Lien = gameObject.GetComponent<Lien>();
         Carte.manager.selected = this.gameObject;
     }
 

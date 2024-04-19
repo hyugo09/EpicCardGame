@@ -204,6 +204,7 @@ public class CardGameManager : MonoBehaviour
             GameObject tCard = playerHand.cards[0];
             playerHand.RemoveCard(tCard);
             playerDiscard.SendCard(tCard);
+            playerHand.cards.Add(playerDeck.deck.Pop());
         }
         else
             playerHand.cards.Add(playerDeck.deck.Pop());
