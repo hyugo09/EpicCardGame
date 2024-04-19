@@ -4,6 +4,7 @@ using UnityEngine.AI;
 using Cinemachine;
 using UnityEngine.InputSystem;
 using TMPro;
+using System.Collections;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject dialogueUI;
     public Transform playerTransform;
     public PlayerInteract player;
+    private bool canInteract = true;
 
 
     private void Update()
@@ -24,8 +26,9 @@ public class PlayerInteraction : MonoBehaviour
             npc.isStopped = true;
             interactText.enabled = true;
 
-            if (InputManager.isInteracting /*Input.GetKeyUp(KeyCode.F)*/)
+            if (InputManager.isInteracting && canInteract)
             {
+                StartCoroutine(InteractCooldown(0.75f));
                 dialogueUI.SetActive(true);
                 npcCam.Priority = 2;
 
@@ -43,7 +46,7 @@ public class PlayerInteraction : MonoBehaviour
             }
 
         }
-        else if (InputManager.isInteracting)
+        else if (InputManager.isInteracting && dialogueUI == true && canInteract)
         {
             interactText.enabled = false;
             npcCam.Priority = 0;
@@ -52,13 +55,23 @@ public class PlayerInteraction : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
-        if (!player.inRange)
-        {
-            interactText.enabled = false;
+        //if (player.inRange == false)
+        //{
+        //    interactText.enabled = false;
+        //    npcCam.Priority = 0;
+        //    dialogueUI.SetActive(false);
+        //    GetComponent<NavMeshAgent>().isStopped = false;
+        //    Cursor.lockState = CursorLockMode.Locked;
+        //    Cursor.visible = false;
 
-        }
+        //}
     }
-
+    public IEnumerator InteractCooldown(float cooldown)
+    {
+        canInteract = false;
+        yield return new WaitForSeconds(cooldown);
+        canInteract = true;
+    }
     //private void OnTriggerEnter(Collider other)
     //{
     //    if (other.CompareTag("Player"))
