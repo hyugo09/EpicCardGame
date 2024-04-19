@@ -43,8 +43,8 @@ public class Field : MonoBehaviour
                 ActiverLienVisuel();
             }
             //pour les images
-            //else if (VerEtActivationLien(true, manager.selected.GetComponent<Card>()))
-            //{
+            else if (VerEtActivationLien(true, manager.selected.GetComponent<Card>()))
+            {
                 carteSurField = manager.selected.GetComponent<Card>(); ;
                 carteSurField.cardonfield = true;
                 manager.playerHand.RemoveCard(carteSurField.gameObject);
@@ -58,7 +58,7 @@ public class Field : MonoBehaviour
 
                 
 
-            //}
+            }
         }
         else if(manager.currentPhase == CardGameManager.Phase.battle)
         {
