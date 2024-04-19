@@ -42,41 +42,54 @@ public class DeckCreator : MonoBehaviour
         }
         menuList.Clear();
 
-        foreach(CardMenu card in tempDeck)
+        foreach (CardMenu card in tempDeck)
         {
             GameObject temp = Instantiate(button, deckBox.transform);
             temp.GetComponent<CardMenu>().ChangeValue(card.ID, card.Image);
-            temp.GetComponent<Button>().onClick.AddListener(delegate { this.EnleverCarte(temp.GetComponent<CardMenu>()) ; } );
+            temp.GetComponent<Button>().onClick.AddListener(delegate { this.EnleverCarte(temp.GetComponent<CardMenu>()); });
             temp.GetComponent<Image>().sprite = card.Image;
             menuList.Add(temp);
         }
-        
+
     }
     public void ChargerMenuCollection(bool ui)
     {
-        
+        if (ui)
+        {
+            foreach (CardMenu carte in Collected.Collection)
+            {
+                var gotted = CollectionList.Where((e) => e.GetComponent<CardMenu>().ID == carte.ID);
+                if (!CollectionList.Contains(gotted.ElementAt(0)))
+                {
+                    GameObject temp = Instantiate(button, collectionBox.transform);
+                    temp.GetComponent<CardMenu>().ChangeValue(carte.ID, carte.Image);
+                    temp.GetComponent<Button>().onClick.AddListener(delegate { this.AjouterCarte(temp.GetComponent<CardMenu>()); });
+                    temp.GetComponent<Image>().sprite = carte.Image;
+                    CollectionList.Add(temp);
+                }
+            }
+            Collected.changer = false;
+        }
+
     }
     public void ChargerMenuCollection()
     {
-        
 
-        foreach(CardMenu card in Collected.Collection)
+
+        foreach (CardMenu card in Collected.Collection)
         {
             GameObject temp = Instantiate(button, collectionBox.transform);
             temp.GetComponent<CardMenu>().ChangeValue(card.ID, card.Image);
             temp.GetComponent<Button>().onClick.AddListener(delegate { this.AjouterCarte(temp.GetComponent<CardMenu>()); });
             temp.GetComponent<Image>().sprite = card.Image;
+            CollectionList.Add(temp);
         }
     }
     public void ChargerTout()
     {
         ChargerDeck();
         ChargerMenuDeck();
-        if (Collected.changer)
-        {
-            ChargerMenuCollection();
-            Collected.changer = false;
-        }
+        ChargerMenuCollection(Collected.changer);
     }
     public void AjouterCarte(CardMenu carte)
     {
@@ -97,7 +110,7 @@ public class DeckCreator : MonoBehaviour
     {
         if (nombreCarte == 20)
         {
-           PlayerInfo temp = GameObject.FindFirstObjectByType<PlayerInfo>().GetComponent<PlayerInfo>();
+            PlayerInfo temp = GameObject.FindFirstObjectByType<PlayerInfo>().GetComponent<PlayerInfo>();
 
             temp.PlayerDeck = tempDeck.ToArray();
         }
