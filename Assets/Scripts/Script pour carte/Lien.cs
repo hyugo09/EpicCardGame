@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Lien : MonoBehaviour
@@ -94,14 +95,21 @@ public class Lien : MonoBehaviour
 
     private void OnMouseDown()
     {
+        BattleStartCameraController b = GameObject.FindFirstObjectByType<BattleStartCameraController>();
+        
         if (field1.manager.enemyGameManager.currentPhase == CardGameManager.Phase.battle)
         {
+            if (field1.manager.enemyGameManager.selected == null && !GetComponent<Core>())
+            {
+                b.SwitchCam();
+                return;
+            }
             if (field1.manager.enemyGameManager.selected.GetComponent<Card>())
             {
                 Card temp = field1.manager.enemyGameManager.selected.GetComponent<Card>();
                 if (temp != null)
                 {
-                    if (!GetComponent<Core>())
+                    if (!GetComponent<Core>() && temp.canAttack)
                     {
                         Dommage(temp.attack);
                         //quand le lien est detruit
@@ -137,7 +145,7 @@ public class Lien : MonoBehaviour
                         
                     }
                     temp.canAttack = false;
-                    BattleStartCameraController b = GameObject.FindFirstObjectByType<BattleStartCameraController>();
+                   
                     b.SwitchCam();
                 }
             }

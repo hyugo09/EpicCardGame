@@ -26,6 +26,11 @@ public class PlayerInteraction : MonoBehaviour
             npc.isStopped = true;
             interactText.enabled = true;
 
+            //Vector3 direction = (playerTransform.position - transform.position).normalized;
+            //Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+            //transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+            transform.LookAt(new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z));
+
             if (InputManager.isInteracting && canInteract)
             {
                 StartCoroutine(InteractCooldown(0.75f));
@@ -55,16 +60,12 @@ public class PlayerInteraction : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
-        //if (player.inRange == false)
-        //{
-        //    interactText.enabled = false;
-        //    npcCam.Priority = 0;
-        //    dialogueUI.SetActive(false);
-        //    GetComponent<NavMeshAgent>().isStopped = false;
-        //    Cursor.lockState = CursorLockMode.Locked;
-        //    Cursor.visible = false;
+        if (!player.inRange)
+        {
+            interactText.enabled = false;
+        }
 
-        //}
+
     }
     public IEnumerator InteractCooldown(float cooldown)
     {
@@ -72,27 +73,4 @@ public class PlayerInteraction : MonoBehaviour
         yield return new WaitForSeconds(cooldown);
         canInteract = true;
     }
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        inRange = true;
-    //        //npcCam.Follow = transform;
-    //        //npcCam.LookAt = transform;
-
-    //    }
-    //}
-
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        inRange = false;
-    //        npcCam.Priority = 0;
-    //        GetComponent<NavMeshAgent>().isStopped = false;
-    //        dialogueUI.SetActive(false);
-    //        Cursor.lockState = CursorLockMode.Locked;
-    //        Cursor.visible = false;
-    //    }
-    //}
 }
