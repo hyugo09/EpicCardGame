@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -275,6 +276,7 @@ public class Field : MonoBehaviour
     }
     private void ActiverLienVisuel()
     {
+        
         foreach (GameObject child in listOfChildren)
         {
             if (child.GetComponent<MeshRenderer>())
@@ -307,6 +309,7 @@ public class Field : MonoBehaviour
     }
     public void JouerCarte(Card carte)
     {
+        float x = -90; 
         if (VerEtActivationLien(true, carte))
         {
             carteSurField = carte;
@@ -314,6 +317,10 @@ public class Field : MonoBehaviour
             //manager.playerHand.RemoveCard(carteSurField.gameObject);
             manager.selected = null;
             carteSurField.transform.position = transform.position + offset;
+            if (manager.isAi)
+            {
+                
+            }
 
             ActiverLienVisuel();
         }

@@ -302,7 +302,7 @@ MonoBehaviour:
   textAttack: {fileID: 0}
   textDefense: {fileID: 0}
   textNom: {fileID: 0}
-  cardonfield: 1
+  cardonfield: 0
   direction: 0100000009000000
   width: 0
 --- !u!114 &6232170888275817457

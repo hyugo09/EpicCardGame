@@ -47,6 +47,7 @@ public class CardData : MonoBehaviour
 
         Card tcard = core.gameObject.GetComponent<Card>();
         tcard.manager = playerManager;
+        tcard.direction = playerInfo.coreDirections.ToArray() ;
 
         if(playerInfo.corePV != 40)
         {
@@ -78,7 +79,7 @@ public class CardData : MonoBehaviour
         tcard = core.gameObject.GetComponent<Card>();
         tcard.manager = aiManager;
         tcard.direction = aiInfo.aiCore;
-        // core.Carte.manager = aiManager;
+         core.Carte.manager = aiManager;
 
     }
 
