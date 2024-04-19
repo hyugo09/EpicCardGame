@@ -133,6 +133,7 @@ public class Field : MonoBehaviour
                                                 if (Carte.direction[i] == 9)
                                                 {
                                                     lienTrouver = true;
+                                                    carteSurField = Carte;
                                                     //lien.gameObject.SetActive(true);
                                                     carteSurField = Carte;
                                                     lien.setLienPV();

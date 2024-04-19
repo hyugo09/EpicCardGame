@@ -21,8 +21,9 @@ public class Lien : MonoBehaviour
             text = GetComponentInChildren<TextMeshPro>();
         }
         else
-        text = GetComponent<TextMeshPro>();
+            text = GetComponent<TextMeshPro>();
         setLienPV();
+        SetLienText();
     }
 
     public void setLienPV()
@@ -118,10 +119,7 @@ public class Lien : MonoBehaviour
                                 field2.carteSurField.EnvoyerAuCimetiere();
                                 field2.carteSurField = null;
                             }
-                        }
-                        temp.canAttack = false;
-                        BattleStartCameraController b = GameObject.FindFirstObjectByType<BattleStartCameraController>();
-                        b.SwitchCam();
+                        }                      
                     }
                     else
                     {
@@ -133,12 +131,13 @@ public class Lien : MonoBehaviour
                             {
                                 field1.manager.LoseGame();
                             }
-                            //jsp si on en a besoin ou pas mais je le laisse au cas ou
-                            BattleStartCameraController b = GameObject.FindFirstObjectByType<BattleStartCameraController>();
-                            b.SwitchCam();
-                        }
 
+                        }
+                        
                     }
+                    temp.canAttack = false;
+                    BattleStartCameraController b = GameObject.FindFirstObjectByType<BattleStartCameraController>();
+                    b.SwitchCam();
                 }
             }
         }

@@ -213,6 +213,14 @@ public class CardGameManager : MonoBehaviour
     internal void LoseGame()
     {
         //rappelle de faire un game over, probablement besoin d'un report pour aller dans l'autre scenen aussi
+        if (isAi)
+        {
+            //activer l'ecran qui montre la w
+        }
+        else
+        {
+            //activer ecran qui montre le L+ratio
+        }
         Debug.Log("un joueur a perdu");
     }
     private void CardAttackReset()
