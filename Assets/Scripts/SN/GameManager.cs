@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public GameData currentGameData;
     public PlayerInteraction currentInteraction;
 
-    
+
     private void FixedUpdate()
     {
         //currentInteraction = gameObject.GetComponent<PlayerInteraction>();
@@ -58,16 +58,10 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case "Terrain":
-                if (currentInteraction.dialogueUI)
-                {
-                    Cursor.lockState = CursorLockMode.None;
-                    Cursor.visible = true;
-                }
-                else
-                {
-                    Cursor.lockState = CursorLockMode.Locked;
-                    Cursor.visible = false;
-                }
+
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+
                 break;
             case "CardFieldScene":
                 Cursor.lockState = CursorLockMode.None;
