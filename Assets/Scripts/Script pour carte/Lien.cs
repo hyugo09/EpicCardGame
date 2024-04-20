@@ -116,18 +116,19 @@ public class Lien : MonoBehaviour
 
         if (field1.manager.enemyGameManager.currentPhase == CardGameManager.Phase.battle)
         {
-            if (field1.manager.enemyGameManager.selected == null && !GetComponent<Core>())
+           /* if (field1.manager.enemyGameManager.selected == null && !GetComponent<Core>())
             {
                 b.SwitchCam();
                 return;
-            }
+            } */
             if (field1.manager.enemyGameManager.selected.GetComponent<Card>())
             {
                 Card temp = field1.manager.enemyGameManager.selected.GetComponent<Card>();
                 if (temp != null)
                 {
-                    if (!GetComponent<Core>() && temp.canAttack)
+                    if (!GetComponent<Core>() )
                     {
+                        if (temp.canAttack)
                         Dommage(temp.attack);
                         //quand le lien est detruit
                         if (currentPV <= 0)

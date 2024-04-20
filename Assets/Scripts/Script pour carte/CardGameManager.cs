@@ -36,6 +36,7 @@ public class CardGameManager : MonoBehaviour
     [SerializeField] private CardGameManager EnemyManager;
     public Transform coreStand;
     private bool firstTurn = true;
+    public Transform idealrot;
     [SerializeField] private GameObject gameUI;
     [SerializeField] private GameObject endGameUI;
     // Start is called before the first frame update
@@ -177,6 +178,7 @@ public class CardGameManager : MonoBehaviour
     }
     private void ChangeToEnd()
     {
+        
         if (firstTurn)
         {
             firstTurn = false;
@@ -188,7 +190,7 @@ public class CardGameManager : MonoBehaviour
 
 
 
-
+        CardAttackReset();
         this.ChangeCurrentPhase();
     }
     private void ChangeToEnnemy()

@@ -491,13 +491,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 105920285}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: -0.7071068}
   m_LocalPosition: {x: -0.05, y: 2.58, z: 27.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2082358881}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -180, y: 0, z: 0}
 --- !u!114 &105920287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1887,6 +1887,7 @@ MonoBehaviour:
   playerDiscard: {fileID: 190616786}
   EnemyManager: {fileID: 2134899065}
   coreStand: {fileID: 0}
+  idealrot: {fileID: 746977905}
   gameUI: {fileID: 1841519926}
   endGameUI: {fileID: 1061817256}
 --- !u!4 &303947588
@@ -2195,6 +2196,7 @@ MonoBehaviour:
   playerDiscard: {fileID: 1705193646}
   EnemyManager: {fileID: 1047972675}
   coreStand: {fileID: 0}
+  idealrot: {fileID: 0}
   gameUI: {fileID: 0}
   endGameUI: {fileID: 0}
 --- !u!4 &374399208
@@ -4423,6 +4425,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1eb6275cca899d4aa04dc044a33a89e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &746977904
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 746977905}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &746977905
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746977904}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &757403995
 GameObject:
   m_ObjectHideFlags: 3
@@ -6051,6 +6084,7 @@ MonoBehaviour:
   playerDiscard: {fileID: 1327689920}
   EnemyManager: {fileID: 0}
   coreStand: {fileID: 0}
+  idealrot: {fileID: 0}
   gameUI: {fileID: 0}
   endGameUI: {fileID: 0}
 --- !u!4 &1047972676
@@ -12488,6 +12522,7 @@ MonoBehaviour:
   playerDiscard: {fileID: 917850309}
   EnemyManager: {fileID: 303947587}
   coreStand: {fileID: 1521126411}
+  idealrot: {fileID: 0}
   gameUI: {fileID: 1841519926}
   endGameUI: {fileID: 1061817256}
 --- !u!1001 &3911199915756629633
@@ -12796,3 +12831,4 @@ SceneRoots:
   - {fileID: 654027516}
   - {fileID: 698971912}
   - {fileID: 1054587276}
+  - {fileID: 746977905}
