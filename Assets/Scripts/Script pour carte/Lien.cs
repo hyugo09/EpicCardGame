@@ -96,7 +96,7 @@ public class Lien : MonoBehaviour
     private void OnMouseDown()
     {
         BattleStartCameraController b = GameObject.FindFirstObjectByType<BattleStartCameraController>();
-        if (GetComponent<Core>())
+        if (this.gameObject.GetComponent<Core>())
         {
             Core core = GetComponent<Core>();
             if (core.GetComponent<Card>().manager.enemyGameManager.currentPhase == CardGameManager.Phase.battle)

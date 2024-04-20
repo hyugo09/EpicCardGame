@@ -37,7 +37,8 @@ public class Field : MonoBehaviour
             {
                 Core core = manager.selected.GetComponent<Core>();
                 carteSurField = core.Carte;
-                carteSurField.cardonfield = true;
+                carteSurField.cardonfield = true; 
+                core.Field = this;
                 manager.selected = null;
                 carteSurField.transform.position = transform.position + offset;
 
@@ -333,7 +334,8 @@ public class Field : MonoBehaviour
         {
             Core core = manager.selected.GetComponent<Core>();
             carteSurField = core.gameObject.GetComponent<Card>();  
-            carteSurField.cardonfield = true;
+            carteSurField.cardonfield = true; 
+            core.Field = this;
             manager.selected = null;
             carteSurField.transform.position = transform.position + offset;
 
