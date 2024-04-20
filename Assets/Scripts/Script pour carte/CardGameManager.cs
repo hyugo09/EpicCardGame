@@ -44,6 +44,9 @@ public class CardGameManager : MonoBehaviour
     {
         DoDeck();
 
+        Button tempButton = endGameUI.GetComponentInChildren<Button>();
+        tempButton.onClick.AddListener(GameObject.FindFirstObjectByType<AiInfo>().DestroyThisObject);
+        tempButton.onClick.AddListener(GameObject.FindFirstObjectByType<PlayerInfo>().DestroyNextLoad);
     }
     public void DoDeck()
     {

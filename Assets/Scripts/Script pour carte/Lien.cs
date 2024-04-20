@@ -36,7 +36,7 @@ public class Lien : MonoBehaviour
             currentPV = PV;
             text.text = currentPV.ToString();
         }
-        else if (field1.carteSurField != null&&field1.carteSurField.GetComponent<Core>())
+        else if (field1.carteSurField != null && field1.carteSurField.GetComponent<Core>())
         {
             if (currentPV != 0 || currentPV != PV)
             {
@@ -146,24 +146,11 @@ public class Lien : MonoBehaviour
                                 field2.carteSurField.EnvoyerAuCimetiere();
                                 field2.carteSurField = null;
                             }
-                        }                      
-                    }
-                    else
-                    {
-                        Core core = GetComponent<Core>();
-                        if (!core.Field.VerificationLien())
-                        {
-                            Dommage(temp.attack);
-                            if (currentPV <= 0)
-                            {
-                                field1.manager.LoseGame();
-                            }
-
                         }
-                        
                     }
+
                     temp.canAttack = false;
-                   
+
                     b.SwitchCam();
                 }
             }
