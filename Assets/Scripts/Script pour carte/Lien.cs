@@ -135,6 +135,8 @@ public class Lien : MonoBehaviour
                         {
                             //désactiver
                             active = false;
+                            currentPV = 0;
+                            SetLienText();
                             //envoyer au cimetiere la carte s'il n'a plus d'autre lien 
                             if (!field1.VerificationLien())
                             {

@@ -11,7 +11,7 @@ public class TutoPages : MonoBehaviour
     
     public void PageSuivante()
     {
-        if (index < pages.Length)
+        if (index + 1 < pages.Length)
         {
             pages[index].SetActive(false);
             index++;
@@ -22,9 +22,12 @@ public class TutoPages : MonoBehaviour
     }
     public void PagePrecedante()
     {
-        pages[index].SetActive(false);
-        index--;
-        pages[index].SetActive(true);
-        text.text = (index + 1).ToString();
+        if(index > 0)
+        {
+            pages[index].SetActive(false);
+            index--;
+            pages[index].SetActive(true);
+            text.text = (index + 1).ToString();
+        }     
     }
 }

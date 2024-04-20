@@ -39,6 +39,7 @@ public class CardGameManager : MonoBehaviour
     public Transform idealrot;
     [SerializeField] private GameObject gameUI;
     [SerializeField] private GameObject endGameUI;
+    internal int CarteRestanteAPosé = 2;
     // Start is called before the first frame update
     void Start()
     {
@@ -131,7 +132,7 @@ public class CardGameManager : MonoBehaviour
     {
 
         currentPhase = Phase.main;
-
+        CarteRestanteAPosé = 2;
         if (isAi)
         {
             Debug.Log("main");
