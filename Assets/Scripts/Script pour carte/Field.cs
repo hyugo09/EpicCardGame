@@ -29,7 +29,7 @@ public class Field : MonoBehaviour
     }
     private void OnMouseDown()
     {
-       
+
         Debug.Log("selectionner");
         if (manager.selected != null && manager.selected.GetComponent<Card>() != null && manager.currentPhase == CardGameManager.Phase.main)
         {
@@ -38,32 +38,31 @@ public class Field : MonoBehaviour
                 Core core = manager.selected.GetComponent<Core>();
                 core.Field = this;
                 carteSurField = core.Carte;
-                carteSurField.cardonfield = true; 
-                core.Field = this;
+                carteSurField.cardonfield = true;
                 manager.selected = null;
                 carteSurField.transform.position = transform.position + offset;
 
                 ActiverLienVisuel();
             }
             //pour les images
-            else if (VerEtActivationLien(true, manager.selected.GetComponent<Card>()))
+            else if (manager.CarteRestanteAPosé > 0)
             {
-                carteSurField = manager.selected.GetComponent<Card>(); ;
-                carteSurField.cardonfield = true;
-                manager.playerHand.RemoveCard(carteSurField.gameObject);
-                manager.selected = null;
-                carteSurField.transform.position = transform.position + offset;
+                if (VerEtActivationLien(true, manager.selected.GetComponent<Card>()))
+                {
+                    carteSurField = manager.selected.GetComponent<Card>(); ;
+                    carteSurField.cardonfield = true;
+                    manager.playerHand.RemoveCard(carteSurField.gameObject);
+                    manager.selected = null;
+                    carteSurField.transform.position = transform.position + offset;
+                    manager.CarteRestanteAPosé--;
 
+                    Debug.Log("je suis la");
 
-                Debug.Log("je suis la");
-
-                ActiverLienVisuel();
-
-                
-
+                    ActiverLienVisuel();
+                }
             }
         }
-        else if(manager.currentPhase == CardGameManager.Phase.battle)
+        else if (manager.currentPhase == CardGameManager.Phase.battle)
         {
             manager.selected = carteSurField.gameObject;
             BattleStartCameraController b = GameObject.FindFirstObjectByType<BattleStartCameraController>().GetComponent<BattleStartCameraController>();
@@ -89,7 +88,7 @@ public class Field : MonoBehaviour
     }
     public bool VerificationLien()
     {
-        foreach(Lien lien in liens)
+        foreach (Lien lien in liens)
         {
             if (lien.active)
             {
@@ -278,22 +277,21 @@ public class Field : MonoBehaviour
     }
     private void ActiverLienVisuel()
     {
-        
+
         foreach (GameObject child in listOfChildren)
         {
             if (child.GetComponent<MeshRenderer>())
             {
-                int i = 0;
-                while (i < carteSurField.direction.Length)
+                foreach(int direction in carteSurField.direction)
                 {
-                    if (child.name == carteSurField.direction[i].ToString())
+                    if (child.name == direction.ToString())
                     {
                         MeshRenderer temp = child.GetComponent<MeshRenderer>();
                         temp.material = directionMaterial;
 
                     }
-                    i++;
                 }
+                    
             }
 
         }
@@ -311,7 +309,7 @@ public class Field : MonoBehaviour
     }
     public void JouerCarte(Card carte)
     {
-        
+
         if (VerEtActivationLien(true, carte))
         {
             carteSurField = carte;
@@ -323,7 +321,7 @@ public class Field : MonoBehaviour
             carteSurField.transform.position = transform.position + offset;
             if (manager.isAi)
             {
-               
+
             }
 
             ActiverLienVisuel();
@@ -334,8 +332,8 @@ public class Field : MonoBehaviour
         if (manager.selected.GetComponent<Core>())
         {
             Core core = manager.selected.GetComponent<Core>();
-            carteSurField = core.gameObject.GetComponent<Card>();  
-            carteSurField.cardonfield = true; 
+            carteSurField = core.gameObject.GetComponent<Card>();
+            carteSurField.cardonfield = true;
             core.Field = this;
             manager.selected = null;
             carteSurField.transform.position = transform.position + offset;
@@ -343,10 +341,5 @@ public class Field : MonoBehaviour
             ActiverLienVisuel();
         }
     }
-    public void Gy()
-    {
 
-    }
-
-    
 }

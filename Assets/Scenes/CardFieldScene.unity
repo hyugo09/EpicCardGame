@@ -1887,7 +1887,7 @@ MonoBehaviour:
   playerDiscard: {fileID: 190616786}
   EnemyManager: {fileID: 2134899065}
   coreStand: {fileID: 0}
-  idealrot: {fileID: 746977905}
+  idealrot: {fileID: 375941586}
   gameUI: {fileID: 1841519926}
   endGameUI: {fileID: 1061817256}
 --- !u!4 &303947588
@@ -2214,6 +2214,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1107446440}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &375941585
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 375941586}
+  m_Layer: 0
+  m_Name: rotationCardEnnemie
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &375941586
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375941585}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -1.4480531, y: 56.689438, z: 2.67706}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1001 &389008607
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2860,8 +2891,9 @@ MonoBehaviour:
   - {fileID: 8384637620297548171, guid: f6cf7f46da9c3cf428fa3cb81ee53fb4, type: 3}
   - {fileID: 8384637620297548171, guid: 824057fa4c5ca954ba2c53aa45da499f, type: 3}
   - {fileID: 8384637620297548171, guid: 3e600de4f181d2743a48c406e7666e75, type: 3}
-  CoreData:
-  - {fileID: 6940937646581306200, guid: 282f9710125bb94428cc5f414f9899b4, type: 3}
+  - {fileID: 8384637620297548171, guid: e81728bd2d72b8b45938846c16acfdcd, type: 3}
+  tAiCore: {fileID: 6940937646581306200, guid: 282f9710125bb94428cc5f414f9899b4, type: 3}
+  tPlayerCore: {fileID: 6940937646581306200, guid: 282f9710125bb94428cc5f414f9899b4, type: 3}
   playerManager: {fileID: 2134899065}
   aiManager: {fileID: 303947587}
 --- !u!4 &563131015
@@ -3163,9 +3195,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1589589337}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: LeaveGame
+      - m_Target: {fileID: 2134899065}
+        m_TargetAssemblyTypeName: CardGameManager, Assembly-CSharp
+        m_MethodName: Abandon
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4425,37 +4457,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1eb6275cca899d4aa04dc044a33a89e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &746977904
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 746977905}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &746977905
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 746977904}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 29.3, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &757403995
 GameObject:
   m_ObjectHideFlags: 3
@@ -9382,13 +9383,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1580330725}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.7071068, z: 0.7071068, w: 0}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 22.7739, y: 20, z: 13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 577742099}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &1580330727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12831,4 +12832,4 @@ SceneRoots:
   - {fileID: 654027516}
   - {fileID: 698971912}
   - {fileID: 1054587276}
-  - {fileID: 746977905}
+  - {fileID: 375941586}

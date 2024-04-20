@@ -7,11 +7,10 @@ using UnityEngine;
 public class CardData : MonoBehaviour
 {
     public GameObject[] Database;
-    public GameObject[] CoreData;
     internal GameObject[] tempPlayer;
     internal GameObject[] tempAi;
-    internal GameObject tAiCore;
-    internal GameObject tPlayerCore;
+    [SerializeField]internal GameObject tAiCore;
+    [SerializeField]internal GameObject tPlayerCore;
     [SerializeField] private CardGameManager playerManager;
     [SerializeField] private CardGameManager aiManager;
     private void Awake()
@@ -42,7 +41,7 @@ public class CardData : MonoBehaviour
                 tempPlayer[i].GetComponent<Card>().manager = playerManager;
             }
         }
-        tPlayerCore = CoreData[0];
+
         Core core = Instantiate(tPlayerCore).GetComponent<Core>();
 
         Card tcard = core.gameObject.GetComponent<Card>();
@@ -53,7 +52,13 @@ public class CardData : MonoBehaviour
         {
             tcard.direction = playerInfo.coreDirections.ToArray();
             tcard.defense = playerInfo.corePV;
-        }        
+        }
+        else
+        {
+            //valeur par défaut marche pu et jsp pk
+            tcard.direction = new int[] { 1, 9 };
+            tcard.defense = 20;
+        }
         core.gameObject.transform.position = playerManager.coreStand.position;
 
         temp = aiInfo.AiDeck;
@@ -74,7 +79,6 @@ public class CardData : MonoBehaviour
                 tempAi[i].GetComponent<Card>().manager = aiManager;
             }
         }
-        tAiCore = CoreData[0];
         core = Instantiate(tAiCore).GetComponent<Core>();
         tcard = core.gameObject.GetComponent<Card>();
         tcard.manager = aiManager;
