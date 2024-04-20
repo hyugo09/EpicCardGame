@@ -25,10 +25,12 @@ public class Card : MonoBehaviour
     void Start()
     {
         width = this.width * this.transform.localScale.x;
-        if(!GetComponent<Core>())
-        textAttack.text = attack.ToString();
-        textDefense.text = defense.ToString();
-        textNom.text = nom.Replace("\\n", "\n");
+        if (!this.GetComponent<Core>())
+        {
+            textAttack.text = attack.ToString();
+            textDefense.text = defense.ToString();
+            textNom.text = nom.Replace("\\n", "\n");
+        }
         
     }
 

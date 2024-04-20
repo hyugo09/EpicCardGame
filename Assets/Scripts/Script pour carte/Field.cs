@@ -309,13 +309,15 @@ public class Field : MonoBehaviour
     }
     public void JouerCarte(Card carte)
     {
-        float XA = -90; 
+        
         if (VerEtActivationLien(true, carte))
         {
             carteSurField = carte;
             carteSurField.cardonfield = true;
-            manager.playerHand.RemoveCard(carteSurField.gameObject);
+            //manager.playerHand.RemoveCard(carteSurField.gameObject);
             manager.selected = null;
+            if (manager.idealrot != null)
+                carteSurField.gameObject.transform.rotation = manager.idealrot.transform.rotation;
             carteSurField.transform.position = transform.position + offset;
             if (manager.isAi)
             {
@@ -337,6 +339,10 @@ public class Field : MonoBehaviour
 
             ActiverLienVisuel();
         }
+    }
+    public void Gy()
+    {
+
     }
 
     
