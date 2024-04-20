@@ -81,6 +81,9 @@ public class CardData : MonoBehaviour
         tcard.direction = aiInfo.aiCore;
          core.Carte.manager = aiManager;
 
+        //detruit les shits
+        Destroy(aiInfo.gameObject);
+        playerInfo.DestroyNextLoad();
     }
 
     private bool Verif(GameObject[] Deck)

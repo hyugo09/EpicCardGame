@@ -10,7 +10,7 @@ public class PlayerInteract : MonoBehaviour
     public bool inRange = false;
     public GameObject dialogueUI;
     public Transform playerTransform;
-
+    
     private void Update()
     {
         Ray raycast = cam.ScreenPointToRay(transform.position);

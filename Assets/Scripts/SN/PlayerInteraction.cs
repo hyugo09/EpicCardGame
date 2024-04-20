@@ -5,6 +5,7 @@ using Cinemachine;
 using UnityEngine.InputSystem;
 using TMPro;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -48,6 +49,9 @@ public class PlayerInteraction : MonoBehaviour
 
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
+
+                var button = dialogueUI.GetComponentInChildren<Button>();
+                button.onClick.AddListener(gameObject.GetComponentInChildren<AiInfo>().PasserInfo);
             }
 
         }

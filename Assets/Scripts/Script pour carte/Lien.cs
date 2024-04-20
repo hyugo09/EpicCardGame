@@ -36,7 +36,7 @@ public class Lien : MonoBehaviour
             currentPV = PV;
             text.text = currentPV.ToString();
         }
-        else if (field1.carteSurField != null&&field1.carteSurField.GetComponent<Core>())
+        else if (field1.carteSurField != null && field1.carteSurField.GetComponent<Core>())
         {
             if (currentPV != 0 || currentPV != PV)
             {
@@ -96,7 +96,24 @@ public class Lien : MonoBehaviour
     private void OnMouseDown()
     {
         BattleStartCameraController b = GameObject.FindFirstObjectByType<BattleStartCameraController>();
-        
+        if (GetComponent<Core>())
+        {
+            Core core = GetComponent<Core>();
+            if (core.GetComponent<Card>().manager.enemyGameManager.currentPhase == CardGameManager.Phase.battle)
+                if (!core.Field.VerificationLien())
+                {
+                    Card temp = core.GetComponent<Card>().manager.enemyGameManager.selected.GetComponent<Card>();
+                    Dommage(temp.attack);
+                    if (currentPV <= 0)
+                    {
+                        core.GetComponent<Card>().manager.LoseGame();
+                    }
+                    b.SwitchCam();
+                    temp.canAttack = false;
+                    return;
+                }
+        }
+
         if (field1.manager.enemyGameManager.currentPhase == CardGameManager.Phase.battle)
         {
             if (field1.manager.enemyGameManager.selected == null && !GetComponent<Core>())
@@ -128,24 +145,11 @@ public class Lien : MonoBehaviour
                                 field2.carteSurField.EnvoyerAuCimetiere();
                                 field2.carteSurField = null;
                             }
-                        }                      
-                    }
-                    else
-                    {
-                        Core core = GetComponent<Core>();
-                        if (!core.Field.VerificationLien())
-                        {
-                            Dommage(temp.attack);
-                            if (currentPV <= 0)
-                            {
-                                field1.manager.LoseGame();
-                            }
-
                         }
-                        
                     }
+
                     temp.canAttack = false;
-                   
+
                     b.SwitchCam();
                 }
             }

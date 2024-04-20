@@ -36,6 +36,7 @@ public class Field : MonoBehaviour
             if (manager.selected.GetComponent<Core>())
             {
                 Core core = manager.selected.GetComponent<Core>();
+                core.Field = this;
                 carteSurField = core.Carte;
                 carteSurField.cardonfield = true;
                 manager.selected = null;

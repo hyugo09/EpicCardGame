@@ -20,6 +20,7 @@ public class DeckCreator : MonoBehaviour
     private void Start()
     {
         ChargerMenuCollection();
+        ChargerTout();
     }
     public void ChargerDeck()
     {
