@@ -3163,9 +3163,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1589589337}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: LeaveGame
+      - m_Target: {fileID: 2134899065}
+        m_TargetAssemblyTypeName: CardGameManager, Assembly-CSharp
+        m_MethodName: Abandon
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

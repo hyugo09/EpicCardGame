@@ -217,7 +217,7 @@ public class CardGameManager : MonoBehaviour
             playerHand.cards.Add(playerDeck.deck.Pop());
 
     }
-    internal void Abandon()
+    public void Abandon()
     {
         PlayerInfo playerInfo = GameObject.FindAnyObjectByType<PlayerInfo>().GetComponent<PlayerInfo>();
         playerInfo.gamejouer++;
